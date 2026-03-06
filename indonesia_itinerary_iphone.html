@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Indonesia Trip" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indonesia Trip Timeline</title>
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxODAnIGhlaWdodD0nMTgwJyB2aWV3Qm94PScwIDAgMTgwIDE4MCc+PHJlY3Qgd2lkdGg9JzE4MCcgaGVpZ2h0PScxODAnIHJ4PSc0MCcgZmlsbD0nIzBmNzY2ZScvPjx0ZXh0IHg9JzUwJScgeT0nNDclJyBmb250LXNpemU9JzY4JyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBkb21pbmFudC1iYXNlbGluZT0nY2VudHJhbCcgZm9udC1mYW1pbHk9J0FyaWFsLCBzYW5zLXNlcmlmJz7wn4y0PC90ZXh0Pjx0ZXh0IHg9JzUwJScgeT0nNzIlJyBmb250LXNpemU9JzI0JyBmb250LXdlaWdodD0nNzAwJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmaWxsPSd3aGl0ZScgZm9udC1mYW1pbHk9J0FyaWFsLCBzYW5zLXNlcmlmJz5UUklQPC90ZXh0Pjwvc3ZnPg==" />
+  <style>
+    :root {
+      --bg: #f6f1e8;
+      --paper: rgba(255,255,255,0.84);
+      --paper-strong: rgba(255,255,255,0.94);
+      --text: #24323a;
+      --muted: #63727b;
+      --accent: #0f766e;
+      --accent-2: #c96d2d;
+      --hotel: #f59e0b;
+      --flight: #2563eb;
+      --boat: #0ea5a4;
+      --line: rgba(36,50,58,0.12);
+      --shadow: 0 16px 40px rgba(17, 24, 39, 0.12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(14,165,164,0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(245,158,11,0.14), transparent 26%),
+        linear-gradient(180deg, #f7f2e8 0%, #eef7f5 54%, #f8f4ec 100%);
+      min-height: 100vh;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 64px 20px 40px;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      border-radius: 999px;
+      filter: blur(24px);
+      opacity: 0.5;
+    }
+
+    .hero::before {
+      width: 240px;
+      height: 240px;
+      background: rgba(14,165,164,0.18);
+      top: -40px;
+      right: -60px;
+    }
+
+    .hero::after {
+      width: 190px;
+      height: 190px;
+      background: rgba(201,109,45,0.16);
+      left: -50px;
+      top: 20px;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78));
+      border: 1px solid rgba(255,255,255,0.65);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.09);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    h1 {
+      font-size: clamp(34px, 7vw, 64px);
+      line-height: 0.95;
+      margin: 18px 0 14px;
+      letter-spacing: -0.04em;
+    }
+
+    .sub {
+      max-width: 760px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      background: var(--paper);
+      border: 1px solid rgba(255,255,255,0.55);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(17,24,39,0.06);
+    }
+
+    .stat .value {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .stat .label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+
+    main {
+      padding: 8px 20px 56px;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 26px;
+    }
+
+    .day {
+      position: relative;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .day-label {
+      position: sticky;
+      top: 18px;
+      align-self: start;
+      background: var(--paper-strong);
+      border: 1px solid rgba(255,255,255,0.65);
+      box-shadow: 0 10px 24px rgba(17,24,39,0.07);
+      border-radius: 18px;
+      padding: 16px 16px 18px;
+    }
+
+    .day-label .dow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .day-label .date {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .items {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      padding-left: 18px;
+    }
+
+    .items::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(14,165,164,0.35), rgba(201,109,45,0.25));
+    }
+
+    .card {
+      position: relative;
+      background: var(--paper);
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      backdrop-filter: blur(8px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      left: -24px;
+      top: 24px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      border: 3px solid white;
+      box-shadow: 0 2px 6px rgba(17,24,39,0.12);
+    }
+
+    .flight::before { background: var(--flight); }
+    .hotel::before { background: var(--hotel); }
+    .boat::before { background: var(--boat); }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
+    }
+
+    .flight .badge { background: rgba(37,99,235,0.1); color: var(--flight); }
+    .hotel .badge { background: rgba(245,158,11,0.14); color: #b45309; }
+    .boat .badge { background: rgba(14,165,164,0.12); color: #0f766e; }
+
+    .time-pill {
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 14px;
+      background: rgba(99,114,123,0.09);
+      padding: 8px 12px;
+      border-radius: 999px;
+    }
+
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    .meta-strong {
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .info {
+      background: rgba(255,255,255,0.54);
+      border: 1px solid rgba(36,50,58,0.07);
+      border-radius: 16px;
+      padding: 12px 13px;
+    }
+
+    .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .value {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .day { grid-template-columns: 1fr; gap: 12px; }
+      .day-label { position: relative; top: 0; }
+    }
+
+    @media (max-width: 560px) {
+      .hero { padding-top: 44px; }
+      .hero-card { padding: 20px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 16px; }
+      .items { padding-left: 16px; }
+      .card::before { left: -22px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .hero { padding: 0 0 20px; }
+      .hero-card, .card, .day-label, .stat { box-shadow: none; backdrop-filter: none; }
+      main { padding: 0; }
+      .day-label { position: relative; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="eyebrow">🌴 Indonesia • Family itinerary</div>
+        <h1>Island-hopping through Indonesia</h1>
+        <p class="sub">A clean, travel-day-focused overview of flights, stays, and boat transfers. Designed to be easy to scan on a phone while still looking polished enough to share or print.</p>
+        <section class="stats" aria-label="Trip summary">
+          <div class="stat"><div class="value">8</div><div class="label">Flights</div></div>
+          <div class="stat"><div class="value">3</div><div class="label">Boats & trips</div></div>
+          <div class="stat"><div class="value">9</div><div class="label">Hotels</div></div>
+          <div class="stat"><div class="value">25</div><div class="label">Travel days</div></div>
+        </section>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="timeline">
+        <div class="day">
+          <aside class="day-label"><div class="dow">Thursday</div><div class="date">3 Jul</div></aside>
+          <div class="items">
+            <article class="card hotel">
+              <div class="topline"><span class="badge">🏨 Hotel</span><span class="time-pill">3 Jul → 4 Jul</span></div>
+              <div class="title-row"><div><h2 class="title">Scandic CPH Strandpark</h2><div class="meta-strong">Copenhagen</div></div></div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Direct with Scandic</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">Carina’s email</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Friday</div><div class="date">4 Jul</div></aside>
+          <div class="items">
+            <article class="card flight">
+              <div class="topline"><span class="badge">✈️ Flight</span><span class="time-pill">11:45 → 04:25 (+1)</span></div>
+              <h2 class="title">CPH → SGN</h2>
+              <div class="meta-strong">Vietnam Airlines · VN038</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Vietnam Airlines</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">Peter’s email</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Saturday</div><div class="date">5 Jul</div></aside>
+          <div class="items">
+            <article class="card flight">
+              <div class="topline"><span class="badge">✈️ Flight</span><span class="time-pill">09:05 → 12:10</span></div>
+              <h2 class="title">SGN → SIN</h2>
+              <div class="meta-strong">Vietnam Airlines · VN651</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Vietnam Airlines</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">Peter’s email</div></div>
+              </div>
+            </article>
+            <article class="card flight">
+              <div class="topline"><span class="badge">✈️ Flight</span><span class="time-pill">16:10 → 19:00</span></div>
+              <h2 class="title">SIN → DPS</h2>
+              <div class="meta-strong">Batik Air Indonesia · ID7134</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Batik Air Indonesia</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">Peter’s email</div></div>
+              </div>
+            </article>
+            <article class="card hotel">
+              <div class="topline"><span class="badge">🏨 Hotel</span><span class="time-pill">5 Jul → 6 Jul</span></div>
+              <h2 class="title">Tropical Bali Hotel</h2>
+              <div class="meta-strong">Sanur</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Booking.com</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">—</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Sunday</div><div class="date">6 Jul</div></aside>
+          <div class="items">
+            <article class="card hotel">
+              <div class="topline"><span class="badge">🏨 Hotel</span><span class="time-pill">6 Jul → 11 Jul</span></div>
+              <h2 class="title">Kembali Beach Bungalows</h2>
+              <div class="meta-strong">Amed</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Carina’s WhatsApp</div></div>
+                <div class="info"><div class="label">Notes</div><div class="value">Paid €112 in deposit</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Saturday</div><div class="date">12 Jul</div></aside>
+          <div class="items">
+            <article class="card hotel">
+              <div class="topline"><span class="badge">🏨 Hotel</span><span class="time-pill">12 Jul → 15 Jul</span></div>
+              <h2 class="title">Alam Indah Ubud</h2>
+              <div class="meta-strong">Ubud</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Booking.com</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">—</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Tuesday</div><div class="date">15 Jul</div></aside>
+          <div class="items">
+            <article class="card flight">
+              <div class="topline"><span class="badge">✈️ Flight</span><span class="time-pill">11:45 → 13:00</span></div>
+              <h2 class="title">DPS → LBJ</h2>
+              <div class="meta-strong">Batik Air Indonesia · ID6331</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Batik Air Indonesia</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">Peter’s email</div></div>
+              </div>
+            </article>
+            <article class="card hotel">
+              <div class="topline"><span class="badge">🏨 Hotel</span><span class="time-pill">15 Jul → 17 Jul</span></div>
+              <h2 class="title">Seaesta Komodo Hotel &amp; Hostel</h2>
+              <div class="meta-strong">Labuan Bajo</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Booking.com</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">—</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Thursday</div><div class="date">17 Jul</div></aside>
+          <div class="items">
+            <article class="card boat">
+              <div class="topline"><span class="badge">🚤 Boat trip</span><span class="time-pill">17 Jul → 19 Jul</span></div>
+              <h2 class="title">Komodo Boat Trip</h2>
+              <div class="meta-strong">Labuan Bajo → Labuan Bajo</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Carina’s WhatsApp</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">—</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Saturday</div><div class="date">19 Jul</div></aside>
+          <div class="items">
+            <article class="card flight">
+              <div class="topline"><span class="badge">✈️ Flight</span><span class="time-pill">18:25 → 19:40</span></div>
+              <h2 class="title">LBJ → DPS</h2>
+              <div class="meta-strong">AirAsia · QZ643</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Booking.com</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">—</div></div>
+              </div>
+            </article>
+            <article class="card hotel">
+              <div class="topline"><span class="badge">🏨 Hotel</span><span class="time-pill">19 Jul → 20 Jul</span></div>
+              <h2 class="title">Bamboo Paradise</h2>
+              <div class="meta-strong">Padangbai</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Booking.com</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">—</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Sunday</div><div class="date">20 Jul</div></aside>
+          <div class="items">
+            <article class="card boat">
+              <div class="topline"><span class="badge">🚤 Boat</span><span class="time-pill">08:00 → 10:05</span></div>
+              <h2 class="title">Padangbai → Gili Air</h2>
+              <div class="meta-strong">Bluewater Express · Bluewater Express X</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Bluewater Express</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">Peter’s email</div></div>
+              </div>
+            </article>
+            <article class="card hotel">
+              <div class="topline"><span class="badge">🏨 Hotel</span><span class="time-pill">20 Jul → 23 Jul</span></div>
+              <h2 class="title">La Bohème</h2>
+              <div class="meta-strong">Gili Air</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Booking.com</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">—</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Wednesday</div><div class="date">23 Jul</div></aside>
+          <div class="items">
+            <article class="card hotel">
+              <div class="topline"><span class="badge">🏨 Hotel</span><span class="time-pill">23 Jul → 26 Jul</span></div>
+              <h2 class="title">Captain Coconut</h2>
+              <div class="meta-strong">Gili Air</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Peter’s WhatsApp</div></div>
+                <div class="info"><div class="label">Notes</div><div class="value">Paid through Wise</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Saturday</div><div class="date">26 Jul</div></aside>
+          <div class="items">
+            <article class="card boat">
+              <div class="topline"><span class="badge">🚤 Boat</span><span class="time-pill">10:20 → 12:25</span></div>
+              <h2 class="title">Gili Air → Padang Bai</h2>
+              <div class="meta-strong">Bluewater Express · Bluewater Express X</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Bluewater Express</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">Peter’s email</div></div>
+              </div>
+            </article>
+            <article class="card hotel">
+              <div class="topline"><span class="badge">🏨 Hotel</span><span class="time-pill">26 Jul → 27 Jul</span></div>
+              <h2 class="title">Kuta Puri Bungalows</h2>
+              <div class="meta-strong">Kuta</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Booking.com</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">—</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="day">
+          <aside class="day-label"><div class="dow">Sunday</div><div class="date">27 Jul</div></aside>
+          <div class="items">
+            <article class="card flight">
+              <div class="topline"><span class="badge">✈️ Flight</span><span class="time-pill">11:15 → 14:10</span></div>
+              <h2 class="title">DPS → SIN</h2>
+              <div class="meta-strong">Scoot · TR281</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Scoot</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">Peter’s email</div></div>
+              </div>
+            </article>
+            <article class="card flight">
+              <div class="topline"><span class="badge">✈️ Flight</span><span class="time-pill">18:25 → 19:40</span></div>
+              <h2 class="title">SIN → SGN</h2>
+              <div class="meta-strong">Vietnam Airlines · VN654</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Vietnam Airlines</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">Peter’s email</div></div>
+              </div>
+            </article>
+            <article class="card flight">
+              <div class="topline"><span class="badge">✈️ Flight</span><span class="time-pill">23:25 → 07:25 (+1)</span></div>
+              <h2 class="title">SGN → CPH</h2>
+              <div class="meta-strong">Vietnam Airlines · VN039</div>
+              <div class="grid">
+                <div class="info"><div class="label">Booked via</div><div class="value">Vietnam Airlines</div></div>
+                <div class="info"><div class="label">Confirmation</div><div class="value">Peter’s email</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer-note">Added iPhone web-app metadata: if you open this from a normal web link in Safari, you can use “Add to Home Screen” for a more app-like experience.</p>
+    </div>
+  </main>
+</body>
+</html>
