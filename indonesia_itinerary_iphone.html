@@ -1,165 +1,711 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Indonesia Trip">
-<title>Indonesia Trip 2026</title>
-<style>
-body{font-family:-apple-system,system-ui;margin:0;background:#eef6f4}
-.header{padding:20px;background:linear-gradient(135deg,#0f766e,#0ea5a4);color:white}
-.header h1{margin:0;font-size:28px}
-.section{padding:16px}
-.day{margin-top:24px;font-weight:800;font-size:20px}
-.card{background:white;border-radius:16px;padding:16px;margin-top:10px;box-shadow:0 6px 16px rgba(0,0,0,0.1)}
-.flight{border-left:5px solid #2563eb}
-.hotel{border-left:5px solid #f59e0b}
-.boat{border-left:5px solid #0ea5a4}
-.title{font-size:18px;font-weight:700}
-.meta{color:#555;margin-top:4px}
-.next{outline:3px solid #22c55e}
-button{margin-top:8px;padding:6px 10px;border:none;border-radius:8px;background:#0ea5a4;color:white}
-.hidden{display:none}
-</style>
-<script>
-function toggle(id){
-  const el=document.getElementById(id);
-  el.classList.toggle('hidden');
-}
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d5c63" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Indonesia Trip" />
+  <title>Indonesia Trip</title>
+  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxODAnIGhlaWdodD0nMTgwJyB2aWV3Qm94PScwIDAgMTgwIDE4MCc+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSdnJyB4MT0nMCcgeTE9JzAnIHgyPScxJyB5Mj0nMSc+PHN0b3Agc3RvcC1jb2xvcj0nIzBkNWM2MycvPjxzdG9wIG9mZnNldD0nMScgc3RvcC1jb2xvcj0nIzE3Yzg4YScvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPScxODAnIGhlaWdodD0nMTgwJyByeD0nNDInIGZpbGw9J3VybCgjZyknLz48Y2lyY2xlIGN4PScxMzUnIGN5PSc0NScgcj0nMjYnIGZpbGw9JyNmYmI2MDEnIG9wYWNpdHk9Jy45MicvPjxwYXRoIGQ9J00wIDExNGM0MC0xNCA2OC0xNCA5NSA2IDQwIDI5IDYxIDExIDg1IDAnIGZpbGw9J3JnYmEoMjU1LDI1NSwyNTUsMC4xOCknLz48dGV4dCB4PSc1MCUnIHk9JzU0JScgZm9udC1zaXplPSc2NicgdGV4dC1hbmNob3I9J21pZGRsZScgZG9taW5hbnQtYmFzZWxpbmU9J2NlbnRyYWwnPuKciOi4jzwvdGV4dD48L3N2Zz4=" />
+  <style>
+    :root {
+      --bg-top: #f8f2e6;
+      --bg-bottom: #eef8f7;
+      --surface: rgba(255, 250, 244, 0.8);
+      --surface-strong: rgba(255, 255, 255, 0.92);
+      --surface-dark: #10383c;
+      --text: #193238;
+      --muted: #61757a;
+      --line: rgba(25, 50, 56, 0.1);
+      --accent: #0d5c63;
+      --accent-soft: #dff3f1;
+      --sun: #f0a202;
+      --hotel: #d97706;
+      --flight: #2563eb;
+      --boat: #0f9a94;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --shadow: 0 18px 40px rgba(16, 56, 60, 0.12);
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Avenir Next", "SF Pro Rounded", ui-rounded, "Trebuchet MS", sans-serif;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(240, 162, 2, 0.2), transparent 28%),
+        radial-gradient(circle at 100% 8%, rgba(15, 154, 148, 0.18), transparent 28%),
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 52%, #f7f4ed 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 22px 22px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.2), transparent 30%, transparent 70%, rgba(0,0,0,0.18));
+      opacity: 0.55;
+    }
+
+    .app {
+      width: min(100%, 780px);
+      margin: 0 auto;
+      padding: calc(var(--safe-top) + 18px) 16px calc(var(--safe-bottom) + 28px);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      padding: 22px 20px 20px;
+      background:
+        linear-gradient(145deg, rgba(13, 92, 99, 0.96), rgba(23, 200, 138, 0.72)),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+      box-shadow: 0 18px 44px rgba(13, 92, 99, 0.26);
+      color: #f7fffe;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(12px);
+      opacity: 0.4;
+    }
+
+    .hero::before {
+      width: 180px;
+      height: 180px;
+      right: -36px;
+      top: -50px;
+      background: rgba(255, 207, 92, 0.55);
+    }
+
+    .hero::after {
+      width: 150px;
+      height: 150px;
+      left: -48px;
+      bottom: -58px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      margin: 14px 0 8px;
+      font-size: clamp(34px, 10vw, 54px);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 30rem;
+      color: rgba(247, 255, 254, 0.84);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-pill {
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(10px);
+      min-width: 110px;
+    }
+
+    .hero-pill strong,
+    .hero-pill span {
+      display: block;
+    }
+
+    .hero-pill strong {
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .hero-pill span {
+      margin-top: 3px;
+      font-size: 12px;
+      color: rgba(247, 255, 254, 0.74);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .countdown {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(10, 44, 47, 0.18);
+      color: rgba(247, 255, 254, 0.92);
+      font-size: 14px;
+      line-height: 1.4;
+      backdrop-filter: blur(8px);
+    }
+
+    .strip {
+      position: sticky;
+      top: calc(var(--safe-top) + 10px);
+      z-index: 5;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 14px 2px 8px;
+      scrollbar-width: none;
+    }
+
+    .strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .chip {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--text);
+      box-shadow: 0 10px 20px rgba(16, 56, 60, 0.08);
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .chip span {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .day {
+      border-radius: var(--radius-xl);
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.48);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 14px 30px rgba(16, 56, 60, 0.07);
+      backdrop-filter: blur(10px);
+    }
+
+    .day-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding: 4px 2px 2px;
+    }
+
+    .day-name {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .day-date {
+      margin-top: 4px;
+      font-size: 27px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .day-count {
+      padding: 9px 11px;
+      border-radius: 14px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .cards {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      background: var(--surface-strong);
+      border: 1px solid rgba(16, 56, 60, 0.06);
+      box-shadow: var(--shadow);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      border-radius: 4px;
+    }
+
+    .card.flight::before {
+      background: linear-gradient(180deg, #4f8dfd, var(--flight));
+    }
+
+    .card.hotel::before {
+      background: linear-gradient(180deg, #f7b955, var(--hotel));
+    }
+
+    .card.boat::before {
+      background: linear-gradient(180deg, #43d7c4, var(--boat));
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .type-badge,
+    .time-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .flight .type-badge {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--flight);
+    }
+
+    .hotel .type-badge {
+      background: rgba(217, 119, 6, 0.12);
+      color: var(--hotel);
+    }
+
+    .boat .type-badge {
+      background: rgba(15, 154, 148, 0.12);
+      color: var(--boat);
+    }
+
+    .time-badge {
+      background: rgba(25, 50, 56, 0.06);
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .subtitle {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .route {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      color: var(--surface-dark);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .route .arrow {
+      color: var(--muted);
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .detail {
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: var(--surface);
+      border: 1px solid rgba(25, 50, 56, 0.06);
+    }
+
+    .detail-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+    }
+
+    .detail-value {
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .footer-note {
+      margin: 22px 4px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 540px) {
+      .app {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .hero {
+        padding: 18px 16px 17px;
+        border-radius: 28px;
+      }
+
+      .hero-meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero-pill {
+        min-width: 0;
+      }
+
+      .title {
+        font-size: 21px;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (min-width: 720px) {
+      .day {
+        padding: 18px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      body::before,
+      .strip {
+        display: none;
+      }
+
+      .app {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .day,
+      .card {
+        box-shadow: none;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="app">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">Indonesia &bull; July 2026</div>
+        <h1>Island-hop itinerary</h1>
+        <p>Flights, stays, and boat legs laid out for quick scanning on an iPhone home-screen app.</p>
+        <div class="hero-meta" id="hero-stats" aria-label="Trip summary"></div>
+        <div class="countdown" id="countdown"></div>
+      </div>
+    </header>
 
-<div class="header">
-<h1>🌴 Indonesia Trip 2026</h1>
-<div>Tap items to see details</div>
-</div>
+    <nav class="strip" id="day-strip" aria-label="Jump to day"></nav>
 
-<div class="section">
+    <main class="timeline" id="timeline"></main>
 
-<div class="day">Friday 3 Jul 2026</div>
-<div class="card hotel">
-<div class="title">Scandic CPH Strandpark</div>
-<div class="meta">Copenhagen</div>
-<button onclick="toggle('d1')">Details</button>
-<div id="d1" class="hidden meta">Booked: Direct · Carina email</div>
-</div>
+    <p class="footer-note">
+      Save this page from Safari with "Add to Home Screen" for a more app-like iPhone view.
+    </p>
+  </div>
 
-<div class="day">Saturday 4 Jul 2026</div>
-<div class="card flight next">
-<div class="title">CPH → SGN</div>
-<div class="meta">11:45 → 04:25 (+1)</div>
-<button onclick="toggle('d2')">Details</button>
-<div id="d2" class="hidden meta">Vietnam Airlines · VN038</div>
-</div>
+  <script>
+    const itinerary = [
+      { type: "Hotel", startDate: "2026-07-03", endDate: "2026-07-04", name: "Scandic CPH Strandpark", city: "Copenhagen", bookedVia: "Direct with Scandic", confirmation: "Carina email" },
+      { type: "Flight", startDate: "2026-07-04", from: "CPH", to: "SGN", departure: "11:45", arrival: "04:25 (+1)", company: "Vietnam Airlines", number: "VN038", bookedVia: "Vietnam Airlines", confirmation: "Peter email" },
+      { type: "Flight", startDate: "2026-07-05", from: "SGN", to: "SIN", departure: "09:05", arrival: "12:10", company: "Vietnam Airlines", number: "VN651", bookedVia: "Vietnam Airlines", confirmation: "Peter email" },
+      { type: "Flight", startDate: "2026-07-05", from: "SIN", to: "DPS", departure: "16:10", arrival: "19:00", company: "Batik Air Indonesia", number: "ID7134", bookedVia: "Batik Air Indonesia", confirmation: "Peter email" },
+      { type: "Hotel", startDate: "2026-07-05", endDate: "2026-07-06", name: "Tropical Bali Hotel", city: "Sanur", bookedVia: "Booking.com" },
+      { type: "Hotel", startDate: "2026-07-06", endDate: "2026-07-11", name: "Kembali Beach Bungalows", city: "Amed", bookedVia: "Carina WhatsApp", notes: "Paid EUR 112 deposit" },
+      { type: "Hotel", startDate: "2026-07-12", endDate: "2026-07-15", name: "Alam Indah Ubud", city: "Ubud", bookedVia: "Booking.com" },
+      { type: "Flight", startDate: "2026-07-15", from: "DPS", to: "LBJ", departure: "11:45", arrival: "13:00", company: "Batik Air Indonesia", number: "ID6331", bookedVia: "Batik Air Indonesia", confirmation: "Peter email" },
+      { type: "Hotel", startDate: "2026-07-15", endDate: "2026-07-17", name: "Seaesta Komodo Hotel", city: "Labuan Bajo", bookedVia: "Booking.com" },
+      { type: "Boat", startDate: "2026-07-17", endDate: "2026-07-19", from: "Labuan Bajo", to: "Labuan Bajo", name: "Komodo Boat Trip", bookedVia: "Carina WhatsApp" },
+      { type: "Flight", startDate: "2026-07-19", from: "LBJ", to: "DPS", departure: "19:00", arrival: "20:10", company: "Batik Air Indonesia", number: "ID6334", bookedVia: "Batik Air Indonesia", confirmation: "Peter email" },
+      { type: "Hotel", startDate: "2026-07-19", endDate: "2026-07-20", name: "Bamboo Paradise", city: "Padangbai", bookedVia: "Booking.com" },
+      { type: "Boat", startDate: "2026-07-20", from: "Padangbai", to: "Gili Air", departure: "08:00", arrival: "10:05", company: "Bluewater Express", number: "X", bookedVia: "Bluewater Express", confirmation: "Peter email" },
+      { type: "Hotel", startDate: "2026-07-20", endDate: "2026-07-23", name: "La Boheme", city: "Gili Air", bookedVia: "Booking.com" },
+      { type: "Hotel", startDate: "2026-07-23", endDate: "2026-07-26", name: "Captain Coconut", city: "Gili Air", bookedVia: "Peter WhatsApp", notes: "Paid via Wise" },
+      { type: "Boat", startDate: "2026-07-26", from: "Gili Air", to: "Padang Bai", departure: "10:20", arrival: "12:25", company: "Bluewater Express", number: "X", bookedVia: "Bluewater Express", confirmation: "Peter email" },
+      { type: "Hotel", startDate: "2026-07-26", endDate: "2026-07-27", name: "Kuta Puri Bungalows", city: "Kuta", bookedVia: "Booking.com" },
+      { type: "Flight", startDate: "2026-07-27", from: "DPS", to: "SIN", departure: "11:15", arrival: "14:10", company: "Scoot", number: "TR281", bookedVia: "Scoot", confirmation: "Peter email" },
+      { type: "Flight", startDate: "2026-07-27", from: "SIN", to: "SGN", departure: "18:25", arrival: "19:40", company: "Vietnam Airlines", number: "VN654", bookedVia: "Vietnam Airlines", confirmation: "Peter email" },
+      { type: "Flight", startDate: "2026-07-27", from: "SGN", to: "CPH", departure: "23:25", arrival: "07:25 (+1)", company: "Vietnam Airlines", number: "VN039", bookedVia: "Vietnam Airlines", confirmation: "Peter email" }
+    ];
 
-<div class="day">Sunday 5 Jul 2026</div>
-<div class="card flight">
-<div class="title">SGN → SIN</div>
-<div class="meta">09:05 → 12:10</div>
-<button onclick="toggle('d3')">Details</button>
-<div id="d3" class="hidden meta">Vietnam Airlines · VN651</div>
-</div>
+    const typeConfig = {
+      Flight: { icon: "FL", label: "Flight", className: "flight" },
+      Hotel: { icon: "HT", label: "Hotel", className: "hotel" },
+      Boat: { icon: "BT", label: "Boat", className: "boat" }
+    };
 
-<div class="card flight">
-<div class="title">SIN → DPS</div>
-<div class="meta">16:10 → 19:00</div>
-<button onclick="toggle('d4')">Details</button>
-<div id="d4" class="hidden meta">Batik Air · ID7134</div>
-</div>
+    const weekdayFormat = new Intl.DateTimeFormat("en-GB", { weekday: "long" });
+    const dayTitleFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short" });
+    const dayChipFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short" });
+    const fullDateFormat = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric" });
 
-<div class="card hotel">
-<div class="title">Tropical Bali Hotel</div>
-<div class="meta">Sanur</div>
-</div>
+    const timeline = document.getElementById("timeline");
+    const strip = document.getElementById("day-strip");
+    const heroStats = document.getElementById("hero-stats");
+    const countdown = document.getElementById("countdown");
 
-<div class="day">6–11 Jul 2026</div>
-<div class="card hotel">
-<div class="title">Kembali Beach Bungalows</div>
-<div class="meta">Amed</div>
-<div class="meta">€112 deposit paid</div>
-</div>
+    function parseDate(value) {
+      return new Date(value + "T00:00:00");
+    }
 
-<div class="day">12–15 Jul 2026</div>
-<div class="card hotel">
-<div class="title">Alam Indah Ubud</div>
-<div class="meta">Ubud</div>
-</div>
+    function dayKey(value) {
+      return value;
+    }
 
-<div class="day">Wednesday 15 Jul 2026</div>
-<div class="card flight">
-<div class="title">DPS → LBJ</div>
-<div class="meta">11:45 → 13:00</div>
-</div>
+    function shortRange(start, end) {
+      if (!end || end === start) return dayChipFormat.format(parseDate(start));
+      return `${dayChipFormat.format(parseDate(start))} &rarr; ${dayChipFormat.format(parseDate(end))}`;
+    }
 
-<div class="card hotel">
-<div class="title">Seaesta Komodo Hotel</div>
-<div class="meta">Labuan Bajo</div>
-</div>
+    function travelTime(item) {
+      if (item.departure || item.arrival) {
+        return `${item.departure || "?"} &rarr; ${item.arrival || "?"}`;
+      }
+      return shortRange(item.startDate, item.endDate);
+    }
 
-<div class="day">17–19 Jul 2026</div>
-<div class="card boat">
-<div class="title">Komodo Boat Trip</div>
-<div class="meta">Labuan Bajo → Labuan Bajo</div>
-</div>
+    function titleFor(item) {
+      if (item.type === "Hotel") return item.name;
+      if (item.name && item.type === "Boat" && item.endDate) return item.name;
+      return `${item.from} &rarr; ${item.to}`;
+    }
 
-<div class="day">Sunday 19 Jul 2026</div>
-<div class="card flight">
-<div class="title">LBJ → DPS</div>
-<div class="meta">18:25 → 19:40</div>
-</div>
+    function subtitleFor(item) {
+      if (item.type === "Hotel") return item.city || "";
+      if (item.type === "Boat" && item.name && item.endDate) return `${item.from} &rarr; ${item.to}`;
+      if (item.company && item.number) return `${item.company} &middot; ${item.number}`;
+      return item.company || item.name || "";
+    }
 
-<div class="card hotel">
-<div class="title">Bamboo Paradise</div>
-<div class="meta">Padangbai</div>
-</div>
+    function detail(label, value) {
+      if (!value) return "";
+      return `
+        <div class="detail">
+          <div class="detail-label">${label}</div>
+          <div class="detail-value">${value}</div>
+        </div>
+      `;
+    }
 
-<div class="day">Monday 20 Jul 2026</div>
-<div class="card boat">
-<div class="title">Padangbai → Gili Air</div>
-<div class="meta">08:00 → 10:05</div>
-</div>
+    function renderCard(item) {
+      const config = typeConfig[item.type];
+      const title = titleFor(item);
+      const subtitle = subtitleFor(item);
+      const route = item.from && item.to ? `
+        <div class="route">
+          <span>${item.from}</span>
+          <span class="arrow">&rarr;</span>
+          <span>${item.to}</span>
+        </div>
+      ` : "";
 
-<div class="card hotel">
-<div class="title">La Bohème</div>
-<div class="meta">Gili Air</div>
-</div>
+      let details = "";
+      if (item.type === "Hotel") {
+        details += detail("Stay", shortRange(item.startDate, item.endDate));
+        details += detail("Booked via", item.bookedVia);
+        details += detail("Confirmation", item.confirmation);
+        details += detail("Notes", item.notes);
+      } else if (item.type === "Flight") {
+        details += detail("Booked via", item.bookedVia);
+        details += detail("Confirmation", item.confirmation);
+        details += detail("Airline", item.company);
+      } else {
+        details += detail(item.endDate ? "Trip dates" : "Booked via", item.endDate ? shortRange(item.startDate, item.endDate) : item.bookedVia);
+        details += detail(item.endDate ? "Booked via" : "Confirmation", item.endDate ? item.bookedVia : item.confirmation);
+        details += detail(item.endDate ? "Route" : "Operator", item.endDate ? `${item.from} &rarr; ${item.to}` : item.company);
+        details += detail(item.endDate ? "Notes" : "Operator code", item.endDate ? item.notes : item.number);
+      }
 
-<div class="day">23–26 Jul 2026</div>
-<div class="card hotel">
-<div class="title">Captain Coconut</div>
-<div class="meta">Gili Air</div>
-</div>
+      return `
+        <article class="card ${config.className}">
+          <div class="card-top">
+            <div class="type-badge">${config.icon} ${config.label}</div>
+            <div class="time-badge">${travelTime(item)}</div>
+          </div>
+          <h2 class="title">${title}</h2>
+          ${subtitle ? `<div class="subtitle">${subtitle}</div>` : ""}
+          ${route}
+          <div class="detail-grid">${details}</div>
+        </article>
+      `;
+    }
 
-<div class="day">Sunday 26 Jul 2026</div>
-<div class="card boat">
-<div class="title">Gili Air → Padang Bai</div>
-<div class="meta">10:20 → 12:25</div>
-</div>
+    function groupByDay(items) {
+      const map = new Map();
+      items.forEach((item) => {
+        const key = dayKey(item.startDate);
+        if (!map.has(key)) map.set(key, []);
+        map.get(key).push(item);
+      });
+      return [...map.entries()].map(([date, entries]) => ({ date, entries }));
+    }
 
-<div class="card hotel">
-<div class="title">Kuta Puri Bungalows</div>
-<div class="meta">Kuta</div>
-</div>
+    function heroStat(value, label) {
+      return `
+        <div class="hero-pill">
+          <strong>${value}</strong>
+          <span>${label}</span>
+        </div>
+      `;
+    }
 
-<div class="day">Monday 27 Jul 2026</div>
-<div class="card flight">
-<div class="title">DPS → SIN</div>
-<div class="meta">11:15 → 14:10</div>
-</div>
+    const days = groupByDay(itinerary);
+    const firstDate = parseDate(itinerary[0].startDate);
+    const lastItem = itinerary[itinerary.length - 1];
+    const finalDate = (() => {
+      const date = parseDate(lastItem.endDate || lastItem.startDate);
+      if ((lastItem.arrival || "").includes("(+1)")) {
+        date.setDate(date.getDate() + 1);
+      }
+      return date;
+    })();
+    const totalDays = Math.round((finalDate - firstDate) / 86400000) + 1;
+    const flights = itinerary.filter((item) => item.type === "Flight").length;
+    const boats = itinerary.filter((item) => item.type === "Boat").length;
+    const hotels = itinerary.filter((item) => item.type === "Hotel").length;
 
-<div class="card flight">
-<div class="title">SIN → SGN</div>
-<div class="meta">18:25 → 19:40</div>
-</div>
+    heroStats.innerHTML = [
+      heroStat(`${fullDateFormat.format(firstDate)} &rarr; ${fullDateFormat.format(finalDate)}`, "Trip window"),
+      heroStat(flights, "Flights"),
+      heroStat(boats, "Boat legs"),
+      heroStat(hotels, "Hotels")
+    ].join("");
 
-<div class="card flight">
-<div class="title">SGN → CPH</div>
-<div class="meta">23:25 → 07:25 (+1)</div>
-</div>
+    const today = new Date();
+    const todayAtMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const daysToGo = Math.round((firstDate - todayAtMidnight) / 86400000);
+    countdown.textContent = daysToGo >= 0
+      ? `${daysToGo} days until departure - ${totalDays} calendar days from first hotel to final arrival.`
+      : `This trip started ${Math.abs(daysToGo)} days ago - ${totalDays} calendar days from first hotel to final arrival.`;
 
-</div>
+    strip.innerHTML = days.map((day) => `
+      <a class="chip" href="#day-${day.date}">
+        ${dayChipFormat.format(parseDate(day.date))}
+        <span>${day.entries.length} item${day.entries.length > 1 ? "s" : ""}</span>
+      </a>
+    `).join("");
 
+    timeline.innerHTML = days.map((day) => {
+      const date = parseDate(day.date);
+      const weekday = weekdayFormat.format(date);
+      const stamp = dayTitleFormat.format(date);
+      return `
+        <section class="day" id="day-${day.date}">
+          <div class="day-head">
+            <div>
+              <div class="day-name">${weekday}</div>
+              <div class="day-date">${stamp}</div>
+            </div>
+            <div class="day-count">${day.entries.length} ${day.entries.length === 1 ? "stop" : "items"}</div>
+          </div>
+          <div class="cards">
+            ${day.entries.map(renderCard).join("")}
+          </div>
+        </section>
+      `;
+    }).join("");
+  </script>
 </body>
 </html>
