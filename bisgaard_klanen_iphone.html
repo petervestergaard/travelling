@@ -278,6 +278,17 @@
     .logistics-title { margin: 5px 0 0; font-family: var(--serif); font-size: 21px; font-weight: 400; }
     .logistics-date { color: var(--muted); font-size: 10px; text-align: right; }
     .logistics-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+    .connection-note {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    .connection-note::before,
+    .connection-note::after { height: 1px; flex: 1; background: var(--line); content: ""; }
     .meta-label { display: block; margin-bottom: 4px; color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
     .meta-value { font-size: 12px; }
     .placeholder { color: #8b948d; font-style: italic; }
@@ -361,7 +372,7 @@
         <div class="journey">
           <div class="interlude reveal">
             <p class="section-kicker">1.–2. juli · Af sted</p>
-            <p>Vi flyver fra København via Shanghai og lander i Denpasar om aftenen. Første stop: havluft og ro i Sanur.</p>
+            <p>Vi flyver fra København via Shanghai og lander i Denpasar sent om aftenen. Første stop: havluft og ro i Sanur.</p>
           </div>
 
           <article class="chapter reveal">
@@ -484,22 +495,48 @@
         <header class="details-header">
           <p class="section-kicker">Bisgaard-Klanen · Bali 2027</p>
           <h2>Rejseoverblik</h2>
-          <p>En praktisk oversigt til fly, overnatninger og båd. Udfyld selv tider og bookingoplysninger, når de er på plads.</p>
+          <p>En praktisk oversigt over fly, overnatninger og båd. Flytiderne er lokale tider, og bookingreferencen er samlet her.</p>
         </header>
 
         <section class="detail-group" aria-labelledby="flights-heading">
           <div class="group-heading"><h3 id="flights-heading">Fly</h3><span>CPH · Shanghai · DPS</span></div>
           <article class="logistics-card">
-            <div class="logistics-top"><div><div class="logistics-kind">Udrejse · ben 1</div><h4 class="logistics-title">København → Shanghai</h4></div><div class="logistics-date">Afgang<br />1. juli 2027</div></div>
-            <div class="logistics-meta"><div><span class="meta-label">Flynummer</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Afgang · ankomst</span><span class="meta-value placeholder">Tidspunkter tilføjes</span></div></div>
+            <div class="logistics-top"><div><div class="logistics-kind">Udrejse · ben 1</div><h4 class="logistics-title">København (CPH) → Shanghai (PVG)</h4></div><div class="logistics-date">1.–2. juli 2027<br />Terminal 2 → 1</div></div>
+            <div class="logistics-meta">
+              <div><span class="meta-label">Flyselskab · flynummer</span><span class="meta-value">China Eastern · MU 0708</span></div>
+              <div><span class="meta-label">Afgang · ankomst</span><span class="meta-value">1. juli kl. 21:00 → 2. juli kl. 13:15</span></div>
+              <div><span class="meta-label">Flyvetid</span><span class="meta-value">10 t 15 min</span></div>
+              <div><span class="meta-label">Bookingreference</span><span class="meta-value">Se bookingbekræftelsen</span></div>
+            </div>
+          </article>
+          <div class="connection-note">Mellemlanding i Shanghai · 4 t 55 min</div>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Udrejse · ben 2</div><h4 class="logistics-title">Shanghai (PVG) → Denpasar (DPS)</h4></div><div class="logistics-date">2. juli 2027<br />Terminal 1 → I</div></div>
+            <div class="logistics-meta">
+              <div><span class="meta-label">Flyselskab · flynummer</span><span class="meta-value">China Eastern · MU 5029</span></div>
+              <div><span class="meta-label">Afgang · ankomst</span><span class="meta-value">2. juli kl. 18:10 → 23:55</span></div>
+              <div><span class="meta-label">Flyvetid</span><span class="meta-value">5 t 45 min</span></div>
+              <div><span class="meta-label">Bookingreference</span><span class="meta-value">Se bookingbekræftelsen</span></div>
+            </div>
           </article>
           <article class="logistics-card">
-            <div class="logistics-top"><div><div class="logistics-kind">Udrejse · ben 2</div><h4 class="logistics-title">Shanghai → Denpasar (DPS)</h4></div><div class="logistics-date">Ankomst Bali<br />2. juli 2027</div></div>
-            <div class="logistics-meta"><div><span class="meta-label">Flynummer</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Afgang · ankomst</span><span class="meta-value placeholder">Tidspunkter tilføjes</span></div></div>
+            <div class="logistics-top"><div><div class="logistics-kind">Hjemrejse · ben 1</div><h4 class="logistics-title">Denpasar (DPS) → Shanghai (PVG)</h4></div><div class="logistics-date">22. juli 2027<br />Terminal I → 1</div></div>
+            <div class="logistics-meta">
+              <div><span class="meta-label">Flyselskab · flynummer</span><span class="meta-value">China Eastern · MU 5030</span></div>
+              <div><span class="meta-label">Afgang · ankomst</span><span class="meta-value">22. juli kl. 00:55 → 08:00</span></div>
+              <div><span class="meta-label">Flyvetid</span><span class="meta-value">7 t 5 min</span></div>
+              <div><span class="meta-label">Mellemlanding i Shanghai</span><span class="meta-value">5 t 15 min</span></div>
+              <div><span class="meta-label">Bookingreference</span><span class="meta-value">Se bookingbekræftelsen</span></div>
+            </div>
           </article>
           <article class="logistics-card">
-            <div class="logistics-top"><div><div class="logistics-kind">Hjemrejse</div><h4 class="logistics-title">Denpasar (DPS) → København</h4></div><div class="logistics-date">Landing i CPH<br />22. juli · kl. 19.00</div></div>
-            <div class="logistics-meta"><div><span class="meta-label">Flynummer / mellemlandinger</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Afgang fra DPS</span><span class="meta-value placeholder">Dato og tid tilføjes</span></div></div>
+            <div class="logistics-top"><div><div class="logistics-kind">Hjemrejse · ben 2</div><h4 class="logistics-title">Shanghai (PVG) → København (CPH)</h4></div><div class="logistics-date">22. juli 2027<br />Terminal 1 → 2</div></div>
+            <div class="logistics-meta">
+              <div><span class="meta-label">Flyselskab · flynummer</span><span class="meta-value">China Eastern · MU 0707</span></div>
+              <div><span class="meta-label">Afgang · ankomst</span><span class="meta-value">22. juli kl. 13:15 → 19:00</span></div>
+              <div><span class="meta-label">Flyvetid</span><span class="meta-value">11 t 45 min</span></div>
+              <div><span class="meta-label">Bookingreference</span><span class="meta-value">Se bookingbekræftelsen</span></div>
+            </div>
           </article>
         </section>
 
