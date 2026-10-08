@@ -1,4 +1,4 @@
-const CACHE_NAME = "bisgaard-klanen-offline-v2";
+const CACHE_NAME = "bisgaard-klanen-offline-v3";
 const APP_SHELL = [
   "./bisgaard_klanen_iphone.html",
   "./manifest.webmanifest",
@@ -42,7 +42,7 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       (async () => {
         try {
-          const response = await fetch(request);
+          const response = await fetch(request, { cache: "no-cache" });
           if (response.ok) {
             await caches.open(CACHE_NAME).then((cache) => cache.put(PAGE_URL, response.clone()));
           }
@@ -61,7 +61,7 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       (async () => {
         try {
-          const response = await fetch(request);
+          const response = await fetch(request, { cache: "no-cache" });
           if (response.ok) {
             await caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
           }
