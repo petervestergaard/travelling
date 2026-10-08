@@ -53,7 +53,7 @@ Because each app is self-contained, its behavior and data model are maintained i
 - Follow the established item taxonomy: `Flight`, `Hotel`, and `Boat` are the only route types used for styling and grouping.
 - When editing the itinerary, keep derived values aligned with the data model: day counts, trip dates, hero summary stats, and the countdown text should all reflect the same underlying records.
 - On the Bisgaard-Klanen page, keep the visual timeline and logistics-tab details consistent; use explicit dates only when the family plan confirms them, preserve unknown flight and boat details as placeholders, and retain image attribution links and license labels.
-- If adding or replacing Bisgaard-Klanen offline assets, update the service worker's precache list and cache version together so a new visit refreshes the offline copy.
+- The Bisgaard-Klanen service worker fetches the page and static assets from the network first, refreshing their offline copies; it falls back to cached responses while offline. Add new offline assets to its precache list and increment the cache version when changing the app shell.
 - Keep edits surgical. This repo is intentionally compact; broad rewrites are unnecessary unless the user explicitly asks for a structural redesign.
 
 ## Working style for future sessions

@@ -1,4 +1,4 @@
-const CACHE_NAME = "bisgaard-klanen-offline-v1";
+const CACHE_NAME = "bisgaard-klanen-offline-v2";
 const APP_SHELL = [
   "./bisgaard_klanen_iphone.html",
   "./manifest.webmanifest",
@@ -16,7 +16,7 @@ const PAGE_URL = new URL("./bisgaard_klanen_iphone.html", self.registration.scop
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(APP_SHELL))
+      .then((cache) => cache.addAll(APP_SHELL.map((asset) => new Request(new URL(asset, self.registration.scope), { cache: "reload" }))))
       .then(() => self.skipWaiting())
   );
 });
@@ -38,29 +38,40 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(request.url);
   if (request.method !== "GET" || url.origin !== self.location.origin) return;
 
-  if (request.mode === "navigate" && url.href === PAGE_URL) {
+  if (request.mode === "navigate" && url.pathname === new URL(PAGE_URL).pathname) {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
+      (async () => {
+        try {
+          const response = await fetch(request);
           if (response.ok) {
-            const copy = response.clone();
-            event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.put(request, copy)));
+            await caches.open(CACHE_NAME).then((cache) => cache.put(PAGE_URL, response.clone()));
           }
           return response;
-        })
-        .catch(async () => {
+        } catch {
           const cachedPage = await caches.match(PAGE_URL);
           if (cachedPage) return cachedPage;
           throw new Error("The Bisgaard-Klanen itinerary is not available offline yet.");
-        })
+        }
+      })()
     );
     return;
   }
 
   if (url.pathname.includes("/images/") || url.pathname.includes("/icons/") || url.pathname.endsWith("/manifest.webmanifest")) {
     event.respondWith(
-      caches.match(request)
-        .then((cached) => cached || fetch(request))
+      (async () => {
+        try {
+          const response = await fetch(request);
+          if (response.ok) {
+            await caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()));
+          }
+          return response;
+        } catch {
+          const cachedAsset = await caches.match(request);
+          if (cachedAsset) return cachedAsset;
+          throw new Error(`The offline asset ${url.pathname} has not been cached yet.`);
+        }
+      })()
     );
   }
 });
