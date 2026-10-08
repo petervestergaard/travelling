@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#173a36" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Bisgaard-Klanen" />
+  <title>Bisgaard-Klanen · Bali 2027</title>
+  <style>
+    :root {
+      --ink: #183631;
+      --muted: #72817a;
+      --paper: #f6f5ef;
+      --card: #fffefa;
+      --green: #315b4b;
+      --green-dark: #173a36;
+      --green-light: #dfeae1;
+      --orange: #dc9563;
+      --line: rgba(24, 54, 49, .12);
+      --serif: Georgia, "Times New Roman", serif;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding-bottom: calc(90px + var(--safe-bottom));
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    button { font: inherit; }
+    .app { width: min(100%, 760px); margin: 0 auto; }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: calc(var(--safe-top) + 18px) 22px 16px;
+    }
+    .wordmark { font-size: 12px; font-weight: 750; letter-spacing: .17em; }
+    .wordmark span { color: var(--green); }
+    .edition {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 11px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .06em;
+    }
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 535px;
+      margin: 0 12px;
+      overflow: hidden;
+      align-items: flex-end;
+      border-radius: 9px;
+      background: var(--green-dark);
+      color: white;
+      isolation: isolate;
+    }
+    .hero::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(13, 37, 33, .04) 15%, rgba(13, 37, 33, .18) 42%, rgba(13, 37, 33, .88) 100%),
+        url("https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Morning_in_Sanur_Beach%2C_Bali.jpg/1280px-Morning_in_Sanur_Beach%2C_Bali.jpg") center 48% / cover;
+      content: "";
+      animation: arrive 1.1s ease-out both, drift 22s ease-in-out 1s infinite alternate;
+    }
+    .hero-copy { padding: 36px 26px 30px; animation: rise .8s .15s both; }
+    .eyebrow, .section-kicker {
+      margin: 0 0 13px;
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .eyebrow { color: #e8c7a3; }
+    h1 {
+      max-width: 570px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(50px, 14vw, 86px);
+      font-weight: 400;
+      letter-spacing: -.065em;
+      line-height: .9;
+    }
+    .hero-subtitle {
+      max-width: 300px;
+      margin: 19px 0 0;
+      color: rgba(255, 255, 255, .83);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.4;
+    }
+    .hero-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, .42);
+      padding-top: 13px;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .hero-date::before { width: 6px; height: 6px; border-radius: 50%; background: #e8b68a; content: ""; }
+    .intro {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: end;
+      padding: 32px 26px 26px;
+    }
+    .intro p {
+      max-width: 390px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 20px;
+      line-height: 1.4;
+    }
+    .route-count { color: var(--muted); font-size: 10px; line-height: 1.5; text-align: right; text-transform: uppercase; }
+    .route-count strong { display: block; color: var(--green); font-family: var(--serif); font-size: 29px; font-weight: 400; }
+    .journey { padding: 0 16px 30px; }
+    .chapter {
+      position: relative;
+      margin: 0 0 18px;
+      padding: 13px 0 0 19px;
+      border-left: 1px solid rgba(49, 91, 75, .3);
+    }
+    .chapter::before {
+      position: absolute;
+      top: 19px;
+      left: -4px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+      content: "";
+    }
+    .chapter-meta { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .chapter-step, .chapter-date {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .chapter-date { text-align: right; }
+    .chapter h2 {
+      margin: 8px 0 12px;
+      font-family: var(--serif);
+      font-size: clamp(30px, 8vw, 42px);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1;
+    }
+    .place-card {
+      overflow: hidden;
+      border: 1px solid rgba(24, 54, 49, .07);
+      border-radius: 8px;
+      background: var(--card);
+      box-shadow: 0 12px 30px rgba(24, 54, 49, .06);
+    }
+    .place-photo {
+      position: relative;
+      height: clamp(215px, 62vw, 340px);
+      overflow: hidden;
+      background: linear-gradient(135deg, #b7c9af, #759486);
+    }
+    .place-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease; }
+    .place-card:hover .place-photo img { transform: scale(1.035); }
+    .photo-caption {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      max-width: calc(100% - 20px);
+      border-radius: 3px;
+      padding: 5px 7px;
+      background: rgba(17, 42, 37, .74);
+      color: rgba(255, 255, 255, .88);
+      font-size: 9px;
+    }
+    .photo-caption a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+    .place-copy { padding: 19px 18px 20px; }
+    .place-label {
+      margin: 0 0 8px;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .place-copy h3 { margin: 0; font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -.025em; }
+    .place-copy p { margin: 9px 0 0; color: #65736d; font-size: 13px; line-height: 1.6; }
+    .stay-note {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 15px;
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: #edf1e9;
+      color: #425d4c;
+      font-size: 10px;
+      font-weight: 650;
+    }
+    .stay-note::before { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); content: ""; }
+    .between {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 0 -1px;
+      padding: 14px 0 15px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .between::before { width: 1px; height: 25px; margin-left: 0; background: rgba(49, 91, 75, .3); content: ""; }
+    .interlude {
+      margin: 4px 0 20px;
+      border-radius: 8px;
+      padding: 20px;
+      background: #e9eee5;
+    }
+    .interlude .section-kicker { margin-bottom: 6px; color: var(--green); }
+    .interlude p { margin: 0; font-family: var(--serif); font-size: 19px; line-height: 1.4; }
+    .ending {
+      margin: 0 0 0 19px;
+      border-radius: 8px;
+      padding: 24px 20px;
+      background: var(--green-dark);
+      color: white;
+    }
+    .ending .section-kicker { color: #e8c7a3; }
+    .ending h2 { margin: 0; font-family: var(--serif); font-size: 29px; font-weight: 400; }
+    .ending p { margin: 9px 0 0; color: rgba(255, 255, 255, .76); font-size: 13px; line-height: 1.55; }
+    .credits { padding: 18px 21px 8px; color: var(--muted); font-size: 10px; line-height: 1.7; }
+
+    .details { padding: 26px 20px 40px; }
+    .details-header { margin-bottom: 26px; }
+    .details-header .section-kicker { color: var(--green); }
+    .details-header h2 { margin: 0; font-family: var(--serif); font-size: 43px; font-weight: 400; letter-spacing: -.05em; }
+    .details-header p { margin: 8px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .detail-group { margin-top: 27px; }
+    .group-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .group-heading h3 { margin: 0; font-size: 11px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    .group-heading span { color: var(--muted); font-size: 10px; }
+    .logistics-card {
+      margin: 9px 0;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 15px;
+      background: var(--card);
+    }
+    .logistics-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .logistics-kind { color: var(--green); font-size: 9px; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+    .logistics-title { margin: 5px 0 0; font-family: var(--serif); font-size: 21px; font-weight: 400; }
+    .logistics-date { color: var(--muted); font-size: 10px; text-align: right; }
+    .logistics-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+    .meta-label { display: block; margin-bottom: 4px; color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+    .meta-value { font-size: 12px; }
+    .placeholder { color: #8b948d; font-style: italic; }
+    .tabbar {
+      position: fixed;
+      z-index: 10;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 9px 16px calc(9px + var(--safe-bottom));
+      border-top: 1px solid rgba(24, 54, 49, .09);
+      background: rgba(250, 249, 245, .94);
+      backdrop-filter: blur(18px);
+    }
+    .tab {
+      display: flex;
+      min-height: 47px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3px;
+      border: 0;
+      border-radius: 5px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 10px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tab[aria-selected="true"] { background: var(--green-dark); color: white; }
+    .tab-icon { font-size: 15px; line-height: 1; }
+    [hidden] { display: none !important; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @keyframes arrive { from { opacity: .4; transform: scale(1.045); } to { opacity: 1; transform: scale(1); } }
+    @keyframes drift { from { background-position: center 48%; } to { background-position: center 53%; } }
+    @media (min-width: 600px) {
+      .hero { min-height: 650px; margin-inline: 18px; }
+      .hero-copy { padding: 48px 42px 42px; }
+      .journey { padding-inline: 42px; }
+      .chapter { padding-left: 25px; }
+      .place-copy { padding: 22px 24px 24px; }
+      .intro { padding-inline: 44px; }
+      .details { padding-inline: 44px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="masthead">
+      <div class="wordmark">B<span>·</span>K &nbsp; REJSEBOG</div>
+      <div class="edition">BALI · SOMMER 2027</div>
+    </header>
+
+    <main>
+      <section id="journey-panel" role="tabpanel" aria-labelledby="journey-tab">
+        <header class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">En rejse med hele klanen</p>
+            <h1>Bisgaard-<br />Klanen</h1>
+            <p class="hero-subtitle">Øliv, grønne bjerge og lange dage sammen på Bali.</p>
+            <div class="hero-date">1.–22. juli 2027</div>
+          </div>
+        </header>
+
+        <div class="intro">
+          <p>Fra Københavns morgenlys til Balis varme aftener — her begynder vores fælles eventyr.</p>
+          <div class="route-count"><strong>05</strong>steder<br />på rejsen</div>
+        </div>
+
+        <div class="journey">
+          <div class="interlude reveal">
+            <p class="section-kicker">1.–2. juli · Af sted</p>
+            <p>Vi flyver fra København via Shanghai og lander i Denpasar om aftenen. Første stop: havluft og ro i Sanur.</p>
+          </div>
+
+          <article class="chapter reveal">
+            <div class="chapter-meta"><span class="chapter-step">01 · Bali</span><span class="chapter-date">Ankomst · 2. juli</span></div>
+            <h2>Sanur</h2>
+            <div class="place-card">
+              <div class="place-photo">
+                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Morning_in_Sanur_Beach%2C_Bali.jpg/1280px-Morning_in_Sanur_Beach%2C_Bali.jpg" alt="Morgenlys og fiskerbåde ved Sanur-stranden på Bali" loading="lazy" />
+                <div class="photo-caption"><a href="https://commons.wikimedia.org/wiki/File:Morning_in_Sanur_Beach,_Bali.jpg" target="_blank" rel="noreferrer">Danangtrihartanto · CC BY-SA 4.0</a></div>
+              </div>
+              <div class="place-copy">
+                <p class="place-label">Første møde med Bali</p>
+                <h3>En blød landing ved havet</h3>
+                <p>Vi samler familien i Sanur og får de første rolige dage ved strandpromenaden. Hotelnavn mangler stadig i planen.</p>
+                <span class="stay-note">2 nætter · hotel tilføjes</span>
+              </div>
+            </div>
+            <div class="between">Videre ind i højlandet</div>
+          </article>
+
+          <article class="chapter reveal">
+            <div class="chapter-meta"><span class="chapter-step">02 · Nordbali</span><span class="chapter-date">Efter Sanur</span></div>
+            <h2>Munduk</h2>
+            <div class="place-card">
+              <div class="place-photo">
+                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Munduk_Tutub_Waterfall_SF0001.jpg/1280px-Munduk_Tutub_Waterfall_SF0001.jpg" alt="Tutub-vandfaldet i Munduk på Bali" loading="lazy" />
+                <div class="photo-caption"><a href="https://commons.wikimedia.org/wiki/File:Munduk_Tutub_Waterfall_SF0001.jpg" target="_blank" rel="noreferrer">Stefan Fussan · CC BY-SA 3.0</a></div>
+              </div>
+              <div class="place-copy">
+                <p class="place-label">Vandfald · bjergluft · natur</p>
+                <h3>Bali Rahayu Homestay</h3>
+                <p>Vi kører op i de køligere bjerge, hvor vandfald og grønne stier venter. Homestayen bliver vores base i Munduk.</p>
+                <span class="stay-note">3 nætter</span>
+              </div>
+            </div>
+            <div class="between">Fra bjergene til østkysten</div>
+          </article>
+
+          <article class="chapter reveal">
+            <div class="chapter-meta"><span class="chapter-step">03 · Østbali</span><span class="chapter-date">Efter Munduk</span></div>
+            <h2>Amed</h2>
+            <div class="place-card">
+              <div class="place-photo">
+                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Last_Light_%28133657895%29.jpeg/1280px-Last_Light_%28133657895%29.jpeg" alt="Solnedgang over havet ved Amed på Balis nordøstkyst" loading="lazy" />
+                <div class="photo-caption"><a href="https://commons.wikimedia.org/wiki/File:Last_Light_(133657895).jpeg" target="_blank" rel="noreferrer">Arnas Goldberg · CC BY 3.0</a></div>
+              </div>
+              <div class="place-copy">
+                <p class="place-label">Kystliv · snorkling · ro</p>
+                <h3>Amed Paradise Beach</h3>
+                <p>En lille kystby med havet tæt på og udsigt mod Mount Agung. Her er der tid til snorkling, strand og afslapning.</p>
+                <span class="stay-note">4 nætter</span>
+              </div>
+            </div>
+            <div class="between">Ind mod Balis grønne hjerte</div>
+          </article>
+
+          <article class="chapter reveal">
+            <div class="chapter-meta"><span class="chapter-step">04 · Centrale Bali</span><span class="chapter-date">Efter Amed</span></div>
+            <h2>Ubud</h2>
+            <div class="place-card">
+              <div class="place-photo">
+                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/1_Tegalalang_rice_terrace_ubud_bali.jpg/1280px-1_Tegalalang_rice_terrace_ubud_bali.jpg" alt="Terrasserede rismarker ved Tegallalang tæt på Ubud" loading="lazy" />
+                <div class="photo-caption"><a href="https://commons.wikimedia.org/wiki/File:1_Tegalalang_rice_terrace_ubud_bali.jpg" target="_blank" rel="noreferrer">Chensiyuan · CC BY-SA 4.0</a></div>
+              </div>
+              <div class="place-copy">
+                <p class="place-label">Rismarker · jungle · kultur</p>
+                <h3>Swasti Eco Cottages</h3>
+                <p>På øen igen — denne gang blandt grønne rismarker, små butikker og junglestier. Måske bliver der også tid til rafting eller en god gang shopping.</p>
+                <span class="stay-note">3–4 nætter</span>
+              </div>
+            </div>
+            <div class="between">Båden kalder fra Padang Bai</div>
+          </article>
+
+          <article class="chapter reveal">
+            <div class="chapter-meta"><span class="chapter-step">05 · Gili-øerne</span><span class="chapter-date">Efter Ubud</span></div>
+            <h2>Gili Air</h2>
+            <div class="place-card">
+              <div class="place-photo">
+                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/20160316145630_-_Gili_Air_beach%2C_West_side%2C_towards_Lombok_%2825736339441%29.jpg/1280px-20160316145630_-_Gili_Air_beach%2C_West_side%2C_towards_Lombok_%2825736339441%29.jpg" alt="Stranden på Gili Air med udsigt mod Lombok" loading="lazy" />
+                <div class="photo-caption"><a href="https://commons.wikimedia.org/wiki/File:20160316145630_-_Gili_Air_beach,_West_side,_towards_Lombok_(25736339441).jpg" target="_blank" rel="noreferrer">Felix Dance · CC BY 2.0</a></div>
+              </div>
+              <div class="place-copy">
+                <p class="place-label">Barfodsliv · hav · ø-dage</p>
+                <h3>Biba Beach Village</h3>
+                <p>Ingen biler, turkisblåt vand og plads til at tage dagene, som de kommer. Vi sejler fra Padang Bai og finder vores egen lille rytme på Gili Air.</p>
+                <span class="stay-note">5–6 nætter</span>
+              </div>
+            </div>
+            <div class="between">Tilbage med båd til Bali</div>
+          </article>
+
+          <article class="chapter reveal">
+            <div class="chapter-meta"><span class="chapter-step">06 · Sidste stop</span><span class="chapter-date">Før hjemrejsen</span></div>
+            <h2>Sanur, igen</h2>
+            <div class="place-card">
+              <div class="place-photo">
+                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Sunrise_of_Bali_in_front_of_a_beach_1_%2841046444475%29.jpg/1280px-Sunrise_of_Bali_in_front_of_a_beach_1_%2841046444475%29.jpg" alt="Solopgang over Balis strand" loading="lazy" />
+                <div class="photo-caption"><a href="https://commons.wikimedia.org/wiki/File:Sunrise_of_Bali_in_front_of_a_beach_1_(41046444475).jpg" target="_blank" rel="noreferrer">Liang SK · CC BY-SA 2.0</a></div>
+              </div>
+              <div class="place-copy">
+                <p class="place-label">En sidste aften sammen</p>
+                <h3>Bali Wirasana</h3>
+                <p>Vi runder af i Sanur med en sidste nat på Bali Wirasana, lidt ekstra tid til en gåtur eller et sidste kig i butikkerne.</p>
+                <span class="stay-note">1 nat</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="ending reveal">
+            <p class="section-kicker">22. juli 2027 · Hjemad</p>
+            <h2>Vi ses, Bali.</h2>
+            <p>Fra Denpasar mod København — med en masse gode dage i bagagen. Forventet landing i CPH kl. 19.00.</p>
+          </div>
+          <p class="credits">Billederne er fra Wikimedia Commons; fotograf og licens er angivet ved hvert billede. Billederne viser destinationerne, ikke nødvendigvis de konkrete hoteller.</p>
+        </div>
+      </section>
+
+      <section id="details-panel" class="details" role="tabpanel" aria-labelledby="details-tab" hidden>
+        <header class="details-header">
+          <p class="section-kicker">Bisgaard-Klanen · Bali 2027</p>
+          <h2>Rejseoverblik</h2>
+          <p>En praktisk oversigt til fly, overnatninger og båd. Udfyld selv tider og bookingoplysninger, når de er på plads.</p>
+        </header>
+
+        <section class="detail-group" aria-labelledby="flights-heading">
+          <div class="group-heading"><h3 id="flights-heading">Fly</h3><span>CPH · Shanghai · DPS</span></div>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Udrejse · ben 1</div><h4 class="logistics-title">København → Shanghai</h4></div><div class="logistics-date">Afgang<br />1. juli 2027</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Flynummer</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Afgang · ankomst</span><span class="meta-value placeholder">Tidspunkter tilføjes</span></div></div>
+          </article>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Udrejse · ben 2</div><h4 class="logistics-title">Shanghai → Denpasar (DPS)</h4></div><div class="logistics-date">Ankomst Bali<br />2. juli 2027</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Flynummer</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Afgang · ankomst</span><span class="meta-value placeholder">Tidspunkter tilføjes</span></div></div>
+          </article>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Hjemrejse</div><h4 class="logistics-title">Denpasar (DPS) → København</h4></div><div class="logistics-date">Landing i CPH<br />22. juli · kl. 19.00</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Flynummer / mellemlandinger</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Afgang fra DPS</span><span class="meta-value placeholder">Dato og tid tilføjes</span></div></div>
+          </article>
+        </section>
+
+        <section class="detail-group" aria-labelledby="boats-heading">
+          <div class="group-heading"><h3 id="boats-heading">Bådture</h3><span>Padang Bai · Gili Air</span></div>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Til Gili-øerne</div><h4 class="logistics-title">Padang Bai → Gili Air</h4></div><div class="logistics-date">Efter Ubud<br />Dato tilføjes</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Bådselskab / booking</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Afgang · ankomst</span><span class="meta-value placeholder">Tidspunkter tilføjes</span></div></div>
+          </article>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Tilbage til Bali</div><h4 class="logistics-title">Gili Air → Bali</h4></div><div class="logistics-date">Før sidste nat<br />Dato tilføjes</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Ankomsthavn / bådselskab</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Afgang · ankomst</span><span class="meta-value placeholder">Tidspunkter tilføjes</span></div></div>
+          </article>
+        </section>
+
+        <section class="detail-group" aria-labelledby="stays-heading">
+          <div class="group-heading"><h3 id="stays-heading">Overnatninger</h3><span>6 ophold</span></div>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Sanur · første stop</div><h4 class="logistics-title">Hotel tilføjes</h4></div><div class="logistics-date">2 nætter<br />Datoer tilføjes</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+          </article>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Munduk</div><h4 class="logistics-title">Bali Rahayu Homestay</h4></div><div class="logistics-date">3 nætter<br />Datoer tilføjes</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+          </article>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Amed</div><h4 class="logistics-title">Amed Paradise Beach</h4></div><div class="logistics-date">4 nætter<br />Datoer tilføjes</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+          </article>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Ubud</div><h4 class="logistics-title">Swasti Eco Cottages</h4></div><div class="logistics-date">3–4 nætter<br />Datoer tilføjes</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+          </article>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Gili Air</div><h4 class="logistics-title">Biba Beach Village</h4></div><div class="logistics-date">5–6 nætter<br />Datoer tilføjes</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+          </article>
+          <article class="logistics-card">
+            <div class="logistics-top"><div><div class="logistics-kind">Sanur · sidste stop</div><h4 class="logistics-title">Bali Wirasana</h4></div><div class="logistics-date">1 nat<br />Dato tilføjes</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <nav class="tabbar" role="tablist" aria-label="Rejsevisning">
+      <button class="tab" id="journey-tab" type="button" role="tab" aria-selected="true" aria-controls="journey-panel">
+        <span class="tab-icon" aria-hidden="true">✳</span><span>Rejsen</span>
+      </button>
+      <button class="tab" id="details-tab" type="button" role="tab" aria-selected="false" aria-controls="details-panel" tabindex="-1">
+        <span class="tab-icon" aria-hidden="true">≡</span><span>Overblik</span>
+      </button>
+    </nav>
+  </div>
+  <script>
+    const tabs = [...document.querySelectorAll('[role="tab"]')];
+    const panels = tabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
+
+    function selectTab(selectedTab) {
+      tabs.forEach((tab, index) => {
+        const selected = tab === selectedTab;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        panels[index].hidden = !selected;
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => selectTab(tab));
+      tab.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+          event.preventDefault();
+          const nextTab = tabs[(index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length];
+          selectTab(nextTab);
+          nextTab.focus();
+        }
+      });
+    });
+
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>
