@@ -1,4 +1,4 @@
-const CACHE_NAME = "bisgaard-klanen-offline-v5";
+const CACHE_NAME = "bisgaard-klanen-offline-v9";
 const APP_SHELL = [
   "./bisgaard_klanen_iphone.html",
   "./manifest.webmanifest",
@@ -9,7 +9,19 @@ const APP_SHELL = [
   "./images/amed.jpg",
   "./images/ubud.jpg",
   "./images/gili-air.jpg",
-  "./images/sanur-sunrise.jpg"
+  "./images/sanur-sunrise.jpg",
+  "./images/ubud-rafting.jpg",
+  "./images/ubud-atv.jpg",
+  "./images/ubud-batur-sunrise.jpg",
+  "./images/ubud-pool.jpg",
+  "./images/munduk-lakes.jpg",
+  "./images/munduk-coffee.jpg",
+  "./images/amed-snorkeling.jpg",
+  "./images/amed-saltmaker.jpg",
+  "./images/sanur-snorkeling.jpg",
+  "./images/bali-warung.jpg",
+  "./images/gili-turtle.jpg",
+  "./images/gili-sunset.jpg"
 ];
 const PAGE_URL = new URL("./bisgaard_klanen_iphone.html", self.registration.scope).href;
 

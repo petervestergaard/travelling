@@ -48,6 +48,7 @@
     }
     .wordmark { font-size: 12px; font-weight: 750; letter-spacing: .17em; }
     .wordmark span { color: var(--green); }
+    .masthead-tools { display: flex; align-items: center; gap: 8px; }
     .edition {
       border: 1px solid var(--line);
       border-radius: 999px;
@@ -55,6 +56,28 @@
       color: var(--muted);
       font-size: 11px;
       letter-spacing: .06em;
+    }
+    .language-picker { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; }
+    .language-picker select {
+      max-width: 114px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 9px;
+      background: var(--card);
+      color: var(--ink);
+      font: inherit;
+      cursor: pointer;
+    }
+    @media (max-width: 390px) {
+      .masthead { padding-inline: 15px; }
+      .masthead-tools { gap: 5px; }
+      .edition { padding-inline: 8px; font-size: 9px; }
+      .language-picker { gap: 4px; }
+      .language-picker select { max-width: 95px; padding-inline: 7px; }
+    }
+    @media (max-width: 350px) {
+      .masthead { padding-inline: 12px; }
+      .edition { display: none; }
     }
     .hero {
       position: relative;
@@ -249,6 +272,94 @@
     .ending p { margin: 9px 0 0; color: rgba(255, 255, 255, .76); font-size: 13px; line-height: 1.55; }
     .credits { padding: 18px 21px 8px; color: var(--muted); font-size: 10px; line-height: 1.7; }
 
+    .destination-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 17px;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 13px;
+      background: var(--green-dark);
+      color: white;
+      font-size: 11px;
+      font-weight: 650;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .destination-link::after { content: "→"; font-size: 14px; transition: transform .2s ease; }
+    .destination-link:hover::after { transform: translateX(3px); }
+    .destination-page { min-height: calc(100vh - 100px); padding: 16px 16px 42px; animation: rise .35s ease both; }
+    .destination-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      margin: 0 0 14px;
+      border: 0;
+      padding: 0 8px 0 0;
+      background: transparent;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .destination-back::before { content: "←"; font-size: 18px; }
+    .destination-hero {
+      position: relative;
+      display: flex;
+      min-height: 310px;
+      overflow: hidden;
+      align-items: flex-end;
+      border-radius: 8px;
+      background: var(--green-dark);
+      color: white;
+      isolation: isolate;
+    }
+    .destination-hero::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13, 37, 33, .04) 15%, rgba(13, 37, 33, .78) 100%);
+      content: "";
+    }
+    .destination-hero img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .destination-hero-copy { padding: 26px 22px; }
+    .destination-hero .section-kicker { margin-bottom: 8px; color: #e8c7a3; }
+    .destination-hero h1 { font-size: clamp(42px, 12vw, 66px); }
+    .destination-stay { margin: 11px 0 0; color: rgba(255, 255, 255, .82); font-size: 12px; }
+    .activity-intro { padding: 24px 4px 17px; }
+    .activity-intro .section-kicker { margin-bottom: 7px; color: var(--green); }
+    .activity-intro h2 { margin: 0; font-family: var(--serif); font-size: 29px; font-weight: 400; letter-spacing: -.035em; }
+    .activity-intro p { margin: 8px 0 0; color: #65736d; font-size: 13px; line-height: 1.6; }
+    .activity-list { display: grid; gap: 15px; }
+    .activity-card {
+      overflow: hidden;
+      border: 1px solid rgba(24, 54, 49, .08);
+      border-radius: 8px;
+      background: var(--card);
+      box-shadow: 0 9px 25px rgba(24, 54, 49, .055);
+      animation: rise .45s ease both;
+    }
+    .activity-photo { position: relative; height: clamp(190px, 54vw, 290px); overflow: hidden; background: #dfeae1; }
+    .activity-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .activity-credit {
+      position: absolute;
+      right: 9px;
+      bottom: 9px;
+      max-width: calc(100% - 18px);
+      border-radius: 3px;
+      padding: 5px 7px;
+      background: rgba(17, 42, 37, .76);
+      color: rgba(255, 255, 255, .92);
+      font-size: 9px;
+    }
+    .activity-credit a { color: inherit; text-underline-offset: 2px; }
+    .activity-copy { padding: 17px 17px 19px; }
+    .activity-type { margin: 0 0 7px; color: var(--green); font-size: 9px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    .activity-copy h3 { margin: 0; font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -.025em; }
+    .activity-copy p { margin: 8px 0 0; color: #65736d; font-size: 13px; line-height: 1.6; }
+
     .details { padding: 26px 20px 40px; }
     .details-header { margin-bottom: 26px; }
     .details-header .section-kicker { color: var(--green); }
@@ -339,6 +450,10 @@
       .place-copy { padding: 22px 24px 24px; }
       .intro { padding-inline: 44px; }
       .details { padding-inline: 44px; }
+      .destination-page { padding-inline: 42px; }
+      .destination-hero { min-height: 380px; }
+      .destination-hero-copy { padding: 34px 30px; }
+      .activity-copy { padding: 20px 22px 22px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -350,7 +465,16 @@
   <div class="app">
     <header class="masthead">
       <div class="wordmark">B<span>·</span>K &nbsp; REJSEBOG</div>
-      <div class="edition">BALI · SOMMER 2027</div>
+      <div class="masthead-tools">
+        <div class="edition">BALI · SOMMER 2027</div>
+        <label class="language-picker"><span id="language-label">Sprog</span>
+          <select id="language-select" aria-label="Vælg sprog">
+            <option value="da">Dansk</option>
+            <option value="de">Deutsch</option>
+            <option value="id">Bahasa Indonesia</option>
+          </select>
+        </label>
+      </div>
     </header>
 
     <main>
@@ -388,6 +512,7 @@
                 <h3>En blød landing ved havet</h3>
                 <p>Vi samler familien i Sanur og får de første rolige dage ved strandpromenaden. Hotelnavn mangler stadig i planen.</p>
                 <span class="stay-note">2 nætter · hotel tilføjes</span>
+                <button class="destination-link" type="button" data-destination="sanur" aria-label="Se aktiviteter i Sanur">Se oplevelsesforslag</button>
               </div>
             </div>
             <div class="between">Videre ind i højlandet</div>
@@ -406,6 +531,7 @@
                 <h3>Bali Rahayu Homestay</h3>
                 <p>Vi kører op i de køligere bjerge, hvor vandfald og grønne stier venter. Homestayen bliver vores base i Munduk.</p>
                 <span class="stay-note">3 nætter</span>
+                <button class="destination-link" type="button" data-destination="munduk" aria-label="Se aktiviteter i Munduk">Se oplevelsesforslag</button>
               </div>
             </div>
             <div class="between">Fra bjergene til østkysten</div>
@@ -424,6 +550,7 @@
                 <h3>Amed Paradise Beach</h3>
                 <p>En lille kystby med havet tæt på og udsigt mod Mount Agung. Her er der tid til snorkling, strand og afslapning.</p>
                 <span class="stay-note">4 nætter</span>
+                <button class="destination-link" type="button" data-destination="amed" aria-label="Se aktiviteter i Amed">Se oplevelsesforslag</button>
               </div>
             </div>
             <div class="between">Ind mod Balis grønne hjerte</div>
@@ -442,6 +569,7 @@
                 <h3>Swasti Eco Cottages</h3>
                 <p>På øen igen — denne gang blandt grønne rismarker, små butikker og junglestier. Måske bliver der også tid til rafting eller en god gang shopping.</p>
                 <span class="stay-note">3–4 nætter</span>
+                <button class="destination-link" type="button" data-destination="ubud" aria-label="Se aktiviteter i Ubud">Se oplevelsesforslag</button>
               </div>
             </div>
             <div class="between">Båden kalder fra Padang Bai</div>
@@ -460,6 +588,7 @@
                 <h3>Biba Beach Village</h3>
                 <p>Ingen biler, turkisblåt vand og plads til at tage dagene, som de kommer. Vi sejler fra Padang Bai og finder vores egen lille rytme på Gili Air.</p>
                 <span class="stay-note">5–6 nætter</span>
+                <button class="destination-link" type="button" data-destination="gili-air" aria-label="Se aktiviteter på Gili Air">Se oplevelsesforslag</button>
               </div>
             </div>
             <div class="between">Tilbage med båd til Bali</div>
@@ -478,6 +607,7 @@
                 <h3>Bali Wirasana</h3>
                 <p>Vi runder af i Sanur med en sidste nat på Bali Wirasana, lidt ekstra tid til en gåtur eller et sidste kig i butikkerne.</p>
                 <span class="stay-note">1 nat</span>
+                <button class="destination-link" type="button" data-destination="sanur" aria-label="Se aktiviteter i Sanur">Se oplevelsesforslag</button>
               </div>
             </div>
           </article>
@@ -487,8 +617,13 @@
             <h2>Vi ses, Bali.</h2>
             <p>Fra Denpasar mod København — med en masse gode dage i bagagen. Forventet landing i CPH kl. 19.00.</p>
           </div>
-          <p class="credits">Billederne er fra Wikimedia Commons; fotograf og licens er angivet ved hvert billede. Billederne viser destinationerne, ikke nødvendigvis de konkrete hoteller.</p>
+          <p class="credits">Billederne er fra Wikimedia Commons og Flickr; fotograf og licens er angivet ved hvert billede. Billederne viser destinationerne, ikke nødvendigvis de konkrete hoteller.</p>
         </div>
+      </section>
+
+      <section id="destination-panel" class="destination-page" aria-labelledby="destination-title" hidden>
+        <button class="destination-back" id="destination-back" type="button">Tilbage til rejsen</button>
+        <div id="destination-content"></div>
       </section>
 
       <section id="details-panel" class="details" role="tabpanel" aria-labelledby="details-tab" hidden>
@@ -594,6 +729,567 @@
   <script>
     const tabs = [...document.querySelectorAll('[role="tab"]')];
     const panels = tabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
+    const destinationPanel = document.getElementById("destination-panel");
+    const destinationContent = document.getElementById("destination-content");
+    const tabbar = document.querySelector(".tabbar");
+    const languageSelect = document.getElementById("language-select");
+    const languageLabel = document.getElementById("language-label");
+    const languageNames = { da: "Dansk", de: "Deutsch", id: "Bahasa Indonesia" };
+    const translations = {
+      de: {
+        static: Object.fromEntries([
+          ["REJSEBOG", "REISEMAGAZIN"], ["K REJSEBOG", "K REISEMAGAZIN"], ["BALI · SOMMER 2027", "BALI · SOMMER 2027"], ["Sprog", "Sprache"], ["Vælg sprog", "Sprache wählen"],
+          ["En rejse med hele klanen", "Eine Reise mit der ganzen Familie"], ["Øliv, grønne bjerge og lange dage sammen på Bali.", "Inselleben, grüne Berge und lange gemeinsame Tage auf Bali."],
+          ["Fra Københavns morgenlys til Balis varme aftener — her begynder vores fælles eventyr.", "Vom Morgenlicht in Kopenhagen bis zu Balis warmen Abenden — hier beginnt unser gemeinsames Abenteuer."],
+          ["steder", "Orte"], ["på rejsen", "auf der Reise"], ["1.–2. juli · Af sted", "1.–2. Juli · Aufbruch"],
+          ["Vi flyver fra København via Shanghai og lander i Denpasar sent om aftenen. Første stop: havluft og ro i Sanur.", "Wir fliegen von Kopenhagen über Shanghai und landen spät am Abend in Denpasar. Erster Halt: Meeresluft und Ruhe in Sanur."],
+          ["01 · Bali", "01 · Bali"], ["Ankomst · 2. juli", "Ankunft · 2. Juli"], ["Første møde med Bali", "Die erste Begegnung mit Bali"],
+          ["En blød landing ved havet", "Sanft am Meer ankommen"], ["Vi samler familien i Sanur og får de første rolige dage ved strandpromenaden. Hotelnavn mangler stadig i planen.", "In Sanur kommt die Familie zusammen und genießt die ersten entspannten Tage an der Strandpromenade. Der Hotelname steht noch nicht fest."],
+          ["2 nætter · hotel tilføjes", "2 Nächte · Hotel wird ergänzt"], ["Se oplevelsesforslag", "Aktivitäten entdecken"], ["Videre ind i højlandet", "Weiter ins Hochland"],
+          ["02 · Nordbali", "02 · Nordbali"], ["Efter Sanur", "Nach Sanur"], ["Vandfald · bjergluft · natur", "Wasserfälle · Bergluft · Natur"],
+          ["Vi kører op i de køligere bjerge, hvor vandfald og grønne stier venter. Homestayen bliver vores base i Munduk.", "Wir fahren hinauf in die kühleren Berge, wo Wasserfälle und grüne Pfade warten. Das Homestay ist unser Ausgangspunkt in Munduk."],
+          ["3 nætter", "3 Nächte"], ["Fra bjergene til østkysten", "Von den Bergen an die Ostküste"], ["03 · Østbali", "03 · Ostbali"], ["Efter Munduk", "Nach Munduk"],
+          ["Kystliv · snorkling · ro", "Küstenleben · Schnorcheln · Ruhe"], ["En lille kystby med havet tæt på og udsigt mod Mount Agung. Her er der tid til snorkling, strand og afslapning.", "Ein kleiner Küstenort am Meer mit Blick auf den Mount Agung. Hier bleibt Zeit zum Schnorcheln, für den Strand und zum Entspannen."],
+          ["4 nætter", "4 Nächte"], ["Ind mod Balis grønne hjerte", "Ins grüne Herz Balis"], ["04 · Centrale Bali", "04 · Zentralbali"], ["Efter Amed", "Nach Amed"],
+          ["Rismarker · jungle · kultur", "Reisfelder · Dschungel · Kultur"], ["På øen igen — denne gang blandt grønne rismarker, små butikker og junglestier. Måske bliver der også tid til rafting eller en god gang shopping.", "Zurück auf Bali — diesmal zwischen grünen Reisfeldern, kleinen Läden und Dschungelpfaden. Vielleicht bleibt auch Zeit zum Rafting oder Shoppen."],
+          ["3–4 nætter", "3–4 Nächte"], ["Båden kalder fra Padang Bai", "Das Boot wartet in Padang Bai"], ["05 · Gili-øerne", "05 · Gili-Inseln"], ["Efter Ubud", "Nach Ubud"],
+          ["Barfodsliv · hav · ø-dage", "Barfußleben · Meer · Inseltage"], ["Ingen biler, turkisblåt vand og plads til at tage dagene, som de kommer. Vi sejler fra Padang Bai og finder vores egen lille rytme på Gili Air.", "Keine Autos, türkisblaues Wasser und Zeit für entspannte Tage. Wir fahren mit dem Boot von Padang Bai und finden unseren eigenen Rhythmus auf Gili Air."],
+          ["5–6 nætter", "5–6 Nächte"], ["Tilbage med båd til Bali", "Mit dem Boot zurück nach Bali"], ["06 · Sidste stop", "06 · Letzter Halt"], ["Før hjemrejsen", "Vor der Heimreise"],
+          ["En sidste aften sammen", "Ein letzter gemeinsamer Abend"], ["Vi runder af i Sanur med en sidste nat på Bali Wirasana, lidt ekstra tid til en gåtur eller et sidste kig i butikkerne.", "In Sanur lassen wir die Reise mit einer letzten Nacht im Bali Wirasana ausklingen — mit Zeit für einen Spaziergang oder einen letzten Einkaufsbummel."],
+          ["1 nat", "1 Nacht"], ["22. juli 2027 · Hjemad", "22. Juli 2027 · Heimreise"], ["Vi ses, Bali.", "Auf Wiedersehen, Bali."],
+          ["Fra Denpasar mod København — med en masse gode dage i bagagen. Forventet landing i CPH kl. 19.00.", "Von Denpasar nach Kopenhagen — mit vielen schönen gemeinsamen Tagen im Gepäck. Voraussichtliche Landung in CPH um 19:00 Uhr."],
+          ["Billederne er fra Wikimedia Commons og Flickr; fotograf og licens er angivet ved hvert billede. Billederne viser destinationerne, ikke nødvendigvis de konkrete hoteller.", "Die Fotos stammen von Wikimedia Commons und Flickr; Fotograf und Lizenz sind jeweils angegeben. Sie zeigen die Reiseziele, nicht unbedingt die gebuchten Hotels."],
+          ["Tilbage til rejsen", "Zurück zur Reise"], ["Bisgaard-Klanen · Bali 2027", "Bisgaard-Klanen · Bali 2027"], ["Rejseoverblik", "Reiseübersicht"],
+          ["En praktisk oversigt over fly, overnatninger og båd. Flytiderne er lokale tider, og bookingreferencen er samlet her.", "Eine praktische Übersicht zu Flügen, Unterkünften und Booten. Alle Flugzeiten sind Ortszeiten; Buchungsangaben stehen in der Bestätigung."],
+          ["Fly", "Flüge"], ["Udrejse · ben 1", "Hinreise · Flug 1"], ["København (CPH) → Shanghai (PVG)", "Kopenhagen (CPH) → Shanghai (PVG)"],
+          ["Flyselskab · flynummer", "Fluggesellschaft · Flugnummer"], ["Afgang · ankomst", "Abflug · Ankunft"], ["Flyvetid", "Flugdauer"], ["Bookingreference", "Buchungsreferenz"],
+          ["Se bookingbekræftelsen", "Siehe Buchungsbestätigung"], ["Mellemlanding i Shanghai · 4 t 55 min", "Zwischenstopp in Shanghai · 4 Std. 55 Min."],
+          ["Udrejse · ben 2", "Hinreise · Flug 2"], ["Shanghai (PVG) → Denpasar (DPS)", "Shanghai (PVG) → Denpasar (DPS)"],
+          ["Hjemrejse · ben 1", "Rückreise · Flug 1"], ["Denpasar (DPS) → Shanghai (PVG)", "Denpasar (DPS) → Shanghai (PVG)"],
+          ["Mellemlanding i Shanghai", "Zwischenstopp in Shanghai"], ["Hjemrejse · ben 2", "Rückreise · Flug 2"], ["Shanghai (PVG) → København (CPH)", "Shanghai (PVG) → Kopenhagen (CPH)"],
+          ["Bådture", "Bootsfahrten"], ["Til Gili-øerne", "Zu den Gili-Inseln"], ["Efter Ubud", "Nach Ubud"], ["Dato tilføjes", "Datum wird ergänzt"],
+          ["Bådselskab / booking", "Bootsgesellschaft / Buchung"], ["Tilføjes", "Wird ergänzt"], ["Tidspunkter tilføjes", "Uhrzeiten werden ergänzt"],
+          ["Tilbage til Bali", "Zurück nach Bali"], ["Før sidste nat", "Vor der letzten Nacht"], ["Ankomsthavn / bådselskab", "Ankunftshafen / Bootsgesellschaft"],
+          ["Overnatninger", "Unterkünfte"], ["6 ophold", "6 Aufenthalte"], ["Sanur · første stop", "Sanur · erster Halt"], ["Hotel tilføjes", "Hotel wird ergänzt"],
+          ["Datoer tilføjes", "Daten werden ergänzt"], ["Booking / bekræftelse", "Buchung / Bestätigung"], ["Adresse / kontakt", "Adresse / Kontakt"],
+          ["Sanur · sidste stop", "Sanur · letzter Halt"], ["Sanur, igen", "Sanur, noch einmal"], ["Rejsen", "Reise"], ["Overblik", "Übersicht"],
+          ["juli", "Juli"], ["kl.", "um"], ["min", "Min."], ["nætter", "Nächte"], ["nat", "Nacht"],
+          ["Morgen på strandpromenaden", "Morgen an der Strandpromenade"], ["Snorkling over revet", "Schnorcheln über dem Riff"], ["En frokost på et lokalt warung", "Mittagessen in einem lokalen Warung"],
+          ["Munduks vandfald", "Munduks Wasserfälle"], ["Tvillingesøerne fra højderne", "Die Zwillingsseen von oben"], ["Kaffeoplevelse i højlandet", "Kaffeeerlebnis im Hochland"],
+          ["Jemeluk-bugtens undervandsliv", "Die Unterwasserwelt der Jemeluk-Bucht"], ["Se Ameds traditionelle saltbønder", "Ameds traditionelle Salzbauern erleben"], ["Solnedgang over Amed", "Sonnenuntergang über Amed"],
+          ["ATV-tur gennem landskabet", "ATV-Tour durch die Landschaft"], ["River rafting på Ayung-floden", "Rafting auf dem Ayung-Fluss"], ["Jeep-tur til Mount Batur", "Jeep-Tour zum Mount Batur"],
+          ["Rismarker ved Tegallalang", "Reisfelder von Tegallalang"], ["En dag på en dayclub", "Ein Tag im Dayclub"], ["Snorkeltur over koralrevet", "Schnorcheltour über dem Korallenriff"],
+          ["En langsom dag ved stranden", "Ein entspannter Tag am Strand"], ["Aften mod Lombok", "Abend mit Blick auf Lombok"],
+          ["1.–22. juli 2027", "1.–22. Juli 2027"], ["1.–2. juli 2027", "1.–2. Juli 2027"], ["2. juli 2027", "2. Juli 2027"], ["22. juli 2027", "22. Juli 2027"],
+          ["1. juli kl. 21:00 → 2. juli kl. 13:15", "1. Juli um 21:00 → 2. Juli um 13:15"], ["2. juli kl. 18:10 → 23:55", "2. Juli um 18:10 → 23:55"],
+          ["22. juli kl. 00:55 → 08:00", "22. Juli um 00:55 → 08:00"], ["22. juli kl. 13:15 → 19:00", "22. Juli um 13:15 → 19:00"],
+          ["10 t 15 min", "10 Std. 15 Min."], ["5 t 45 min", "5 Std. 45 Min."], ["7 t 5 min", "7 Std. 5 Min."], ["11 t 45 min", "11 Std. 45 Min."],
+          ["5 t 15 min", "5 Std. 15 Min."], ["2 nætter", "2 Nächte"], ["4 nætter", "4 Nächte"], ["3–4 nætter", "3–4 Nächte"], ["5–6 nætter", "5–6 Nächte"], ["1 nat", "1 Nacht"],
+          ["Morgenlys og fiskerbåde ved Sanur-stranden på Bali", "Morgenlicht und Fischerboote am Strand von Sanur auf Bali"],
+          ["Tutub-vandfaldet i Munduk på Bali", "Der Tutub-Wasserfall in Munduk auf Bali"],
+          ["Solnedgang over havet ved Amed på Balis nordøstkyst", "Sonnenuntergang am Meer bei Amed an Balis Nordostküste"],
+          ["Terrasserede rismarker ved Tegallalang tæt på Ubud", "Terrassierte Reisfelder von Tegallalang nahe Ubud"],
+          ["Stranden på Gili Air med udsigt mod Lombok", "Der Strand von Gili Air mit Blick auf Lombok"],
+          ["Solopgang over Balis strand", "Sonnenaufgang über einem Strand auf Bali"],
+          ["Fiskerbåde og morgenlys ved Sanur-stranden", "Fischerboote im Morgenlicht am Strand von Sanur"],
+          ["Tutub-vandfaldet i Munduks grønne højland", "Der Tutub-Wasserfall im grünen Hochland von Munduk"],
+          ["Aftensol over havet ved Amed", "Abendsonne über dem Meer bei Amed"],
+          ["Grønne risterrasser ved Tegallalang", "Grüne Reisterrassen von Tegallalang"],
+          ["Strand og klart vand ved Gili Air", "Strand und klares Wasser bei Gili Air"],
+          ["Rafting på Ayung-floden ved Ubud", "Rafting auf dem Ayung-Fluss bei Ubud"],
+          ["En ATV kører gennem en tropisk sti", "Ein ATV fährt auf einem tropischen Pfad"],
+          ["Solopgang over Mount Batur og skyerne under vulkanen", "Sonnenaufgang über dem Mount Batur und Wolken unter dem Vulkan"],
+          ["Infinity-pool omgivet af tropisk grønt ved Ubud", "Infinity-Pool im tropischen Grün bei Ubud"],
+          ["En af Munduks tvillingesøer omgivet af grønne bjerge", "Einer der Zwillingsseen von Munduk, umgeben von grünen Bergen"],
+          ["Kaffe bliver brygget på Munduk Moding Plantation", "Kaffeezubereitung auf der Munduk Moding Plantation"],
+          ["Klart vand og rev langs Ameds kyst", "Klares Wasser und Riffe an der Küste von Amed"],
+          ["Traditionelle saltbede ved Ameds kyst", "Traditionelle Salzbecken an der Küste von Amed"],
+          ["En snorkler svømmer over et lavt koralrev", "Eine schnorchelnde Person schwimmt über einem flachen Korallenriff"],
+          ["Et lille lokalt balinesisk warung med nasi goreng på menuen", "Ein kleiner balinesischer Warung mit Nasi Goreng auf der Speisekarte"],
+          ["En snorkler svømmer over et koralrev ved Gili-øerne", "Eine schnorchelnde Person schwimmt über einem Korallenriff bei den Gili-Inseln"],
+          ["Solnedgang over havet fra Gili Air", "Sonnenuntergang über dem Meer von Gili Air"],
+          ["Solopgang over en balinesisk strand", "Sonnenaufgang über einem balinesischen Strand"]
+        ]),
+        attrs: { "Se aktiviteter i Sanur": "Aktivitäten in Sanur ansehen", "Se aktiviteter i Munduk": "Aktivitäten in Munduk ansehen", "Se aktiviteter i Amed": "Aktivitäten in Amed ansehen", "Se aktiviteter i Ubud": "Aktivitäten in Ubud ansehen", "Se aktiviteter på Gili Air": "Aktivitäten auf Gili Air ansehen" },
+        destinations: {
+          sanur: { chapter: "Bali · erster und letzter Halt", stay: "2 Nächte bei Ankunft · 1 letzte Nacht vor der Heimreise", intro: "Ein entspannter Ort, um nach dem Flug anzukommen und vor der Heimreise noch einen letzten Abend am Meer zu genießen.", activities: [
+            ["Am Wasser entlang", "Morgen an der Strandpromenade", "Spaziert oder fahrt mit dem Rad auf der autofreien Strandpromenade, während die Fischerboote zurückkehren und der Tag beginnt."],
+            ["Meer und Schnorcheln", "Schnorcheln über dem Riff", "Macht eine ruhige Schnorcheltour über dem flachen Riff und fragt vor Ort nach Sicht und Strömung."],
+            ["Balis Küche", "Mittagessen in einem lokalen Warung", "Probiert Nasi Goreng oder andere balinesische Klassiker in einem kleinen lokalen Lokal."]
+          ]},
+          munduk: { chapter: "Nordbali · Bergluft und Wasserfälle", stay: "3 Nächte · Bali Rahayu Homestay", intro: "Munduk bietet kühlere Luft, grüne Berghänge und Wasserfälle — ein schöner Kontrast zu den Tagen an der Küste.", activities: [
+            ["Wanderung", "Munduks Wasserfälle", "Folgt den Pfaden durch Wald und Dörfer zu den Wasserfällen. Nehmt gute Schuhe mit; die Wege können steil und rutschig sein."],
+            ["Aussicht", "Die Zwillingsseen von oben", "Fahrt zu den Aussichtspunkten über den Seen Buyan und Tamblingan und genießt die Berglandschaft von oben."],
+            ["Lokaler Genuss", "Kaffeeerlebnis im Hochland", "Besucht eine lokale Kaffeeplantage und erfahrt, wie die Bohnen im kühlen Hochland von Munduk geröstet und gebrüht werden."]
+          ]},
+          amed: { chapter: "Ostbali · Küste und Korallenriffe", stay: "4 Nächte · Amed Paradise Beach", intro: "In Amed geht es ruhig zu: mit Schnorcheln vom Strand, dunklen Lavastränden und Blick auf den Mount Agung.", activities: [
+            ["Schnorcheln", "Die Unterwasserwelt der Jemeluk-Bucht", "Schnorchelt in der geschützten Bucht, wo Korallen und bunte Fische nah am Ufer zu finden sind. Verwendet riffschonenden Sonnenschutz."],
+            ["Lokale Kultur", "Ameds traditionelle Salzbauern erleben", "Besucht die Salzbecken an der Küste, wo Meerwasser in der Sonne zu handgemachtem Meersalz wird."],
+            ["Abend am Meer", "Sonnenuntergang über Amed", "Sucht euch einen Platz am Wasser und erlebt das Abendlicht über dem Fischerdorf und der Küste."]
+          ]},
+          ubud: { chapter: "Zentralbali · Dschungel und Kultur", stay: "3–4 Nächte · Swasti Eco Cottages", intro: "Ubud verbindet grüne Landschaften mit Abenteuern zu Land und zu Wasser. Fünf Ideen für aktive und entspannte Tage.", activities: [
+            ["Abenteuer", "ATV-Tour durch die Landschaft", "Macht eine geführte Tour auf kleinen Wegen durch Reisfelder und Dschungel. Achtet bei der Auswahl auf Sicherheitsausrüstung, Route und Altersregeln."],
+            ["Auf dem Fluss", "Rafting auf dem Ayung-Fluss", "Fahrt mit dem Raft durch grüne Schluchten und vorbei an kleinen Wasserfällen. Wählt die Strecke passend zur Familie und den Wasserbedingungen."],
+            ["Sonnenaufgang", "Jeep-Tour zum Mount Batur", "Fahrt vor der Morgendämmerung zu den Aussichtspunkten des Vulkans und erlebt den Sonnenaufgang im Geländewagen."],
+            ["Landschaft", "Reisfelder von Tegallalang", "Spaziert durch die terrassierten Reisfelder und nehmt euch Zeit für die Aussicht und die kleinen Wege."],
+            ["Entspannung", "Ein Tag im Dayclub", "Plant einen entspannten Tag am Pool mit Essen und Blick ins Grüne. Prüft Eintritt, Mindestverzehr und Reservierung im Voraus."]
+          ]},
+          "gili-air": { chapter: "Gili-Inseln · Meer und Barfußleben", stay: "5–6 Nächte · Biba Beach Village", intro: "Auf Gili Air geht es gemächlich zu, Autos gibt es nicht und das Meer ist immer nah. Lasst Raum für spontane Strandtage.", activities: [
+            ["Schnorcheln", "Schnorcheltour über dem Korallenriff", "Macht eine geführte Schnorcheltour rund um die Inseln oder sucht euch einen ruhigen Einstieg am Strand. Haltet Abstand zu Korallen und Meerestieren."],
+            ["Inselleben", "Ein entspannter Tag am Strand", "Sucht euch ein ruhiges Plätzchen am Wasser und genießt Baden und das entspannte Inselleben."],
+            ["Sonnenuntergang", "Abend mit Blick auf Lombok", "Findet an der Westküste einen Platz an der Strandbar oder im Sand und beobachtet, wie die Sonne hinter Lombok untergeht."]
+          ]}
+        }
+      },
+      id: {
+        static: Object.fromEntries([
+          ["REJSEBOG", "CATATAN PERJALANAN"], ["K REJSEBOG", "K CATATAN PERJALANAN"], ["BALI · SOMMER 2027", "BALI · MUSIM PANAS 2027"], ["Sprog", "Bahasa"], ["Vælg sprog", "Pilih bahasa"],
+          ["En rejse med hele klanen", "Perjalanan bersama seluruh keluarga"], ["Øliv, grønne bjerge og lange dage sammen på Bali.", "Kehidupan pulau, pegunungan hijau, dan hari-hari panjang bersama di Bali."],
+          ["Fra Københavns morgenlys til Balis varme aftener — her begynder vores fælles eventyr.", "Dari cahaya pagi Kopenhagen hingga malam hangat Bali — petualangan bersama kita dimulai di sini."],
+          ["steder", "tempat"], ["på rejsen", "dalam perjalanan"], ["1.–2. juli · Af sted", "1–2 Juli · Berangkat"],
+          ["Vi flyver fra København via Shanghai og lander i Denpasar sent om aftenen. Første stop: havluft og ro i Sanur.", "Kita terbang dari Kopenhagen melalui Shanghai dan tiba di Denpasar larut malam. Persinggahan pertama: udara laut dan suasana tenang di Sanur."],
+          ["01 · Bali", "01 · Bali"], ["Ankomst · 2. juli", "Tiba · 2 Juli"], ["Første møde med Bali", "Kesan pertama di Bali"],
+          ["En blød landing ved havet", "Awal yang santai di tepi laut"], ["Vi samler familien i Sanur og får de første rolige dage ved strandpromenaden. Hotelnavn mangler stadig i planen.", "Keluarga berkumpul di Sanur untuk menikmati hari-hari pertama yang santai di tepi pantai. Nama hotel belum ditentukan."],
+          ["2 nætter · hotel tilføjes", "2 malam · hotel akan ditambahkan"], ["Se oplevelsesforslag", "Lihat ide kegiatan"], ["Videre ind i højlandet", "Menuju dataran tinggi"],
+          ["02 · Nordbali", "02 · Bali Utara"], ["Efter Sanur", "Setelah Sanur"], ["Vandfald · bjergluft · natur", "Air terjun · udara pegunungan · alam"],
+          ["Vi kører op i de køligere bjerge, hvor vandfald og grønne stier venter. Homestayen bliver vores base i Munduk.", "Kita menuju pegunungan yang lebih sejuk, dengan air terjun dan jalur hijau. Homestay ini menjadi tempat menginap kita di Munduk."],
+          ["3 nætter", "3 malam"], ["Fra bjergene til østkysten", "Dari pegunungan ke pantai timur"], ["03 · Østbali", "03 · Bali Timur"], ["Efter Munduk", "Setelah Munduk"],
+          ["Kystliv · snorkling · ro", "Suasana pantai · snorkeling · santai"], ["En lille kystby med havet tæt på og udsigt mod Mount Agung. Her er der tid til snorkling, strand og afslapning.", "Kota pesisir kecil dekat laut dengan pemandangan Gunung Agung. Nikmati waktu untuk snorkeling, pantai, dan bersantai."],
+          ["4 nætter", "4 malam"], ["Ind mod Balis grønne hjerte", "Menuju jantung hijau Bali"], ["04 · Centrale Bali", "04 · Bali Tengah"], ["Efter Amed", "Setelah Amed"],
+          ["Rismarker · jungle · kultur", "Sawah · hutan tropis · budaya"], ["På øen igen — denne gang blandt grønne rismarker, små butikker og junglestier. Måske bliver der også tid til rafting eller en god gang shopping.", "Kembali ke Bali, kali ini di antara sawah hijau, toko-toko kecil, dan jalur hutan. Mungkin ada waktu untuk arung jeram atau berbelanja."],
+          ["3–4 nætter", "3–4 malam"], ["Båden kalder fra Padang Bai", "Perahu menunggu di Padang Bai"], ["05 · Gili-øerne", "05 · Kepulauan Gili"], ["Efter Ubud", "Setelah Ubud"],
+          ["Barfodsliv · hav · ø-dage", "Tanpa alas kaki · laut · hari-hari di pulau"], ["Ingen biler, turkisblåt vand og plads til at tage dagene, som de kommer. Vi sejler fra Padang Bai og finder vores egen lille rytme på Gili Air.", "Tanpa mobil, air biru kehijauan, dan hari-hari yang berjalan santai. Kita berlayar dari Padang Bai dan menikmati ritme sendiri di Gili Air."],
+          ["5–6 nætter", "5–6 malam"], ["Tilbage med båd til Bali", "Kembali ke Bali dengan perahu"], ["06 · Sidste stop", "06 · Persinggahan terakhir"], ["Før hjemrejsen", "Sebelum pulang"],
+          ["En sidste aften sammen", "Malam terakhir bersama"], ["Vi runder af i Sanur med en sidste nat på Bali Wirasana, lidt ekstra tid til en gåtur eller et sidste kig i butikkerne.", "Kita mengakhiri perjalanan di Sanur dengan satu malam terakhir di Bali Wirasana, serta waktu untuk berjalan-jalan atau berbelanja."],
+          ["1 nat", "1 malam"], ["22. juli 2027 · Hjemad", "22 Juli 2027 · Pulang"], ["Vi ses, Bali.", "Sampai jumpa, Bali."],
+          ["Fra Denpasar mod København — med en masse gode dage i bagagen. Forventet landing i CPH kl. 19.00.", "Dari Denpasar menuju Kopenhagen, membawa banyak kenangan indah. Diperkirakan tiba di CPH pukul 19.00."],
+          ["Billederne er fra Wikimedia Commons og Flickr; fotograf og licens er angivet ved hvert billede. Billederne viser destinationerne, ikke nødvendigvis de konkrete hoteller.", "Foto berasal dari Wikimedia Commons dan Flickr; nama fotografer dan lisensi dicantumkan pada setiap foto. Foto menampilkan destinasi, belum tentu hotel yang dipesan."],
+          ["Tilbage til rejsen", "Kembali ke perjalanan"], ["Bisgaard-Klanen · Bali 2027", "Bisgaard-Klanen · Bali 2027"], ["Rejseoverblik", "Ringkasan perjalanan"],
+          ["En praktisk oversigt over fly, overnatninger og båd. Flytiderne er lokale tider, og bookingreferencen er samlet her.", "Ringkasan praktis penerbangan, penginapan, dan perahu. Semua waktu penerbangan adalah waktu setempat; detail pemesanan ada di konfirmasi."],
+          ["Fly", "Penerbangan"], ["Udrejse · ben 1", "Pergi · penerbangan 1"], ["København (CPH) → Shanghai (PVG)", "Kopenhagen (CPH) → Shanghai (PVG)"],
+          ["Flyselskab · flynummer", "Maskapai · nomor penerbangan"], ["Afgang · ankomst", "Berangkat · tiba"], ["Flyvetid", "Durasi penerbangan"], ["Bookingreference", "Referensi pemesanan"],
+          ["Se bookingbekræftelsen", "Lihat konfirmasi pemesanan"], ["Mellemlanding i Shanghai · 4 t 55 min", "Transit di Shanghai · 4 jam 55 menit"],
+          ["Udrejse · ben 2", "Pergi · penerbangan 2"], ["Shanghai (PVG) → Denpasar (DPS)", "Shanghai (PVG) → Denpasar (DPS)"],
+          ["Hjemrejse · ben 1", "Pulang · penerbangan 1"], ["Denpasar (DPS) → Shanghai (PVG)", "Denpasar (DPS) → Shanghai (PVG)"],
+          ["Mellemlanding i Shanghai", "Transit di Shanghai"], ["Hjemrejse · ben 2", "Pulang · penerbangan 2"], ["Shanghai (PVG) → København (CPH)", "Shanghai (PVG) → Kopenhagen (CPH)"],
+          ["Bådture", "Perjalanan perahu"], ["Til Gili-øerne", "Menuju Kepulauan Gili"], ["Efter Ubud", "Setelah Ubud"], ["Dato tilføjes", "Tanggal akan ditambahkan"],
+          ["Bådselskab / booking", "Operator perahu / pemesanan"], ["Tilføjes", "Akan ditambahkan"], ["Tidspunkter tilføjes", "Waktu akan ditambahkan"],
+          ["Tilbage til Bali", "Kembali ke Bali"], ["Før sidste nat", "Sebelum malam terakhir"], ["Ankomsthavn / bådselskab", "Pelabuhan tiba / operator perahu"],
+          ["Overnatninger", "Penginapan"], ["6 ophold", "6 tempat menginap"], ["Sanur · første stop", "Sanur · persinggahan pertama"], ["Hotel tilføjes", "Hotel akan ditambahkan"],
+          ["Datoer tilføjes", "Tanggal akan ditambahkan"], ["Booking / bekræftelse", "Pemesanan / konfirmasi"], ["Adresse / kontakt", "Alamat / kontak"],
+          ["Sanur · sidste stop", "Sanur · persinggahan terakhir"], ["Sanur, igen", "Sanur, sekali lagi"], ["Rejsen", "Perjalanan"], ["Overblik", "Ringkasan"],
+          ["juli", "Juli"], ["kl.", "pukul"], ["min", "menit"], ["nætter", "malam"], ["nat", "malam"],
+          ["Morgen på strandpromenaden", "Pagi di jalur tepi pantai"], ["Snorkling over revet", "Snorkeling di atas terumbu"], ["En frokost på et lokalt warung", "Makan siang di warung lokal"],
+          ["Munduks vandfald", "Air terjun Munduk"], ["Tvillingesøerne fra højderne", "Danau kembar dari atas"], ["Kaffeoplevelse i højlandet", "Menikmati kopi di dataran tinggi"],
+          ["Jemeluk-bugtens undervandsliv", "Kehidupan bawah laut Teluk Jemeluk"], ["Se Ameds traditionelle saltbønder", "Melihat petani garam tradisional Amed"], ["Solnedgang over Amed", "Matahari terbenam di Amed"],
+          ["ATV-tur gennem landskabet", "Tur ATV melintasi alam"], ["River rafting på Ayung-floden", "Arung jeram di Sungai Ayung"], ["Jeep-tur til Mount Batur", "Tur jip ke Gunung Batur"],
+          ["Rismarker ved Tegallalang", "Sawah Tegallalang"], ["En dag på en dayclub", "Sehari di dayclub"], ["Snorkeltur over koralrevet", "Tur snorkeling di atas terumbu karang"],
+          ["En langsom dag ved stranden", "Hari santai di pantai"], ["Aften mod Lombok", "Senja menghadap Lombok"],
+          ["1.–22. juli 2027", "1–22 Juli 2027"], ["1.–2. juli 2027", "1–2 Juli 2027"], ["2. juli 2027", "2 Juli 2027"], ["22. juli 2027", "22 Juli 2027"],
+          ["1. juli kl. 21:00 → 2. juli kl. 13:15", "1 Juli pukul 21.00 → 2 Juli pukul 13.15"], ["2. juli kl. 18:10 → 23:55", "2 Juli pukul 18.10 → 23.55"],
+          ["22. juli kl. 00:55 → 08:00", "22 Juli pukul 00.55 → 08.00"], ["22. juli kl. 13:15 → 19:00", "22 Juli pukul 13.15 → 19.00"],
+          ["10 t 15 min", "10 jam 15 menit"], ["5 t 45 min", "5 jam 45 menit"], ["7 t 5 min", "7 jam 5 menit"], ["11 t 45 min", "11 jam 45 menit"],
+          ["5 t 15 min", "5 jam 15 menit"], ["2 nætter", "2 malam"], ["4 nætter", "4 malam"], ["3–4 nætter", "3–4 malam"], ["5–6 nætter", "5–6 malam"], ["1 nat", "1 malam"],
+          ["Morgenlys og fiskerbåde ved Sanur-stranden på Bali", "Cahaya pagi dan perahu nelayan di Pantai Sanur, Bali"],
+          ["Tutub-vandfaldet i Munduk på Bali", "Air terjun Tutub di Munduk, Bali"],
+          ["Solnedgang over havet ved Amed på Balis nordøstkyst", "Matahari terbenam di Amed, pesisir timur laut Bali"],
+          ["Terrasserede rismarker ved Tegallalang tæt på Ubud", "Sawah bertingkat Tegallalang dekat Ubud"],
+          ["Stranden på Gili Air med udsigt mod Lombok", "Pantai Gili Air dengan pemandangan Lombok"],
+          ["Solopgang over Balis strand", "Matahari terbit di pantai Bali"],
+          ["Fiskerbåde og morgenlys ved Sanur-stranden", "Perahu nelayan dan cahaya pagi di Pantai Sanur"],
+          ["Tutub-vandfaldet i Munduks grønne højland", "Air terjun Tutub di dataran tinggi hijau Munduk"],
+          ["Aftensol over havet ved Amed", "Matahari senja di atas laut Amed"],
+          ["Grønne risterrasser ved Tegallalang", "Sawah hijau bertingkat di Tegallalang"],
+          ["Strand og klart vand ved Gili Air", "Pantai dan air jernih di Gili Air"],
+          ["Rafting på Ayung-floden ved Ubud", "Arung jeram di Sungai Ayung dekat Ubud"],
+          ["En ATV kører gennem en tropisk sti", "ATV melaju di jalur tropis"],
+          ["Solopgang over Mount Batur og skyerne under vulkanen", "Matahari terbit di atas Gunung Batur dan awan di bawahnya"],
+          ["Infinity-pool omgivet af tropisk grønt ved Ubud", "Kolam infinity di tengah kehijauan tropis Ubud"],
+          ["En af Munduks tvillingesøer omgivet af grønne bjerge", "Salah satu danau kembar Munduk yang dikelilingi pegunungan hijau"],
+          ["Kaffe bliver brygget på Munduk Moding Plantation", "Kopi diseduh di Munduk Moding Plantation"],
+          ["Klart vand og rev langs Ameds kyst", "Air jernih dan terumbu di pesisir Amed"],
+          ["Traditionelle saltbede ved Ameds kyst", "Tambak garam tradisional di pesisir Amed"],
+          ["En snorkler svømmer over et lavt koralrev", "Seseorang snorkeling di atas terumbu karang dangkal"],
+          ["Et lille lokalt balinesisk warung med nasi goreng på menuen", "Warung kecil lokal di Bali yang menyajikan nasi goreng"],
+          ["En snorkler svømmer over et koralrev ved Gili-øerne", "Seseorang snorkeling di atas terumbu karang Kepulauan Gili"],
+          ["Solnedgang over havet fra Gili Air", "Matahari terbenam di atas laut dari Gili Air"],
+          ["Solopgang over en balinesisk strand", "Matahari terbit di pantai Bali"]
+        ]),
+        attrs: { "Se aktiviteter i Sanur": "Lihat kegiatan di Sanur", "Se aktiviteter i Munduk": "Lihat kegiatan di Munduk", "Se aktiviteter i Amed": "Lihat kegiatan di Amed", "Se aktiviteter i Ubud": "Lihat kegiatan di Ubud", "Se aktiviteter på Gili Air": "Lihat kegiatan di Gili Air" },
+        destinations: {
+          sanur: { chapter: "Bali · persinggahan pertama dan terakhir", stay: "2 malam saat tiba · 1 malam terakhir sebelum pulang", intro: "Tempat yang tenang untuk beristirahat setelah penerbangan dan menikmati malam terakhir di tepi laut sebelum pulang.", activities: [
+            ["Di tepi laut", "Pagi di jalur tepi pantai", "Berjalan kaki atau bersepeda di jalur tepi pantai bebas mobil saat perahu nelayan kembali dan hari mulai cerah."],
+            ["Laut dan snorkeling", "Snorkeling di atas terumbu", "Ikuti tur snorkeling santai di atas terumbu dangkal dan tanyakan kondisi arus serta jarak pandang setempat."],
+            ["Kuliner Bali", "Makan siang di warung lokal", "Coba nasi goreng atau hidangan khas Bali lainnya di warung kecil setempat."]
+          ]},
+          munduk: { chapter: "Bali Utara · udara pegunungan dan air terjun", stay: "3 malam · Bali Rahayu Homestay", intro: "Munduk menawarkan udara sejuk, lereng hijau, dan air terjun — suasana yang berbeda dari pantai.", activities: [
+            ["Jalan kaki", "Air terjun Munduk", "Ikuti jalur melewati hutan dan desa kecil menuju air terjun. Gunakan sepatu yang nyaman karena jalurnya bisa curam dan licin."],
+            ["Pemandangan", "Danau kembar dari atas", "Kunjungi titik pandang Danau Buyan dan Tamblingan untuk menikmati pemandangan pegunungan."],
+            ["Cita rasa lokal", "Menikmati kopi di dataran tinggi", "Kunjungi kebun kopi setempat dan lihat bagaimana biji kopi dipanggang dan diseduh di dataran tinggi Munduk."]
+          ]},
+          amed: { chapter: "Bali Timur · pantai dan terumbu karang", stay: "4 malam · Amed Paradise Beach", intro: "Hari-hari di Amed berjalan santai, dengan snorkeling dari pantai, pasir vulkanik gelap, dan pemandangan Gunung Agung.", activities: [
+            ["Snorkeling", "Kehidupan bawah laut Teluk Jemeluk", "Snorkeling di teluk yang terlindung, tempat terumbu dan ikan warna-warni dekat dengan pantai. Gunakan tabir surya yang aman bagi terumbu."],
+            ["Budaya lokal", "Melihat petani garam tradisional Amed", "Kunjungi tambak garam di pesisir tempat air laut dijemur menjadi garam laut buatan tangan."],
+            ["Senja di tepi laut", "Matahari terbenam di Amed", "Cari tempat di tepi air dan nikmati cahaya senja di desa nelayan dan sepanjang pantai."]
+          ]},
+          ubud: { chapter: "Bali Tengah · hutan tropis dan budaya", stay: "3–4 malam · Swasti Eco Cottages", intro: "Ubud memadukan alam hijau dan petualangan di darat maupun air. Lima ide untuk hari yang aktif dan santai.", activities: [
+            ["Petualangan", "Tur ATV melintasi alam", "Ikuti tur berpemandu melalui jalur kecil di antara sawah dan hutan. Periksa perlengkapan keselamatan, rute, dan batas usia."],
+            ["Di sungai", "Arung jeram di Sungai Ayung", "Susuri lembah hijau dan air terjun kecil dengan perahu karet berpemandu. Pilih rute sesuai keluarga dan kondisi air."],
+            ["Matahari terbit", "Tur jip ke Gunung Batur", "Berangkat sebelum fajar menuju titik pandang gunung berapi dan nikmati matahari terbit dari kendaraan 4x4."],
+            ["Pemandangan", "Sawah Tegallalang", "Berjalan di antara sawah bertingkat dan luangkan waktu untuk menikmati pemandangan serta jalur kecil."],
+            ["Bersantai", "Sehari di dayclub", "Nikmati hari santai di kolam renang dengan makanan dan pemandangan hijau. Periksa tiket masuk, minimum pembelian, dan reservasi terlebih dahulu."]
+          ]},
+          "gili-air": { chapter: "Kepulauan Gili · laut dan hidup santai", stay: "5–6 malam · Biba Beach Village", intro: "Di Gili Air suasananya santai, tanpa mobil, dan laut selalu dekat. Sisakan waktu untuk pantai dan hari-hari spontan.", activities: [
+            ["Snorkeling", "Tur snorkeling di atas terumbu karang", "Ikuti tur snorkeling berpemandu di sekitar pulau atau masuk ke air dari pantai yang tenang. Jaga jarak dari terumbu dan satwa laut."],
+            ["Suasana pulau", "Hari santai di pantai", "Temukan tempat tenang di tepi air dan nikmati berenang serta suasana pulau yang santai."],
+            ["Matahari terbenam", "Senja menghadap Lombok", "Cari tempat di pantai barat dan saksikan matahari terbenam di balik Lombok dari bar pantai atau pasir."]
+          ]}
+        }
+      }
+    };
+    let currentLanguage = "da";
+    const sourceTextNodes = [];
+    const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    while (textWalker.nextNode()) {
+      const node = textWalker.currentNode;
+      const parentTag = node.parentElement?.tagName;
+      if (node.textContent.trim() && parentTag !== "SCRIPT" && parentTag !== "STYLE") {
+        sourceTextNodes.push({ node, original: node.textContent });
+      }
+    }
+
+    function translateText(text) {
+      const dictionary = translations[currentLanguage]?.static;
+      return dictionary?.[text] ?? dictionary?.[text.replace(/\s+/g, " ")] ?? text;
+    }
+
+    function applyLanguage(language) {
+      currentLanguage = translations[language] ? language : "da";
+      const messages = translations[currentLanguage];
+      sourceTextNodes.forEach(({ node, original }) => {
+        const leading = original.match(/^\s*/)?.[0] ?? "";
+        const trailing = original.match(/\s*$/)?.[0] ?? "";
+        const source = original.trim();
+        const normalized = source.replace(/\s+/g, " ");
+        node.textContent = `${leading}${messages?.static[source] ?? messages?.static[normalized] ?? source}${trailing}`;
+      });
+      document.documentElement.lang = currentLanguage;
+      languageSelect.value = currentLanguage;
+      languageSelect.setAttribute("aria-label", messages?.static["Vælg sprog"] ?? "Vælg sprog");
+      languageLabel.textContent = messages?.static.Sprog ?? "Sprog";
+      document.querySelectorAll("[data-destination]").forEach((button) => {
+        button.dataset.originalAriaLabel ??= button.getAttribute("aria-label");
+        button.setAttribute("aria-label", messages?.attrs[button.dataset.originalAriaLabel] ?? button.dataset.originalAriaLabel);
+      });
+      document.querySelectorAll("#journey-panel img[alt]").forEach((image) => {
+        image.dataset.originalAlt ??= image.alt;
+        image.alt = translateText(image.dataset.originalAlt);
+      });
+      updateDocumentTitle();
+      if (!destinationPanel.hidden) {
+        const destinationId = location.hash.match(/^#destination\/([a-z-]+)$/)?.[1];
+        if (destinationId) renderDestination(destinationId);
+      }
+    }
+
+    function updateDocumentTitle() {
+      const destinationId = location.hash.match(/^#destination\/([a-z-]+)$/)?.[1];
+      const destinationName = destinationId && destinations[destinationId]?.name;
+      document.title = destinationName
+        ? `${destinationName} · Bisgaard-Klanen`
+        : currentLanguage === "de" ? "Bisgaard-Klanen · Bali 2027"
+          : currentLanguage === "id" ? "Bisgaard-Klanen · Bali 2027" : "Bisgaard-Klanen · Bali 2027";
+    }
+
+    languageSelect.addEventListener("change", () => {
+      try {
+        localStorage.setItem("bisgaard-language", languageSelect.value);
+      } catch (error) {
+        console.warn("Language preference could not be saved.", error);
+      }
+      applyLanguage(languageSelect.value);
+    });
+
+    try {
+      const savedLanguage = localStorage.getItem("bisgaard-language");
+      if (savedLanguage && translations[savedLanguage]) currentLanguage = savedLanguage;
+    } catch (error) {
+      console.warn("Saved language preference could not be read.", error);
+    }
+
+    const photoCredits = {
+      sanur: {
+        src: "./images/sanur.jpg",
+        alt: "Fiskerbåde og morgenlys ved Sanur-stranden",
+        url: "https://commons.wikimedia.org/wiki/File:Morning_in_Sanur_Beach,_Bali.jpg",
+        credit: "Danangtrihartanto · CC BY-SA 4.0"
+      },
+      munduk: {
+        src: "./images/munduk.jpg",
+        alt: "Tutub-vandfaldet i Munduks grønne højland",
+        url: "https://commons.wikimedia.org/wiki/File:Munduk_Tutub_Waterfall_SF0001.jpg",
+        credit: "Stefan Fussan · CC BY-SA 3.0"
+      },
+      amed: {
+        src: "./images/amed.jpg",
+        alt: "Aftensol over havet ved Amed",
+        url: "https://commons.wikimedia.org/wiki/File:Last_Light_(133657895).jpeg",
+        credit: "Arnas Goldberg · CC BY 3.0"
+      },
+      ubud: {
+        src: "./images/ubud.jpg",
+        alt: "Grønne risterrasser ved Tegallalang",
+        url: "https://commons.wikimedia.org/wiki/File:1_Tegalalang_rice_terrace_ubud_bali.jpg",
+        credit: "Chensiyuan · CC BY-SA 4.0"
+      },
+      gili: {
+        src: "./images/gili-air.jpg",
+        alt: "Strand og klart vand ved Gili Air",
+        url: "https://commons.wikimedia.org/wiki/File:20160316145630_-_Gili_Air_beach,_West_side,_towards_Lombok_(25736339441).jpg",
+        credit: "Felix Dance · CC BY 2.0"
+      },
+      rafting: {
+        src: "./images/ubud-rafting.jpg",
+        alt: "Rafting på Ayung-floden ved Ubud",
+        url: "https://commons.wikimedia.org/wiki/File:Ayung_River_Rafting_1,_Bali.jpg",
+        credit: "Yoshi Canopus · CC BY-SA 4.0"
+      },
+      atv: {
+        src: "./images/ubud-atv.jpg",
+        alt: "En ATV kører gennem en tropisk sti",
+        url: "https://commons.wikimedia.org/w/index.php?curid=149899494",
+        credit: "RienShin14 · CC BY 4.0"
+      },
+      batur: {
+        src: "./images/ubud-batur-sunrise.jpg",
+        alt: "Solopgang over Mount Batur og skyerne under vulkanen",
+        url: "https://www.flickr.com/photos/135673958@N05/21480083209",
+        credit: "TeddyBuddy44 · CC BY-SA 2.0"
+      },
+      pool: {
+        src: "./images/ubud-pool.jpg",
+        alt: "Infinity-pool omgivet af tropisk grønt ved Ubud",
+        url: "https://commons.wikimedia.org/wiki/File:Alila_Infinity_Pool_(HDR)_(1365818884).jpg",
+        credit: "Sean McGrath · CC BY 2.0"
+      },
+      lakes: {
+        src: "./images/munduk-lakes.jpg",
+        alt: "En af Munduks tvillingesøer omgivet af grønne bjerge",
+        url: "https://www.flickr.com/photos/7831824@N04/52462239386",
+        credit: "Bex.Walton · CC BY 2.0"
+      },
+      coffee: {
+        src: "./images/munduk-coffee.jpg",
+        alt: "Kaffe bliver brygget på Munduk Moding Plantation",
+        url: "https://www.flickr.com/photos/7831824@N04/52461724182",
+        credit: "Bex.Walton · CC BY 2.0"
+      },
+      "amed-snorkel": {
+        src: "./images/amed-snorkeling.jpg",
+        alt: "Klart vand og rev langs Ameds kyst",
+        url: "https://www.flickr.com/photos/69062568@N02/14360249512",
+        credit: "Tiomax80 · CC BY 2.0"
+      },
+      "amed-salt": {
+        src: "./images/amed-saltmaker.jpg",
+        alt: "Traditionelle saltbede ved Ameds kyst",
+        url: "https://commons.wikimedia.org/wiki/File:Amed_Traditional_Salt_Maker.jpg",
+        credit: "Surya Edy Gautama · CC BY-SA 4.0"
+      },
+      "sanur-snorkel": {
+        src: "./images/sanur-snorkeling.jpg",
+        alt: "En snorkler svømmer over et lavt koralrev",
+        url: "https://www.flickr.com/photos/24776236@N00/16182806045",
+        credit: "Mr. Pi · CC BY-NC-ND 2.0"
+      },
+      warung: {
+        src: "./images/bali-warung.jpg",
+        alt: "Et lille lokalt balinesisk warung med nasi goreng på menuen",
+        url: "https://www.flickr.com/photos/7744067@N03/3865924854",
+        credit: "Jos Dielis · CC BY 2.0"
+      },
+      "gili-snorkel": {
+        src: "./images/gili-turtle.jpg",
+        alt: "En snorkler svømmer over et koralrev ved Gili-øerne",
+        url: "https://www.flickr.com/photos/7470842@N04/33375855443",
+        credit: "Sitoo · CC BY-NC-ND 2.0"
+      },
+      "gili-sunset": {
+        src: "./images/gili-sunset.jpg",
+        alt: "Solnedgang over havet fra Gili Air",
+        url: "https://www.flickr.com/photos/38885123@N00/205215813",
+        credit: "((brian)) · CC BY 2.0"
+      },
+      sunrise: {
+        src: "./images/sanur-sunrise.jpg",
+        alt: "Solopgang over en balinesisk strand",
+        url: "https://commons.wikimedia.org/wiki/File:Sunrise_of_Bali_in_front_of_a_beach_1_(41046444475).jpg",
+        credit: "Liang SK · CC BY-SA 2.0"
+      }
+    };
+    const destinations = {
+      sanur: {
+        name: "Sanur",
+        chapter: "Bali · første og sidste stop",
+        stay: "2 nætter ved ankomst · 1 sidste nat før hjemrejsen",
+        photo: "sunrise",
+        intro: "Et roligt sted at lande efter flyveturen — og nyde den sidste aften ved havet, inden turen går hjem.",
+        activities: [
+          { type: "Langs vandet", title: "Morgen på strandpromenaden", description: "Gå eller lej cykler til en tur langs den bilfri strandpromenade, mens fiskerbådene vender hjem og dagen vågner.", photo: "sanur" },
+          { type: "Hav og snorkling", title: "Snorkling over revet", description: "Tag med på en rolig snorkeltur over det lave rev, og spørg lokalt til sigtbarhed og strømforhold.", photo: "sanur-snorkel" },
+          { type: "Smag på Bali", title: "En frokost på et lokalt warung", description: "Prøv nasi goreng eller andre balinesiske favoritter på et lille, lokalt spisested.", photo: "warung" }
+        ]
+      },
+      munduk: {
+        name: "Munduk",
+        chapter: "Nordbali · bjergluft og vandfald",
+        stay: "3 nætter · Bali Rahayu Homestay",
+        photo: "munduk",
+        intro: "Munduk byder på køligere luft, grønne bjergskråninger og vandfald — en oplagt kontrast til kystdagene.",
+        activities: [
+          { type: "Vandretur", title: "Munduks vandfald", description: "Følg stierne gennem skov og små landsbyer til områdets vandfald. Tag gode sko med; stierne kan være stejle og glatte.", photo: "munduk" },
+          { type: "Udsigt", title: "Tvillingesøerne fra højderne", description: "Kør til udsigtspunkterne over Buyan- og Tamblingan-søerne, og nyd tågen og bjerglandskabet fra oven.", photo: "lakes" },
+          { type: "Lokal smag", title: "Kaffeoplevelse i højlandet", description: "Besøg en lokal kaffeplantage, og se hvordan bønnerne bliver ristet og brygget i Munduks kølige højland.", photo: "coffee" }
+        ]
+      },
+      amed: {
+        name: "Amed",
+        chapter: "Østbali · kyst og koralrev",
+        stay: "4 nætter · Amed Paradise Beach",
+        photo: "amed",
+        intro: "I Amed går dagene i et roligere tempo med snorkling fra kysten, mørke lavastrande og udsigt mod Mount Agung.",
+        activities: [
+          { type: "Snorkling", title: "Jemeluk-bugtens undervandsliv", description: "Snorkl fra kysten i den beskyttede bugt, hvor koraller og farverige fisk ligger tæt på land. Brug revsikker solbeskyttelse.", photo: "amed-snorkel" },
+          { type: "Lokal kultur", title: "Se Ameds traditionelle saltbønder", description: "Kig forbi kystens saltbede, hvor havvand bliver til håndlavet havsalt i solen.", photo: "amed-salt" },
+          { type: "Aften ved havet", title: "Solnedgang over Amed", description: "Find en plads ved vandet, og se aftenlyset falde over fiskerlandsbyen og kysten.", photo: "amed" }
+        ]
+      },
+      ubud: {
+        name: "Ubud",
+        chapter: "Centrale Bali · jungle og kultur",
+        stay: "3–4 nætter · Swasti Eco Cottages",
+        photo: "ubud",
+        intro: "Ubud samler grønne landskaber og eventyr på land og vand. Her er fem idéer til dage med både fart, natur og afslapning.",
+        activities: [
+          { type: "Eventyr", title: "ATV-tur gennem landskabet", description: "Tag på en guidet tur ad små stier gennem rismarker og jungle. Sammenlign sikkerhedsudstyr, rute og alderskrav, når I vælger udbyder.", photo: "atv" },
+          { type: "På floden", title: "River rafting på Ayung-floden", description: "Sejl gennem grønne kløfter og forbi små vandfald på en guidet raftingtur. Vælg sværhedsgrad efter familiens ønsker og vandstand.", photo: "rafting" },
+          { type: "Solopgang", title: "Jeep-tur til Mount Batur", description: "Kør mod vulkanens udsigtspunkter før daggry, og oplev solopgangen over bjergene fra en firehjulstrækker.", photo: "batur" },
+          { type: "Landskab", title: "Rismarker ved Tegallalang", description: "Gå en tur gennem de terrasserede rismarker, og læg tid ind til at nyde udsigterne og de små stier i jeres eget tempo.", photo: "ubud" },
+          { type: "Afslapning", title: "En dag på en dayclub", description: "Sæt en langsom dag af ved en pool med mad og udsigt til det grønne. Tjek adgang, minimumsforbrug og reservation på forhånd.", photo: "pool" }
+        ]
+      },
+      "gili-air": {
+        name: "Gili Air",
+        chapter: "Gili-øerne · hav og barfodsliv",
+        stay: "5–6 nætter · Biba Beach Village",
+        photo: "gili",
+        intro: "På Gili Air er tempoet lavt, bilerne væk og havet altid tæt på. Lad plads i planen til strand og spontane ø-dage.",
+        activities: [
+          { type: "Snorkling", title: "Snorkeltur over koralrevet", description: "Tag på en guidet snorkeltur omkring øerne, eller find et roligt sted fra stranden. Hold god afstand til koraller og havdyr.", photo: "gili-snorkel" },
+          { type: "Ø-liv", title: "En langsom dag ved stranden", description: "Find jeres egen rolige plet ved vandet, og brug dagen på at bade og nyde øens afslappede tempo.", photo: "gili" },
+          { type: "Solnedgang", title: "Aften mod Lombok", description: "Find en plads på vestkysten, og se solen synke bag Lombok fra en strandbar eller direkte fra sandet.", photo: "gili-sunset" }
+        ]
+      }
+    };
+
+    function makeElement(tag, className, text) {
+      const element = document.createElement(tag);
+      if (className) element.className = className;
+      if (text) element.textContent = text;
+      return element;
+    }
+
+    function renderDestination(destinationId) {
+      const destination = destinations[destinationId];
+      if (!destination) {
+        console.error(`No destination details found for "${destinationId}".`);
+        return false;
+      }
+      const localized = translations[currentLanguage]?.destinations[destinationId];
+      const activities = destination.activities.map((activity, index) => ({
+        ...activity,
+        ...(localized?.activities[index] && {
+          type: localized.activities[index][0],
+          title: localized.activities[index][1],
+          description: localized.activities[index][2]
+        })
+      }));
+
+      destinationContent.replaceChildren();
+      const hero = makeElement("header", "destination-hero");
+      const heroImage = document.createElement("img");
+      heroImage.src = photoCredits[destination.photo].src;
+      heroImage.alt = translateText(photoCredits[destination.photo].alt);
+      heroImage.fetchPriority = "high";
+      hero.append(heroImage      );
+      const heroCopy = makeElement("div", "destination-hero-copy");
+      const title = makeElement("h1", "", destination.name);
+      title.id = "destination-title";
+      heroCopy.append(
+        makeElement("p", "section-kicker", localized?.chapter ?? destination.chapter),
+        title,
+        makeElement("p", "destination-stay", localized?.stay ?? destination.stay)
+      );
+      hero.append(heroCopy);
+
+      const intro = makeElement("header", "activity-intro");
+      const countLabel = currentLanguage === "de" ? "Ideen für den Aufenthalt"
+        : currentLanguage === "id" ? "ide kegiatan untuk menginap" : "idéer til opholdet";
+      intro.append(
+        makeElement("p", "section-kicker", `${activities.length} ${countLabel}`),
+        makeElement("h2", "", currentLanguage === "de" ? "Erlebnisse in der Nähe" : currentLanguage === "id" ? "Kegiatan di sekitar" : "Oplevelser i nærheden"),
+        makeElement("p", "", localized?.intro ?? destination.intro)
+      );
+      const list = makeElement("div", "activity-list");
+      activities.forEach((activity, index) => {
+        const photo = photoCredits[activity.photo];
+        const card = makeElement("article", "activity-card");
+        card.style.animationDelay = `${Math.min(index * 70, 280)}ms`;
+        const photoFrame = makeElement("div", "activity-photo");
+        const image = document.createElement("img");
+        image.src = photo.src;
+        image.alt = photo.alt;
+        image.loading = "lazy";
+        photoFrame.append(image);
+        const credit = makeElement("div", "activity-credit");
+        const creditLink = document.createElement("a");
+        creditLink.href = photo.url;
+        creditLink.target = "_blank";
+        creditLink.rel = "noreferrer";
+        creditLink.textContent = photo.credit;
+        credit.append(creditLink);
+        photoFrame.append(credit);
+        const copy = makeElement("div", "activity-copy");
+        copy.append(
+          makeElement("p", "activity-type", activity.type),
+          makeElement("h3", "", activity.title),
+          makeElement("p", "", activity.description)
+        );
+        card.append(photoFrame, copy);
+        list.append(card);
+      });
+      destinationContent.append(hero, intro, list);
+      return true;
+    }
+
+    function showSelectedPanel() {
+      destinationPanel.hidden = true;
+      tabbar.hidden = false;
+      panels.forEach((panel, index) => {
+        panel.hidden = tabs[index].getAttribute("aria-selected") !== "true";
+      });
+      document.title = "Bisgaard-Klanen · Bali 2027";
+    }
+
+    function openDestination(destinationId, updateHistory = true) {
+      if (!renderDestination(destinationId)) return;
+      panels.forEach((panel) => { panel.hidden = true; });
+      destinationPanel.hidden = false;
+      tabbar.hidden = true;
+      document.title = `${destinations[destinationId].name} · Bisgaard-Klanen`;
+      if (updateHistory) history.pushState({ destinationId }, "", `#destination/${destinationId}`);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
     function selectTab(selectedTab) {
       tabs.forEach((tab, index) => {
@@ -602,6 +1298,9 @@
         tab.tabIndex = selected ? 0 : -1;
         panels[index].hidden = !selected;
       });
+      destinationPanel.hidden = true;
+      tabbar.hidden = false;
+      document.title = "Bisgaard-Klanen · Bali 2027";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
@@ -616,6 +1315,26 @@
         }
       });
     });
+
+    document.querySelectorAll("[data-destination]").forEach((button) => {
+      button.addEventListener("click", () => openDestination(button.dataset.destination));
+    });
+    document.getElementById("destination-back").addEventListener("click", () => {
+      if (history.state?.destinationId) {
+        history.back();
+      } else {
+        history.replaceState(null, "", `${location.pathname}${location.search}`);
+        showSelectedPanel();
+      }
+    });
+    window.addEventListener("popstate", () => {
+      const match = location.hash.match(/^#destination\/([a-z-]+)$/);
+      if (match) openDestination(match[1], false);
+      else showSelectedPanel();
+    });
+    const initialDestination = location.hash.match(/^#destination\/([a-z-]+)$/);
+    applyLanguage(currentLanguage);
+    if (initialDestination) openDestination(initialDestination[1], false);
 
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("./service-worker.js")

@@ -39,7 +39,7 @@ Copilot CLI can use the repository-scoped Playwright MCP server configured in `.
 The repository is intentionally simple and self-contained. Each itinerary page is independently usable:
 
 - `indonesia_itinerary_iphone.html` contains embedded CSS and the Indonesia `itinerary` JavaScript array; render helpers group flight, hotel, and boat entries by day and derive summary counts and trip dates.
-- `bisgaard_klanen_iphone.html` contains the Bisgaard-Klanen page's visual timeline, its separate practical overview tab, and CSS reveal animations. `manifest.webmanifest` and `service-worker.js` make this page installable and cache its page shell, icons, and destination photos for offline use; local photos under `images/` include nearby Wikimedia Commons author and license credits.
+- `bisgaard_klanen_iphone.html` contains the Bisgaard-Klanen page's Danish/German/Indonesian visual timeline, hash-addressable destination activity views, separate practical overview tab, and CSS reveal animations. `manifest.webmanifest` and `service-worker.js` make this page installable and cache its page shell, icons, and destination/activity photos for offline use; local photos under `images/` include nearby author and license credits.
 - The travel pages share a lightweight, iPhone-oriented visual style but are separate documents; keep each page's travel data and derived display in sync with its own source itinerary.
 
 Because each app is self-contained, its behavior and data model are maintained in its own HTML file rather than shared modules.
@@ -53,6 +53,7 @@ Because each app is self-contained, its behavior and data model are maintained i
 - Follow the established item taxonomy: `Flight`, `Hotel`, and `Boat` are the only route types used for styling and grouping.
 - When editing the itinerary, keep derived values aligned with the data model: day counts, trip dates, hero summary stats, and the countdown text should all reflect the same underlying records.
 - On the Bisgaard-Klanen page, keep the visual timeline and logistics-tab details consistent; use explicit dates only when the family plan confirms them, preserve unknown flight and boat details as placeholders, and retain image attribution links and license labels.
+- Keep each destination's activity suggestions and image credits together in `bisgaard_klanen_iphone.html`; choose photos that depict the activity or its named location, preserve browser back navigation, and add new local photos to the service-worker precache.
 - The Bisgaard-Klanen service worker revalidates the page and static assets with the network, refreshing their offline copies, and falls back to cached responses while offline. Add new offline assets to its precache list and increment the cache version when changing the app shell.
 - Keep edits surgical. This repo is intentionally compact; broad rewrites are unnecessary unless the user explicitly asks for a structural redesign.
 
