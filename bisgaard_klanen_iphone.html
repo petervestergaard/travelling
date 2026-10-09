@@ -403,6 +403,40 @@
     .meta-label { display: block; margin-bottom: 4px; color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
     .meta-value { font-size: 12px; }
     .placeholder { color: #8b948d; font-style: italic; }
+    .travel-todo {
+      margin: 0 0 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--card);
+    }
+    .travel-todo summary {
+      display: flex;
+      min-height: 58px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 15px;
+      cursor: pointer;
+      list-style: none;
+    }
+    .travel-todo summary::-webkit-details-marker { display: none; }
+    .todo-summary-copy { display: grid; gap: 3px; }
+    .todo-summary-copy strong { font-size: 13px; }
+    .todo-summary-copy small { color: var(--muted); font-size: 10px; }
+    .todo-chevron {
+      color: var(--green);
+      font-size: 21px;
+      line-height: 1;
+      transition: transform .2s ease;
+    }
+    .travel-todo[open] .todo-chevron { transform: rotate(45deg); }
+    .todo-items { border-top: 1px solid var(--line); }
+    .todo-item { padding: 13px 15px; }
+    .todo-item + .todo-item { border-top: 1px solid var(--line); }
+    .todo-item h3 { margin: 0; font-size: 12px; font-weight: 750; }
+    .todo-item p { margin: 6px 0 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
+    .todo-item a { display: inline-block; margin-top: 6px; color: var(--green); font-size: 11px; font-weight: 700; text-underline-offset: 2px; }
     .tabbar {
       position: fixed;
       z-index: 10;
@@ -633,6 +667,34 @@
           <p>En praktisk oversigt over fly, overnatninger og båd. Flytiderne er lokale tider, og bookingreferencen er samlet her.</p>
         </header>
 
+        <details class="travel-todo">
+          <summary>
+            <span class="todo-summary-copy"><strong>Todo før afrejse</strong><small>4 ting at huske inden Bali</small></span>
+            <span class="todo-chevron" aria-hidden="true">+</span>
+          </summary>
+          <div class="todo-items">
+            <article class="todo-item">
+              <h3>Pas</h3>
+              <p>Passene skal være gyldige i mindst seks måneder på indrejsedatoen til Indonesien.</p>
+            </article>
+            <article class="todo-item">
+              <h3>Visum (e-VOA)</h3>
+              <p>Visum til danske statsborgere gælder i 30 dage. Tidligste ansøgningsdato er 25. juni 2027.</p>
+              <a href="https://evisa.imigrasi.go.id/" target="_blank" rel="noopener noreferrer">Åbn officiel visumportal</a>
+            </article>
+            <article class="todo-item">
+              <h3>Balis turistafgift</h3>
+              <p>Betal Balis turistafgift før ankomst. Det er praktisk at betale hjemmefra inden afrejse og gemme kvitteringen.</p>
+              <a href="https://lovebali.baliprov.go.id/" target="_blank" rel="noopener noreferrer">Åbn officiel betalingsside</a>
+            </article>
+            <article class="todo-item">
+              <h3>Digitalt ankomstkort</h3>
+              <p>Udfyld All Indonesia-ankomstkortet tidligst 3 dage før ankomst. I ankommer til Bali 2. juli 2027, så udfyld det fra 29. juni.</p>
+              <a href="https://allindonesia.imigrasi.go.id/" target="_blank" rel="noopener noreferrer">Åbn officielt ankomstkort</a>
+            </article>
+          </div>
+        </details>
+
         <section class="detail-group" aria-labelledby="flights-heading">
           <div class="group-heading"><h3 id="flights-heading">Fly</h3><span>CPH · Shanghai · DPS</span></div>
           <article class="logistics-card">
@@ -761,6 +823,13 @@
           ["Billederne er fra Wikimedia Commons og Flickr; fotograf og licens er angivet ved hvert billede. Billederne viser destinationerne, ikke nødvendigvis de konkrete hoteller.", "Die Fotos stammen von Wikimedia Commons und Flickr; Fotograf und Lizenz sind jeweils angegeben. Sie zeigen die Reiseziele, nicht unbedingt die gebuchten Hotels."],
           ["Tilbage til rejsen", "Zurück zur Reise"], ["Bisgaard-Klanen · Bali 2027", "Bisgaard-Klanen · Bali 2027"], ["Rejseoverblik", "Reiseübersicht"],
           ["En praktisk oversigt over fly, overnatninger og båd. Flytiderne er lokale tider, og bookingreferencen er samlet her.", "Eine praktische Übersicht zu Flügen, Unterkünften und Booten. Alle Flugzeiten sind Ortszeiten; Buchungsangaben stehen in der Bestätigung."],
+          ["Todo før afrejse", "Vor der Reise"], ["4 ting at huske inden Bali", "4 Dinge, die vor Bali zu erledigen sind"], ["Pas", "Reisepässe"],
+          ["Passene skal være gyldige i mindst seks måneder på indrejsedatoen til Indonesien.", "Die Reisepässe müssen bei der Einreise nach Indonesien noch mindestens sechs Monate gültig sein."],
+          ["Visum (e-VOA)", "Visum (e-VOA)"], ["Visum til danske statsborgere gælder i 30 dage. Tidligste ansøgningsdato er 25. juni 2027.", "Das Visum für dänische Staatsangehörige gilt 30 Tage. Der früheste Antragstermin ist der 25. Juni 2027."],
+          ["Åbn officiel visumportal", "Offizielles Visumportal öffnen"], ["Balis turistafgift", "Balis Tourismusabgabe"], ["Betal Balis turistafgift før ankomst. Det er praktisk at betale hjemmefra inden afrejse og gemme kvitteringen.", "Zahlt Balis Tourismusabgabe vor der Ankunft. Am besten erledigt ihr die Zahlung vor der Abreise und bewahrt die Bestätigung auf."],
+          ["Åbn officiel betalingsside", "Offizielle Zahlungsseite öffnen"], ["Digitalt ankomstkort", "Digitale Einreisekarte"],
+          ["Udfyld All Indonesia-ankomstkortet tidligst 3 dage før ankomst. I ankommer til Bali 2. juli 2027, så udfyld det fra 29. juni.", "Füllt die All-Indonesia-Einreisekarte frühestens 3 Tage vor der Ankunft aus. Ihr kommt am 2. Juli 2027 in Bali an; das Formular kann also ab dem 29. Juni ausgefüllt werden."],
+          ["Åbn officielt ankomstkort", "Offizielle Einreisekarte öffnen"],
           ["Fly", "Flüge"], ["Udrejse · ben 1", "Hinreise · Flug 1"], ["København (CPH) → Shanghai (PVG)", "Kopenhagen (CPH) → Shanghai (PVG)"],
           ["Flyselskab · flynummer", "Fluggesellschaft · Flugnummer"], ["Afgang · ankomst", "Abflug · Ankunft"], ["Flyvetid", "Flugdauer"], ["Bookingreference", "Buchungsreferenz"],
           ["Se bookingbekræftelsen", "Siehe Buchungsbestätigung"], ["Mellemlanding i Shanghai · 4 t 55 min", "Zwischenstopp in Shanghai · 4 Std. 55 Min."],
@@ -866,6 +935,13 @@
           ["Billederne er fra Wikimedia Commons og Flickr; fotograf og licens er angivet ved hvert billede. Billederne viser destinationerne, ikke nødvendigvis de konkrete hoteller.", "Foto berasal dari Wikimedia Commons dan Flickr; nama fotografer dan lisensi dicantumkan pada setiap foto. Foto menampilkan destinasi, belum tentu hotel yang dipesan."],
           ["Tilbage til rejsen", "Kembali ke perjalanan"], ["Bisgaard-Klanen · Bali 2027", "Bisgaard-Klanen · Bali 2027"], ["Rejseoverblik", "Ringkasan perjalanan"],
           ["En praktisk oversigt over fly, overnatninger og båd. Flytiderne er lokale tider, og bookingreferencen er samlet her.", "Ringkasan praktis penerbangan, penginapan, dan perahu. Semua waktu penerbangan adalah waktu setempat; detail pemesanan ada di konfirmasi."],
+          ["Todo før afrejse", "Sebelum keberangkatan"], ["4 ting at huske inden Bali", "4 hal yang perlu disiapkan sebelum ke Bali"], ["Pas", "Paspor"],
+          ["Passene skal være gyldige i mindst seks måneder på indrejsedatoen til Indonesien.", "Paspor harus masih berlaku setidaknya enam bulan pada tanggal masuk ke Indonesia."],
+          ["Visum (e-VOA)", "Visa (e-VOA)"], ["Visum til danske statsborgere gælder i 30 dage. Tidligste ansøgningsdato er 25. juni 2027.", "Visa untuk warga negara Denmark berlaku selama 30 hari. Tanggal paling awal untuk mengajukan adalah 25 Juni 2027."],
+          ["Åbn officiel visumportal", "Buka portal visa resmi"], ["Balis turistafgift", "Pungutan wisata Bali"], ["Betal Balis turistafgift før ankomst. Det er praktisk at betale hjemmefra inden afrejse og gemme kvitteringen.", "Bayar pungutan wisata Bali sebelum tiba. Sebaiknya bayar dari rumah sebelum keberangkatan dan simpan bukti pembayarannya."],
+          ["Åbn officiel betalingsside", "Buka halaman pembayaran resmi"], ["Digitalt ankomstkort", "Kartu kedatangan digital"],
+          ["Udfyld All Indonesia-ankomstkortet tidligst 3 dage før ankomst. I ankommer til Bali 2. juli 2027, så udfyld det fra 29. juni.", "Isi kartu kedatangan All Indonesia paling awal 3 hari sebelum tiba. Kalian tiba di Bali pada 2 Juli 2027, jadi formulir dapat diisi mulai 29 Juni."],
+          ["Åbn officielt ankomstkort", "Buka kartu kedatangan resmi"],
           ["Fly", "Penerbangan"], ["Udrejse · ben 1", "Pergi · penerbangan 1"], ["København (CPH) → Shanghai (PVG)", "Kopenhagen (CPH) → Shanghai (PVG)"],
           ["Flyselskab · flynummer", "Maskapai · nomor penerbangan"], ["Afgang · ankomst", "Berangkat · tiba"], ["Flyvetid", "Durasi penerbangan"], ["Bookingreference", "Referensi pemesanan"],
           ["Se bookingbekræftelsen", "Lihat konfirmasi pemesanan"], ["Mellemlanding i Shanghai · 4 t 55 min", "Transit di Shanghai · 4 jam 55 menit"],
