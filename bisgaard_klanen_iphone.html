@@ -375,6 +375,16 @@
       padding-bottom: 10px;
       border-bottom: 1px solid var(--line);
     }
+    .detail-group > summary { cursor: pointer; list-style: none; }
+    .detail-group > summary::-webkit-details-marker { display: none; }
+    .detail-group > summary::after {
+      color: var(--green);
+      content: "+";
+      font-size: 17px;
+      line-height: 1;
+      transition: transform .2s ease;
+    }
+    .detail-group[open] > summary::after { transform: rotate(45deg); }
     .group-heading h3 { margin: 0; font-size: 11px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
     .group-heading span { color: var(--muted); font-size: 10px; }
     .logistics-card {
@@ -697,8 +707,8 @@
           </div>
         </details>
 
-        <section class="detail-group" aria-labelledby="flights-heading">
-          <div class="group-heading"><h3 id="flights-heading">Fly</h3><span>CPH · Shanghai · DPS</span></div>
+        <details class="detail-group" name="overview-group">
+          <summary class="group-heading"><h3 id="flights-heading">Fly</h3><span>CPH · Shanghai · DPS</span></summary>
           <article class="logistics-card">
             <div class="logistics-top"><div><div class="logistics-kind">Udrejse · ben 1</div><h4 class="logistics-title">København (CPH) → Shanghai (PVG)</h4></div><div class="logistics-date">1.–2. juli 2027<br />Terminal 2 → 1</div></div>
             <div class="logistics-meta">
@@ -737,10 +747,10 @@
               <div><span class="meta-label">Bookingreference</span><span class="meta-value">Se bookingbekræftelsen</span></div>
             </div>
           </article>
-        </section>
+        </details>
 
-        <section class="detail-group" aria-labelledby="boats-heading">
-          <div class="group-heading"><h3 id="boats-heading">Bådture</h3><span>Padang Bai · Gili Air</span></div>
+        <details class="detail-group" name="overview-group">
+          <summary class="group-heading"><h3 id="boats-heading">Bådture</h3><span>Padang Bai · Gili Air</span></summary>
           <article class="logistics-card">
             <div class="logistics-top"><div><div class="logistics-kind">Til Gili-øerne</div><h4 class="logistics-title">Padang Bai → Gili Air</h4></div><div class="logistics-date">Efter Ubud<br />Dato tilføjes</div></div>
             <div class="logistics-meta"><div><span class="meta-label">Bådselskab / booking</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Afgang · ankomst</span><span class="meta-value placeholder">Tidspunkter tilføjes</span></div></div>
@@ -749,10 +759,10 @@
             <div class="logistics-top"><div><div class="logistics-kind">Tilbage til Bali</div><h4 class="logistics-title">Gili Air → Bali</h4></div><div class="logistics-date">Før sidste nat<br />Dato tilføjes</div></div>
             <div class="logistics-meta"><div><span class="meta-label">Ankomsthavn / bådselskab</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Afgang · ankomst</span><span class="meta-value placeholder">Tidspunkter tilføjes</span></div></div>
           </article>
-        </section>
+        </details>
 
-        <section class="detail-group" aria-labelledby="stays-heading">
-          <div class="group-heading"><h3 id="stays-heading">Overnatninger</h3><span>6 ophold</span></div>
+        <details class="detail-group" name="overview-group">
+          <summary class="group-heading"><h3 id="stays-heading">Overnatninger</h3><span>6 ophold</span></summary>
           <article class="logistics-card">
             <div class="logistics-top"><div><div class="logistics-kind">Sanur · første stop</div><h4 class="logistics-title">Marine Bay Sanur</h4></div><div class="logistics-date">2 nætter<br />2.–4. juli 2027</div></div>
             <div class="logistics-meta"><div><span class="meta-label">Booket af</span><span class="meta-value">Carina</span></div><div><span class="meta-label">Adresse</span><span class="meta-value hotel-address">Jl. Hangtuah III No.3, Sanur, Denpasar Selatan, Kota Denpasar, Bali 80228, Indonesien</span></div></div>
@@ -777,7 +787,7 @@
             <div class="logistics-top"><div><div class="logistics-kind">Sanur · sidste stop</div><h4 class="logistics-title">Bali Wirasana</h4></div><div class="logistics-date">1 nat<br />20.–21. juli 2027</div></div>
             <div class="logistics-meta"><div><span class="meta-label">Booket af</span><span class="meta-value">Jens</span></div><div><span class="meta-label">Adresse</span><span class="meta-value hotel-address">Jl. Danau Tamblingan No.126, Sanur, Denpasar Selatan, Kota Denpasar, Bali 80228, Indonesien</span></div></div>
           </article>
-        </section>
+        </details>
       </section>
     </main>
 
