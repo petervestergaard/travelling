@@ -389,6 +389,7 @@
     .logistics-title { margin: 5px 0 0; font-family: var(--serif); font-size: 21px; font-weight: 400; }
     .logistics-date { color: var(--muted); font-size: 10px; text-align: right; }
     .logistics-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+    .logistics-meta > div { min-width: 0; }
     .connection-note {
       display: flex;
       justify-content: center;
@@ -402,6 +403,7 @@
     .connection-note::after { height: 1px; flex: 1; background: var(--line); content: ""; }
     .meta-label { display: block; margin-bottom: 4px; color: var(--muted); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
     .meta-value { font-size: 12px; }
+    .hotel-address { overflow-wrap: anywhere; }
     .placeholder { color: #8b948d; font-style: italic; }
     .travel-todo {
       margin: 0 0 24px;
@@ -544,8 +546,8 @@
               <div class="place-copy">
                 <p class="place-label">Første møde med Bali</p>
                 <h3>En blød landing ved havet</h3>
-                <p>Vi samler familien i Sanur og får de første rolige dage ved strandpromenaden. Hotelnavn mangler stadig i planen.</p>
-                <span class="stay-note">2 nætter · hotel tilføjes</span>
+                <p>Vi samler familien i Sanur på Marine Bay Sanur og får de første rolige dage ved strandpromenaden.</p>
+                <span class="stay-note">2 nætter · Marine Bay Sanur</span>
                 <button class="destination-link" type="button" data-destination="sanur" aria-label="Se aktiviteter i Sanur">Se oplevelsesforslag</button>
               </div>
             </div>
@@ -581,7 +583,7 @@
               </div>
               <div class="place-copy">
                 <p class="place-label">Kystliv · snorkling · ro</p>
-                <h3>Amed Paradise Beach</h3>
+                <h3>Amed Paradice Beach Club</h3>
                 <p>En lille kystby med havet tæt på og udsigt mod Mount Agung. Her er der tid til snorkling, strand og afslapning.</p>
                 <span class="stay-note">4 nætter</span>
                 <button class="destination-link" type="button" data-destination="amed" aria-label="Se aktiviteter i Amed">Se oplevelsesforslag</button>
@@ -602,7 +604,7 @@
                 <p class="place-label">Rismarker · jungle · kultur</p>
                 <h3>Swasti Eco Cottages</h3>
                 <p>På øen igen — denne gang blandt grønne rismarker, små butikker og junglestier. Måske bliver der også tid til rafting eller en god gang shopping.</p>
-                <span class="stay-note">3–4 nætter</span>
+                <span class="stay-note">3 nætter</span>
                 <button class="destination-link" type="button" data-destination="ubud" aria-label="Se aktiviteter i Ubud">Se oplevelsesforslag</button>
               </div>
             </div>
@@ -621,7 +623,7 @@
                 <p class="place-label">Barfodsliv · hav · ø-dage</p>
                 <h3>Biba Beach Village</h3>
                 <p>Ingen biler, turkisblåt vand og plads til at tage dagene, som de kommer. Vi sejler fra Padang Bai og finder vores egen lille rytme på Gili Air.</p>
-                <span class="stay-note">5–6 nætter</span>
+                <span class="stay-note">6 nætter</span>
                 <button class="destination-link" type="button" data-destination="gili-air" aria-label="Se aktiviteter på Gili Air">Se oplevelsesforslag</button>
               </div>
             </div>
@@ -752,28 +754,28 @@
         <section class="detail-group" aria-labelledby="stays-heading">
           <div class="group-heading"><h3 id="stays-heading">Overnatninger</h3><span>6 ophold</span></div>
           <article class="logistics-card">
-            <div class="logistics-top"><div><div class="logistics-kind">Sanur · første stop</div><h4 class="logistics-title">Hotel tilføjes</h4></div><div class="logistics-date">2 nætter<br />Datoer tilføjes</div></div>
-            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+            <div class="logistics-top"><div><div class="logistics-kind">Sanur · første stop</div><h4 class="logistics-title">Marine Bay Sanur</h4></div><div class="logistics-date">2 nætter<br />2.–4. juli 2027</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booket af</span><span class="meta-value">Carina</span></div><div><span class="meta-label">Adresse</span><span class="meta-value hotel-address">Jl. Hangtuah III No.3, Sanur, Denpasar Selatan, Kota Denpasar, Bali 80228, Indonesien</span></div></div>
           </article>
           <article class="logistics-card">
-            <div class="logistics-top"><div><div class="logistics-kind">Munduk</div><h4 class="logistics-title">Bali Rahayu Homestay</h4></div><div class="logistics-date">3 nætter<br />Datoer tilføjes</div></div>
-            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+            <div class="logistics-top"><div><div class="logistics-kind">Munduk</div><h4 class="logistics-title">Bali Rahayu Homestay</h4></div><div class="logistics-date">3 nætter<br />4.–7. juli 2027</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booket af</span><span class="meta-value">Camilla</span></div><div><span class="meta-label">Adresse</span><span class="meta-value hotel-address">Jl. Gesing, Kayuputih, Kec. Banjar, Kabupaten Buleleng, Bali 81152, Indonesien</span></div></div>
           </article>
           <article class="logistics-card">
-            <div class="logistics-top"><div><div class="logistics-kind">Amed</div><h4 class="logistics-title">Amed Paradise Beach</h4></div><div class="logistics-date">4 nætter<br />Datoer tilføjes</div></div>
-            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+            <div class="logistics-top"><div><div class="logistics-kind">Amed</div><h4 class="logistics-title">Amed Paradice Beach Club</h4></div><div class="logistics-date">4 nætter<br />7.–11. juli 2027</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booket af</span><span class="meta-value">Camilla</span></div><div><span class="meta-label">Adresse</span><span class="meta-value hotel-address">Amed, Purwakerti, Abang, Karangasem Regency, Bali 80852, Indonesien</span></div></div>
           </article>
           <article class="logistics-card">
-            <div class="logistics-top"><div><div class="logistics-kind">Ubud</div><h4 class="logistics-title">Swasti Eco Cottages</h4></div><div class="logistics-date">3–4 nætter<br />Datoer tilføjes</div></div>
-            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+            <div class="logistics-top"><div><div class="logistics-kind">Ubud</div><h4 class="logistics-title">Swasti Eco Cottages</h4></div><div class="logistics-date">3 nætter<br />11.–14. juli 2027</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booket af</span><span class="meta-value">Jens</span></div><div><span class="meta-label">Adresse</span><span class="meta-value hotel-address">Jl. Nyuh Bojog 3, Banjar, Jl. Nyuh Bojog, Mas, Kecamatan Ubud, Bali 80571, Indonesien</span></div></div>
           </article>
           <article class="logistics-card">
-            <div class="logistics-top"><div><div class="logistics-kind">Gili Air</div><h4 class="logistics-title">Biba Beach Village</h4></div><div class="logistics-date">5–6 nætter<br />Datoer tilføjes</div></div>
-            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+            <div class="logistics-top"><div><div class="logistics-kind">Gili Air</div><h4 class="logistics-title">Biba Beach Village</h4></div><div class="logistics-date">6 nætter<br />14.–20. juli 2027</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booket af</span><span class="meta-value">Carina</span></div><div><span class="meta-label">Adresse</span><span class="meta-value hotel-address">J3RP+8WR, Gili Air, Gili Indah, Kec. Pemenang, Kabupaten Lombok Utara, Nusa Tenggara Barat 83352, Indonesien</span></div></div>
           </article>
           <article class="logistics-card">
-            <div class="logistics-top"><div><div class="logistics-kind">Sanur · sidste stop</div><h4 class="logistics-title">Bali Wirasana</h4></div><div class="logistics-date">1 nat<br />Dato tilføjes</div></div>
-            <div class="logistics-meta"><div><span class="meta-label">Booking / bekræftelse</span><span class="meta-value placeholder">Tilføjes</span></div><div><span class="meta-label">Adresse / kontakt</span><span class="meta-value placeholder">Tilføjes</span></div></div>
+            <div class="logistics-top"><div><div class="logistics-kind">Sanur · sidste stop</div><h4 class="logistics-title">Bali Wirasana</h4></div><div class="logistics-date">1 nat<br />20.–21. juli 2027</div></div>
+            <div class="logistics-meta"><div><span class="meta-label">Booket af</span><span class="meta-value">Jens</span></div><div><span class="meta-label">Adresse</span><span class="meta-value hotel-address">Jl. Danau Tamblingan No.126, Sanur, Denpasar Selatan, Kota Denpasar, Bali 80228, Indonesien</span></div></div>
           </article>
         </section>
       </section>
@@ -806,17 +808,17 @@
           ["steder", "Orte"], ["på rejsen", "auf der Reise"], ["1.–2. juli · Af sted", "1.–2. Juli · Aufbruch"],
           ["Vi flyver fra København via Shanghai og lander i Denpasar sent om aftenen. Første stop: havluft og ro i Sanur.", "Wir fliegen von Kopenhagen über Shanghai und landen spät am Abend in Denpasar. Erster Halt: Meeresluft und Ruhe in Sanur."],
           ["01 · Bali", "01 · Bali"], ["Ankomst · 2. juli", "Ankunft · 2. Juli"], ["Første møde med Bali", "Die erste Begegnung mit Bali"],
-          ["En blød landing ved havet", "Sanft am Meer ankommen"], ["Vi samler familien i Sanur og får de første rolige dage ved strandpromenaden. Hotelnavn mangler stadig i planen.", "In Sanur kommt die Familie zusammen und genießt die ersten entspannten Tage an der Strandpromenade. Der Hotelname steht noch nicht fest."],
-          ["2 nætter · hotel tilføjes", "2 Nächte · Hotel wird ergänzt"], ["Se oplevelsesforslag", "Aktivitäten entdecken"], ["Videre ind i højlandet", "Weiter ins Hochland"],
+          ["En blød landing ved havet", "Sanft am Meer ankommen"], ["Vi samler familien i Sanur på Marine Bay Sanur og får de første rolige dage ved strandpromenaden.", "In Sanur kommt die Familie im Marine Bay Sanur zusammen und genießt die ersten entspannten Tage an der Strandpromenade."],
+          ["2 nætter · Marine Bay Sanur", "2 Nächte · Marine Bay Sanur"], ["3 nætter", "3 Nächte"], ["6 nætter", "6 Nächte"], ["Se oplevelsesforslag", "Aktivitäten entdecken"], ["Videre ind i højlandet", "Weiter ins Hochland"],
           ["02 · Nordbali", "02 · Nordbali"], ["Efter Sanur", "Nach Sanur"], ["Vandfald · bjergluft · natur", "Wasserfälle · Bergluft · Natur"],
           ["Vi kører op i de køligere bjerge, hvor vandfald og grønne stier venter. Homestayen bliver vores base i Munduk.", "Wir fahren hinauf in die kühleren Berge, wo Wasserfälle und grüne Pfade warten. Das Homestay ist unser Ausgangspunkt in Munduk."],
           ["3 nætter", "3 Nächte"], ["Fra bjergene til østkysten", "Von den Bergen an die Ostküste"], ["03 · Østbali", "03 · Ostbali"], ["Efter Munduk", "Nach Munduk"],
           ["Kystliv · snorkling · ro", "Küstenleben · Schnorcheln · Ruhe"], ["En lille kystby med havet tæt på og udsigt mod Mount Agung. Her er der tid til snorkling, strand og afslapning.", "Ein kleiner Küstenort am Meer mit Blick auf den Mount Agung. Hier bleibt Zeit zum Schnorcheln, für den Strand und zum Entspannen."],
           ["4 nætter", "4 Nächte"], ["Ind mod Balis grønne hjerte", "Ins grüne Herz Balis"], ["04 · Centrale Bali", "04 · Zentralbali"], ["Efter Amed", "Nach Amed"],
           ["Rismarker · jungle · kultur", "Reisfelder · Dschungel · Kultur"], ["På øen igen — denne gang blandt grønne rismarker, små butikker og junglestier. Måske bliver der også tid til rafting eller en god gang shopping.", "Zurück auf Bali — diesmal zwischen grünen Reisfeldern, kleinen Läden und Dschungelpfaden. Vielleicht bleibt auch Zeit zum Rafting oder Shoppen."],
-          ["3–4 nætter", "3–4 Nächte"], ["Båden kalder fra Padang Bai", "Das Boot wartet in Padang Bai"], ["05 · Gili-øerne", "05 · Gili-Inseln"], ["Efter Ubud", "Nach Ubud"],
+          ["3 nætter", "3 Nächte"], ["Båden kalder fra Padang Bai", "Das Boot wartet in Padang Bai"], ["05 · Gili-øerne", "05 · Gili-Inseln"], ["Efter Ubud", "Nach Ubud"],
           ["Barfodsliv · hav · ø-dage", "Barfußleben · Meer · Inseltage"], ["Ingen biler, turkisblåt vand og plads til at tage dagene, som de kommer. Vi sejler fra Padang Bai og finder vores egen lille rytme på Gili Air.", "Keine Autos, türkisblaues Wasser und Zeit für entspannte Tage. Wir fahren mit dem Boot von Padang Bai und finden unseren eigenen Rhythmus auf Gili Air."],
-          ["5–6 nætter", "5–6 Nächte"], ["Tilbage med båd til Bali", "Mit dem Boot zurück nach Bali"], ["06 · Sidste stop", "06 · Letzter Halt"], ["Før hjemrejsen", "Vor der Heimreise"],
+          ["6 nætter", "6 Nächte"], ["Tilbage med båd til Bali", "Mit dem Boot zurück nach Bali"], ["06 · Sidste stop", "06 · Letzter Halt"], ["Før hjemrejsen", "Vor der Heimreise"],
           ["En sidste aften sammen", "Ein letzter gemeinsamer Abend"], ["Vi runder af i Sanur med en sidste nat på Bali Wirasana, lidt ekstra tid til en gåtur eller et sidste kig i butikkerne.", "In Sanur lassen wir die Reise mit einer letzten Nacht im Bali Wirasana ausklingen — mit Zeit für einen Spaziergang oder einen letzten Einkaufsbummel."],
           ["1 nat", "1 Nacht"], ["22. juli 2027 · Hjemad", "22. Juli 2027 · Heimreise"], ["Vi ses, Bali.", "Auf Wiedersehen, Bali."],
           ["Fra Denpasar mod København — med en masse gode dage i bagagen. Forventet landing i CPH kl. 19.00.", "Von Denpasar nach Kopenhagen — mit vielen schönen gemeinsamen Tagen im Gepäck. Voraussichtliche Landung in CPH um 19:00 Uhr."],
@@ -839,8 +841,11 @@
           ["Bådture", "Bootsfahrten"], ["Til Gili-øerne", "Zu den Gili-Inseln"], ["Efter Ubud", "Nach Ubud"], ["Dato tilføjes", "Datum wird ergänzt"],
           ["Bådselskab / booking", "Bootsgesellschaft / Buchung"], ["Tilføjes", "Wird ergänzt"], ["Tidspunkter tilføjes", "Uhrzeiten werden ergänzt"],
           ["Tilbage til Bali", "Zurück nach Bali"], ["Før sidste nat", "Vor der letzten Nacht"], ["Ankomsthavn / bådselskab", "Ankunftshafen / Bootsgesellschaft"],
-          ["Overnatninger", "Unterkünfte"], ["6 ophold", "6 Aufenthalte"], ["Sanur · første stop", "Sanur · erster Halt"], ["Hotel tilføjes", "Hotel wird ergänzt"],
-          ["Datoer tilføjes", "Daten werden ergänzt"], ["Booking / bekræftelse", "Buchung / Bestätigung"], ["Adresse / kontakt", "Adresse / Kontakt"],
+          ["Overnatninger", "Unterkünfte"], ["6 ophold", "6 Aufenthalte"], ["Sanur · første stop", "Sanur · erster Halt"],
+          ["Booket af", "Gebucht von"], ["Adresse", "Adresse"], ["2.–4. juli 2027", "2.–4. Juli 2027"], ["4.–7. juli 2027", "4.–7. Juli 2027"],
+          ["7.–11. juli 2027", "7.–11. Juli 2027"], ["11.–14. juli 2027", "11.–14. Juli 2027"], ["14.–20. juli 2027", "14.–20. Juli 2027"], ["20.–21. juli 2027", "20.–21. Juli 2027"],
+          ["Amed Paradice Beach Club", "Amed Paradice Beach Club"], ["6 nætter", "6 Nächte"], ["Hotel tilføjes", "Hotel wird ergänzt"],
+          ["Datoer tilføjes", "Daten werden ergänzt"], ["Adresse / kontakt", "Adresse / Kontakt"],
           ["Sanur · sidste stop", "Sanur · letzter Halt"], ["Sanur, igen", "Sanur, noch einmal"], ["Rejsen", "Reise"], ["Overblik", "Übersicht"],
           ["juli", "Juli"], ["kl.", "um"], ["min", "Min."], ["nætter", "Nächte"], ["nat", "Nacht"],
           ["Morgen på strandpromenaden", "Morgen an der Strandpromenade"], ["Snorkling over revet", "Schnorcheln über dem Riff"], ["En frokost på et lokalt warung", "Mittagessen in einem lokalen Warung"],
@@ -853,7 +858,7 @@
           ["1. juli kl. 21:00 → 2. juli kl. 13:15", "1. Juli um 21:00 → 2. Juli um 13:15"], ["2. juli kl. 18:10 → 23:55", "2. Juli um 18:10 → 23:55"],
           ["22. juli kl. 00:55 → 08:00", "22. Juli um 00:55 → 08:00"], ["22. juli kl. 13:15 → 19:00", "22. Juli um 13:15 → 19:00"],
           ["10 t 15 min", "10 Std. 15 Min."], ["5 t 45 min", "5 Std. 45 Min."], ["7 t 5 min", "7 Std. 5 Min."], ["11 t 45 min", "11 Std. 45 Min."],
-          ["5 t 15 min", "5 Std. 15 Min."], ["2 nætter", "2 Nächte"], ["4 nætter", "4 Nächte"], ["3–4 nætter", "3–4 Nächte"], ["5–6 nætter", "5–6 Nächte"], ["1 nat", "1 Nacht"],
+          ["5 t 15 min", "5 Std. 15 Min."], ["2 nætter", "2 Nächte"], ["4 nætter", "4 Nächte"], ["3 nætter", "3 Nächte"], ["6 nætter", "6 Nächte"], ["1 nat", "1 Nacht"],
           ["Morgenlys og fiskerbåde ved Sanur-stranden på Bali", "Morgenlicht und Fischerboote am Strand von Sanur auf Bali"],
           ["Tutub-vandfaldet i Munduk på Bali", "Der Tutub-Wasserfall in Munduk auf Bali"],
           ["Solnedgang over havet ved Amed på Balis nordøstkyst", "Sonnenuntergang am Meer bei Amed an Balis Nordostküste"],
@@ -881,7 +886,7 @@
         ]),
         attrs: { "Se aktiviteter i Sanur": "Aktivitäten in Sanur ansehen", "Se aktiviteter i Munduk": "Aktivitäten in Munduk ansehen", "Se aktiviteter i Amed": "Aktivitäten in Amed ansehen", "Se aktiviteter i Ubud": "Aktivitäten in Ubud ansehen", "Se aktiviteter på Gili Air": "Aktivitäten auf Gili Air ansehen" },
         destinations: {
-          sanur: { chapter: "Bali · erster und letzter Halt", stay: "2 Nächte bei Ankunft · 1 letzte Nacht vor der Heimreise", intro: "Ein entspannter Ort, um nach dem Flug anzukommen und vor der Heimreise noch einen letzten Abend am Meer zu genießen.", activities: [
+          sanur: { chapter: "Bali · erster und letzter Halt", stay: "2 Nächte · Marine Bay Sanur · 1 Nacht · Bali Wirasana", intro: "Ein entspannter Ort, um nach dem Flug anzukommen und vor der Heimreise noch einen letzten Abend am Meer zu genießen.", activities: [
             ["Am Wasser entlang", "Morgen an der Strandpromenade", "Spaziert oder fahrt mit dem Rad auf der autofreien Strandpromenade, während die Fischerboote zurückkehren und der Tag beginnt."],
             ["Meer und Schnorcheln", "Schnorcheln über dem Riff", "Macht eine ruhige Schnorcheltour über dem flachen Riff und fragt vor Ort nach Sicht und Strömung."],
             ["Balis Küche", "Mittagessen in einem lokalen Warung", "Probiert Nasi Goreng oder andere balinesische Klassiker in einem kleinen lokalen Lokal."]
@@ -891,19 +896,19 @@
             ["Aussicht", "Die Zwillingsseen von oben", "Fahrt zu den Aussichtspunkten über den Seen Buyan und Tamblingan und genießt die Berglandschaft von oben."],
             ["Lokaler Genuss", "Kaffeeerlebnis im Hochland", "Besucht eine lokale Kaffeeplantage und erfahrt, wie die Bohnen im kühlen Hochland von Munduk geröstet und gebrüht werden."]
           ]},
-          amed: { chapter: "Ostbali · Küste und Korallenriffe", stay: "4 Nächte · Amed Paradise Beach", intro: "In Amed geht es ruhig zu: mit Schnorcheln vom Strand, dunklen Lavastränden und Blick auf den Mount Agung.", activities: [
+          amed: { chapter: "Ostbali · Küste und Korallenriffe", stay: "4 Nächte · Amed Paradice Beach Club", intro: "In Amed geht es ruhig zu: mit Schnorcheln vom Strand, dunklen Lavastränden und Blick auf den Mount Agung.", activities: [
             ["Schnorcheln", "Die Unterwasserwelt der Jemeluk-Bucht", "Schnorchelt in der geschützten Bucht, wo Korallen und bunte Fische nah am Ufer zu finden sind. Verwendet riffschonenden Sonnenschutz."],
             ["Lokale Kultur", "Ameds traditionelle Salzbauern erleben", "Besucht die Salzbecken an der Küste, wo Meerwasser in der Sonne zu handgemachtem Meersalz wird."],
             ["Abend am Meer", "Sonnenuntergang über Amed", "Sucht euch einen Platz am Wasser und erlebt das Abendlicht über dem Fischerdorf und der Küste."]
           ]},
-          ubud: { chapter: "Zentralbali · Dschungel und Kultur", stay: "3–4 Nächte · Swasti Eco Cottages", intro: "Ubud verbindet grüne Landschaften mit Abenteuern zu Land und zu Wasser. Fünf Ideen für aktive und entspannte Tage.", activities: [
+          ubud: { chapter: "Zentralbali · Dschungel und Kultur", stay: "3 Nächte · Swasti Eco Cottages", intro: "Ubud verbindet grüne Landschaften mit Abenteuern zu Land und zu Wasser. Fünf Ideen für aktive und entspannte Tage.", activities: [
             ["Abenteuer", "ATV-Tour durch die Landschaft", "Macht eine geführte Tour auf kleinen Wegen durch Reisfelder und Dschungel. Achtet bei der Auswahl auf Sicherheitsausrüstung, Route und Altersregeln."],
             ["Auf dem Fluss", "Rafting auf dem Ayung-Fluss", "Fahrt mit dem Raft durch grüne Schluchten und vorbei an kleinen Wasserfällen. Wählt die Strecke passend zur Familie und den Wasserbedingungen."],
             ["Sonnenaufgang", "Jeep-Tour zum Mount Batur", "Fahrt vor der Morgendämmerung zu den Aussichtspunkten des Vulkans und erlebt den Sonnenaufgang im Geländewagen."],
             ["Landschaft", "Reisfelder von Tegallalang", "Spaziert durch die terrassierten Reisfelder und nehmt euch Zeit für die Aussicht und die kleinen Wege."],
             ["Entspannung", "Ein Tag im Dayclub", "Plant einen entspannten Tag am Pool mit Essen und Blick ins Grüne. Prüft Eintritt, Mindestverzehr und Reservierung im Voraus."]
           ]},
-          "gili-air": { chapter: "Gili-Inseln · Meer und Barfußleben", stay: "5–6 Nächte · Biba Beach Village", intro: "Auf Gili Air geht es gemächlich zu, Autos gibt es nicht und das Meer ist immer nah. Lasst Raum für spontane Strandtage.", activities: [
+          "gili-air": { chapter: "Gili-Inseln · Meer und Barfußleben", stay: "6 Nächte · Biba Beach Village", intro: "Auf Gili Air geht es gemächlich zu, Autos gibt es nicht und das Meer ist immer nah. Lasst Raum für spontane Strandtage.", activities: [
             ["Schnorcheln", "Schnorcheltour über dem Korallenriff", "Macht eine geführte Schnorcheltour rund um die Inseln oder sucht euch einen ruhigen Einstieg am Strand. Haltet Abstand zu Korallen und Meerestieren."],
             ["Inselleben", "Ein entspannter Tag am Strand", "Sucht euch ein ruhiges Plätzchen am Wasser und genießt Baden und das entspannte Inselleben."],
             ["Sonnenuntergang", "Abend mit Blick auf Lombok", "Findet an der Westküste einen Platz an der Strandbar oder im Sand und beobachtet, wie die Sonne hinter Lombok untergeht."]
@@ -918,17 +923,17 @@
           ["steder", "tempat"], ["på rejsen", "dalam perjalanan"], ["1.–2. juli · Af sted", "1–2 Juli · Berangkat"],
           ["Vi flyver fra København via Shanghai og lander i Denpasar sent om aftenen. Første stop: havluft og ro i Sanur.", "Kita terbang dari Kopenhagen melalui Shanghai dan tiba di Denpasar larut malam. Persinggahan pertama: udara laut dan suasana tenang di Sanur."],
           ["01 · Bali", "01 · Bali"], ["Ankomst · 2. juli", "Tiba · 2 Juli"], ["Første møde med Bali", "Kesan pertama di Bali"],
-          ["En blød landing ved havet", "Awal yang santai di tepi laut"], ["Vi samler familien i Sanur og får de første rolige dage ved strandpromenaden. Hotelnavn mangler stadig i planen.", "Keluarga berkumpul di Sanur untuk menikmati hari-hari pertama yang santai di tepi pantai. Nama hotel belum ditentukan."],
-          ["2 nætter · hotel tilføjes", "2 malam · hotel akan ditambahkan"], ["Se oplevelsesforslag", "Lihat ide kegiatan"], ["Videre ind i højlandet", "Menuju dataran tinggi"],
+          ["En blød landing ved havet", "Awal yang santai di tepi laut"], ["Vi samler familien i Sanur på Marine Bay Sanur og får de første rolige dage ved strandpromenaden.", "Keluarga berkumpul di Marine Bay Sanur untuk menikmati hari-hari pertama yang santai di tepi pantai."],
+          ["2 nætter · Marine Bay Sanur", "2 malam · Marine Bay Sanur"], ["3 nætter", "3 malam"], ["6 nætter", "6 malam"], ["Se oplevelsesforslag", "Lihat ide kegiatan"], ["Videre ind i højlandet", "Menuju dataran tinggi"],
           ["02 · Nordbali", "02 · Bali Utara"], ["Efter Sanur", "Setelah Sanur"], ["Vandfald · bjergluft · natur", "Air terjun · udara pegunungan · alam"],
           ["Vi kører op i de køligere bjerge, hvor vandfald og grønne stier venter. Homestayen bliver vores base i Munduk.", "Kita menuju pegunungan yang lebih sejuk, dengan air terjun dan jalur hijau. Homestay ini menjadi tempat menginap kita di Munduk."],
           ["3 nætter", "3 malam"], ["Fra bjergene til østkysten", "Dari pegunungan ke pantai timur"], ["03 · Østbali", "03 · Bali Timur"], ["Efter Munduk", "Setelah Munduk"],
           ["Kystliv · snorkling · ro", "Suasana pantai · snorkeling · santai"], ["En lille kystby med havet tæt på og udsigt mod Mount Agung. Her er der tid til snorkling, strand og afslapning.", "Kota pesisir kecil dekat laut dengan pemandangan Gunung Agung. Nikmati waktu untuk snorkeling, pantai, dan bersantai."],
           ["4 nætter", "4 malam"], ["Ind mod Balis grønne hjerte", "Menuju jantung hijau Bali"], ["04 · Centrale Bali", "04 · Bali Tengah"], ["Efter Amed", "Setelah Amed"],
           ["Rismarker · jungle · kultur", "Sawah · hutan tropis · budaya"], ["På øen igen — denne gang blandt grønne rismarker, små butikker og junglestier. Måske bliver der også tid til rafting eller en god gang shopping.", "Kembali ke Bali, kali ini di antara sawah hijau, toko-toko kecil, dan jalur hutan. Mungkin ada waktu untuk arung jeram atau berbelanja."],
-          ["3–4 nætter", "3–4 malam"], ["Båden kalder fra Padang Bai", "Perahu menunggu di Padang Bai"], ["05 · Gili-øerne", "05 · Kepulauan Gili"], ["Efter Ubud", "Setelah Ubud"],
+          ["3 nætter", "3 malam"], ["Båden kalder fra Padang Bai", "Perahu menunggu di Padang Bai"], ["05 · Gili-øerne", "05 · Kepulauan Gili"], ["Efter Ubud", "Setelah Ubud"],
           ["Barfodsliv · hav · ø-dage", "Tanpa alas kaki · laut · hari-hari di pulau"], ["Ingen biler, turkisblåt vand og plads til at tage dagene, som de kommer. Vi sejler fra Padang Bai og finder vores egen lille rytme på Gili Air.", "Tanpa mobil, air biru kehijauan, dan hari-hari yang berjalan santai. Kita berlayar dari Padang Bai dan menikmati ritme sendiri di Gili Air."],
-          ["5–6 nætter", "5–6 malam"], ["Tilbage med båd til Bali", "Kembali ke Bali dengan perahu"], ["06 · Sidste stop", "06 · Persinggahan terakhir"], ["Før hjemrejsen", "Sebelum pulang"],
+          ["6 nætter", "6 malam"], ["Tilbage med båd til Bali", "Kembali ke Bali dengan perahu"], ["06 · Sidste stop", "06 · Persinggahan terakhir"], ["Før hjemrejsen", "Sebelum pulang"],
           ["En sidste aften sammen", "Malam terakhir bersama"], ["Vi runder af i Sanur med en sidste nat på Bali Wirasana, lidt ekstra tid til en gåtur eller et sidste kig i butikkerne.", "Kita mengakhiri perjalanan di Sanur dengan satu malam terakhir di Bali Wirasana, serta waktu untuk berjalan-jalan atau berbelanja."],
           ["1 nat", "1 malam"], ["22. juli 2027 · Hjemad", "22 Juli 2027 · Pulang"], ["Vi ses, Bali.", "Sampai jumpa, Bali."],
           ["Fra Denpasar mod København — med en masse gode dage i bagagen. Forventet landing i CPH kl. 19.00.", "Dari Denpasar menuju Kopenhagen, membawa banyak kenangan indah. Diperkirakan tiba di CPH pukul 19.00."],
@@ -951,8 +956,11 @@
           ["Bådture", "Perjalanan perahu"], ["Til Gili-øerne", "Menuju Kepulauan Gili"], ["Efter Ubud", "Setelah Ubud"], ["Dato tilføjes", "Tanggal akan ditambahkan"],
           ["Bådselskab / booking", "Operator perahu / pemesanan"], ["Tilføjes", "Akan ditambahkan"], ["Tidspunkter tilføjes", "Waktu akan ditambahkan"],
           ["Tilbage til Bali", "Kembali ke Bali"], ["Før sidste nat", "Sebelum malam terakhir"], ["Ankomsthavn / bådselskab", "Pelabuhan tiba / operator perahu"],
-          ["Overnatninger", "Penginapan"], ["6 ophold", "6 tempat menginap"], ["Sanur · første stop", "Sanur · persinggahan pertama"], ["Hotel tilføjes", "Hotel akan ditambahkan"],
-          ["Datoer tilføjes", "Tanggal akan ditambahkan"], ["Booking / bekræftelse", "Pemesanan / konfirmasi"], ["Adresse / kontakt", "Alamat / kontak"],
+          ["Overnatninger", "Penginapan"], ["6 ophold", "6 tempat menginap"], ["Sanur · første stop", "Sanur · persinggahan pertama"],
+          ["Booket af", "Dipesan oleh"], ["Adresse", "Alamat"], ["2.–4. juli 2027", "2–4 Juli 2027"], ["4.–7. juli 2027", "4–7 Juli 2027"],
+          ["7.–11. juli 2027", "7–11 Juli 2027"], ["11.–14. juli 2027", "11–14 Juli 2027"], ["14.–20. juli 2027", "14–20 Juli 2027"], ["20.–21. juli 2027", "20–21 Juli 2027"],
+          ["Amed Paradice Beach Club", "Amed Paradice Beach Club"], ["6 nætter", "6 malam"], ["Hotel tilføjes", "Hotel akan ditambahkan"],
+          ["Datoer tilføjes", "Tanggal akan ditambahkan"], ["Adresse / kontakt", "Alamat / kontak"],
           ["Sanur · sidste stop", "Sanur · persinggahan terakhir"], ["Sanur, igen", "Sanur, sekali lagi"], ["Rejsen", "Perjalanan"], ["Overblik", "Ringkasan"],
           ["juli", "Juli"], ["kl.", "pukul"], ["min", "menit"], ["nætter", "malam"], ["nat", "malam"],
           ["Morgen på strandpromenaden", "Pagi di jalur tepi pantai"], ["Snorkling over revet", "Snorkeling di atas terumbu"], ["En frokost på et lokalt warung", "Makan siang di warung lokal"],
@@ -965,7 +973,7 @@
           ["1. juli kl. 21:00 → 2. juli kl. 13:15", "1 Juli pukul 21.00 → 2 Juli pukul 13.15"], ["2. juli kl. 18:10 → 23:55", "2 Juli pukul 18.10 → 23.55"],
           ["22. juli kl. 00:55 → 08:00", "22 Juli pukul 00.55 → 08.00"], ["22. juli kl. 13:15 → 19:00", "22 Juli pukul 13.15 → 19.00"],
           ["10 t 15 min", "10 jam 15 menit"], ["5 t 45 min", "5 jam 45 menit"], ["7 t 5 min", "7 jam 5 menit"], ["11 t 45 min", "11 jam 45 menit"],
-          ["5 t 15 min", "5 jam 15 menit"], ["2 nætter", "2 malam"], ["4 nætter", "4 malam"], ["3–4 nætter", "3–4 malam"], ["5–6 nætter", "5–6 malam"], ["1 nat", "1 malam"],
+          ["5 t 15 min", "5 jam 15 menit"], ["2 nætter", "2 malam"], ["4 nætter", "4 malam"], ["3 nætter", "3 malam"], ["6 nætter", "6 malam"], ["1 nat", "1 malam"],
           ["Morgenlys og fiskerbåde ved Sanur-stranden på Bali", "Cahaya pagi dan perahu nelayan di Pantai Sanur, Bali"],
           ["Tutub-vandfaldet i Munduk på Bali", "Air terjun Tutub di Munduk, Bali"],
           ["Solnedgang over havet ved Amed på Balis nordøstkyst", "Matahari terbenam di Amed, pesisir timur laut Bali"],
@@ -993,7 +1001,7 @@
         ]),
         attrs: { "Se aktiviteter i Sanur": "Lihat kegiatan di Sanur", "Se aktiviteter i Munduk": "Lihat kegiatan di Munduk", "Se aktiviteter i Amed": "Lihat kegiatan di Amed", "Se aktiviteter i Ubud": "Lihat kegiatan di Ubud", "Se aktiviteter på Gili Air": "Lihat kegiatan di Gili Air" },
         destinations: {
-          sanur: { chapter: "Bali · persinggahan pertama dan terakhir", stay: "2 malam saat tiba · 1 malam terakhir sebelum pulang", intro: "Tempat yang tenang untuk beristirahat setelah penerbangan dan menikmati malam terakhir di tepi laut sebelum pulang.", activities: [
+          sanur: { chapter: "Bali · persinggahan pertama dan terakhir", stay: "2 malam · Marine Bay Sanur · 1 malam · Bali Wirasana", intro: "Tempat yang tenang untuk beristirahat setelah penerbangan dan menikmati malam terakhir di tepi laut sebelum pulang.", activities: [
             ["Di tepi laut", "Pagi di jalur tepi pantai", "Berjalan kaki atau bersepeda di jalur tepi pantai bebas mobil saat perahu nelayan kembali dan hari mulai cerah."],
             ["Laut dan snorkeling", "Snorkeling di atas terumbu", "Ikuti tur snorkeling santai di atas terumbu dangkal dan tanyakan kondisi arus serta jarak pandang setempat."],
             ["Kuliner Bali", "Makan siang di warung lokal", "Coba nasi goreng atau hidangan khas Bali lainnya di warung kecil setempat."]
@@ -1003,19 +1011,19 @@
             ["Pemandangan", "Danau kembar dari atas", "Kunjungi titik pandang Danau Buyan dan Tamblingan untuk menikmati pemandangan pegunungan."],
             ["Cita rasa lokal", "Menikmati kopi di dataran tinggi", "Kunjungi kebun kopi setempat dan lihat bagaimana biji kopi dipanggang dan diseduh di dataran tinggi Munduk."]
           ]},
-          amed: { chapter: "Bali Timur · pantai dan terumbu karang", stay: "4 malam · Amed Paradise Beach", intro: "Hari-hari di Amed berjalan santai, dengan snorkeling dari pantai, pasir vulkanik gelap, dan pemandangan Gunung Agung.", activities: [
+          amed: { chapter: "Bali Timur · pantai dan terumbu karang", stay: "4 malam · Amed Paradice Beach Club", intro: "Hari-hari di Amed berjalan santai, dengan snorkeling dari pantai, pasir vulkanik gelap, dan pemandangan Gunung Agung.", activities: [
             ["Snorkeling", "Kehidupan bawah laut Teluk Jemeluk", "Snorkeling di teluk yang terlindung, tempat terumbu dan ikan warna-warni dekat dengan pantai. Gunakan tabir surya yang aman bagi terumbu."],
             ["Budaya lokal", "Melihat petani garam tradisional Amed", "Kunjungi tambak garam di pesisir tempat air laut dijemur menjadi garam laut buatan tangan."],
             ["Senja di tepi laut", "Matahari terbenam di Amed", "Cari tempat di tepi air dan nikmati cahaya senja di desa nelayan dan sepanjang pantai."]
           ]},
-          ubud: { chapter: "Bali Tengah · hutan tropis dan budaya", stay: "3–4 malam · Swasti Eco Cottages", intro: "Ubud memadukan alam hijau dan petualangan di darat maupun air. Lima ide untuk hari yang aktif dan santai.", activities: [
+          ubud: { chapter: "Bali Tengah · hutan tropis dan budaya", stay: "3 malam · Swasti Eco Cottages", intro: "Ubud memadukan alam hijau dan petualangan di darat maupun air. Lima ide untuk hari yang aktif dan santai.", activities: [
             ["Petualangan", "Tur ATV melintasi alam", "Ikuti tur berpemandu melalui jalur kecil di antara sawah dan hutan. Periksa perlengkapan keselamatan, rute, dan batas usia."],
             ["Di sungai", "Arung jeram di Sungai Ayung", "Susuri lembah hijau dan air terjun kecil dengan perahu karet berpemandu. Pilih rute sesuai keluarga dan kondisi air."],
             ["Matahari terbit", "Tur jip ke Gunung Batur", "Berangkat sebelum fajar menuju titik pandang gunung berapi dan nikmati matahari terbit dari kendaraan 4x4."],
             ["Pemandangan", "Sawah Tegallalang", "Berjalan di antara sawah bertingkat dan luangkan waktu untuk menikmati pemandangan serta jalur kecil."],
             ["Bersantai", "Sehari di dayclub", "Nikmati hari santai di kolam renang dengan makanan dan pemandangan hijau. Periksa tiket masuk, minimum pembelian, dan reservasi terlebih dahulu."]
           ]},
-          "gili-air": { chapter: "Kepulauan Gili · laut dan hidup santai", stay: "5–6 malam · Biba Beach Village", intro: "Di Gili Air suasananya santai, tanpa mobil, dan laut selalu dekat. Sisakan waktu untuk pantai dan hari-hari spontan.", activities: [
+          "gili-air": { chapter: "Kepulauan Gili · laut dan hidup santai", stay: "6 malam · Biba Beach Village", intro: "Di Gili Air suasananya santai, tanpa mobil, dan laut selalu dekat. Sisakan waktu untuk pantai dan hari-hari spontan.", activities: [
             ["Snorkeling", "Tur snorkeling di atas terumbu karang", "Ikuti tur snorkeling berpemandu di sekitar pulau atau masuk ke air dari pantai yang tenang. Jaga jarak dari terumbu dan satwa laut."],
             ["Suasana pulau", "Hari santai di pantai", "Temukan tempat tenang di tepi air dan nikmati berenang serta suasana pulau yang santai."],
             ["Matahari terbenam", "Senja menghadap Lombok", "Cari tempat di pantai barat dan saksikan matahari terbenam di balik Lombok dari bar pantai atau pasir."]
@@ -1207,7 +1215,7 @@
       sanur: {
         name: "Sanur",
         chapter: "Bali · første og sidste stop",
-        stay: "2 nætter ved ankomst · 1 sidste nat før hjemrejsen",
+        stay: "2 nætter · Marine Bay Sanur · 1 nat · Bali Wirasana",
         photo: "sunrise",
         intro: "Et roligt sted at lande efter flyveturen — og nyde den sidste aften ved havet, inden turen går hjem.",
         activities: [
@@ -1231,7 +1239,7 @@
       amed: {
         name: "Amed",
         chapter: "Østbali · kyst og koralrev",
-        stay: "4 nætter · Amed Paradise Beach",
+        stay: "4 nætter · Amed Paradice Beach Club",
         photo: "amed",
         intro: "I Amed går dagene i et roligere tempo med snorkling fra kysten, mørke lavastrande og udsigt mod Mount Agung.",
         activities: [
@@ -1243,7 +1251,7 @@
       ubud: {
         name: "Ubud",
         chapter: "Centrale Bali · jungle og kultur",
-        stay: "3–4 nætter · Swasti Eco Cottages",
+        stay: "3 nætter · Swasti Eco Cottages",
         photo: "ubud",
         intro: "Ubud samler grønne landskaber og eventyr på land og vand. Her er fem idéer til dage med både fart, natur og afslapning.",
         activities: [
@@ -1257,7 +1265,7 @@
       "gili-air": {
         name: "Gili Air",
         chapter: "Gili-øerne · hav og barfodsliv",
-        stay: "5–6 nætter · Biba Beach Village",
+        stay: "6 nætter · Biba Beach Village",
         photo: "gili",
         intro: "På Gili Air er tempoet lavt, bilerne væk og havet altid tæt på. Lad plads i planen til strand og spontane ø-dage.",
         activities: [
