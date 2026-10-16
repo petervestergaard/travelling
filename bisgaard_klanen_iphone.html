@@ -49,14 +49,6 @@
     .wordmark { font-size: 12px; font-weight: 750; letter-spacing: .17em; }
     .wordmark span { color: var(--green); }
     .masthead-tools { display: flex; align-items: center; gap: 8px; }
-    .edition {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 11px;
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: .06em;
-    }
     .language-picker { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; }
     .language-picker select {
       max-width: 114px;
@@ -71,13 +63,11 @@
     @media (max-width: 390px) {
       .masthead { padding-inline: 15px; }
       .masthead-tools { gap: 5px; }
-      .edition { padding-inline: 8px; font-size: 9px; }
       .language-picker { gap: 4px; }
       .language-picker select { max-width: 95px; padding-inline: 7px; }
     }
     @media (max-width: 350px) {
       .masthead { padding-inline: 12px; }
-      .edition { display: none; }
     }
     .hero {
       position: relative;
@@ -512,7 +502,6 @@
     <header class="masthead">
       <div class="wordmark">B<span>·</span>K &nbsp; REJSEBOG</div>
       <div class="masthead-tools">
-        <div class="edition">BALI · SOMMER 2027</div>
         <label class="language-picker"><span id="language-label">Sprog</span>
           <select id="language-select" aria-label="Vælg sprog">
             <option value="da">Dansk</option>
@@ -812,7 +801,7 @@
     const translations = {
       de: {
         static: Object.fromEntries([
-          ["REJSEBOG", "REISEMAGAZIN"], ["K REJSEBOG", "K REISEMAGAZIN"], ["BALI · SOMMER 2027", "BALI · SOMMER 2027"], ["Sprog", "Sprache"], ["Vælg sprog", "Sprache wählen"],
+          ["REJSEBOG", "REISEMAGAZIN"], ["K REJSEBOG", "K REISEMAGAZIN"], ["Sprog", "Sprache"], ["Vælg sprog", "Sprache wählen"],
           ["En rejse med hele klanen", "Eine Reise mit der ganzen Familie"], ["Øliv, grønne bjerge og lange dage sammen på Bali.", "Inselleben, grüne Berge und lange gemeinsame Tage auf Bali."],
           ["Fra Københavns morgenlys til Balis varme aftener — her begynder vores fælles eventyr.", "Vom Morgenlicht in Kopenhagen bis zu Balis warmen Abenden — hier beginnt unser gemeinsames Abenteuer."],
           ["steder", "Orte"], ["på rejsen", "auf der Reise"], ["1.–2. juli · Af sted", "1.–2. Juli · Aufbruch"],
@@ -927,7 +916,7 @@
       },
       id: {
         static: Object.fromEntries([
-          ["REJSEBOG", "CATATAN PERJALANAN"], ["K REJSEBOG", "K CATATAN PERJALANAN"], ["BALI · SOMMER 2027", "BALI · MUSIM PANAS 2027"], ["Sprog", "Bahasa"], ["Vælg sprog", "Pilih bahasa"],
+          ["REJSEBOG", "CATATAN PERJALANAN"], ["K REJSEBOG", "K CATATAN PERJALANAN"], ["Sprog", "Bahasa"], ["Vælg sprog", "Pilih bahasa"],
           ["En rejse med hele klanen", "Perjalanan bersama seluruh keluarga"], ["Øliv, grønne bjerge og lange dage sammen på Bali.", "Kehidupan pulau, pegunungan hijau, dan hari-hari panjang bersama di Bali."],
           ["Fra Københavns morgenlys til Balis varme aftener — her begynder vores fælles eventyr.", "Dari cahaya pagi Kopenhagen hingga malam hangat Bali — petualangan bersama kita dimulai di sini."],
           ["steder", "tempat"], ["på rejsen", "dalam perjalanan"], ["1.–2. juli · Af sted", "1–2 Juli · Berangkat"],
@@ -1395,7 +1384,7 @@
       destinationPanel.hidden = true;
       tabbar.hidden = false;
       document.title = "Bisgaard-Klanen · Bali 2027";
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "instant" });
     }
 
     tabs.forEach((tab, index) => {
