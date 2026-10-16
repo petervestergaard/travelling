@@ -1,4 +1,4 @@
-const CACHE_NAME = "bisgaard-klanen-offline-v13";
+const CACHE_NAME = "bisgaard-klanen-offline-v14";
 const APP_SHELL = [
   "./bisgaard_klanen_iphone.html",
   "./manifest.webmanifest",
